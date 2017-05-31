@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EcoSmarte</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'brand.ico' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="">
+              <%= image_tag "ecosmarte_logo.png", class: "brand_logo" %>
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <% if current_user %>
+              <ul class="nav navbar-nav">
+                <li><a href="">Documents</a></li>
+                <li><a href="">Videos</a></li>
+                <li><a href="">Contact Us</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <%= link_to current_user.username, root_path %>
+                </li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-nav">
+                <li><a href="">Home</a></li>
+                <li><a href="">Documents</a></li>
+                <li><a href="">Videos</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li class="dropdown">
+              		<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Start Up/FAQ
+                    <span class="caret"></span>
+                  </a>
+              		<ul class="dropdown-menu">
+                		<li><a href="">1</a></li>
+                		<li><a href="">2</a></li>
+              		</ul>
+            		</li>
+                <li><a href="">Interactive Pool/Spa Help</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <%= link_to "Register",  root_path  %>
+                </li>
+                <li>
+                  <%= link_to "Login",  root_path  %>
+                </li>
+              </ul>
+            <% end %>
+          </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    
+    <%= yield %>
+    
+  </body>
+</html>
