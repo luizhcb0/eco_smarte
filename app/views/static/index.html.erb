@@ -1,51 +1,46 @@
-<section class="container-fluid">
-  
-  <!-- Logo ---------->
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <%= image_tag "brand.png", class: "logo"%>
+
+<!-- Logo ---------->
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= image_tag "brand.png", class: "logo"%>
+  </div>
+</div>
+<!--  -------------->
+
+<!-- Offer ---------->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= image_tag "offer.png", class: "offer" %>
+  </div>
+</div>
+<!------------------->
+
+<!-- <div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="welcome">
+      Welcome to the Ecosmarte Cloud
     </div>
   </div>
-  <!--  -------------->
-  
-  <!-- Offer ---------->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <%= image_tag "offer.png", class: "offer" %>
+</div> -->
+
+<!-- Carousel -->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="carousel-container">
+      <%= carousel_for(@images) %>
     </div>
   </div>
-  <!------------------->
-  
-  <!-- <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="welcome">
-        Welcome to the Ecosmarte Cloud
-      </div>
-    </div>
-  </div> -->
-  
-  <!-- Carousel -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="carousel-container">
-        <%= carousel_for(@images) %>
-      </div>
+</div>
+<!--  ---------->
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4 class="page-header"></h4>
+    <div class="row">
+      <%= @describe_text.content %>
     </div>
   </div>
-  <!--  ---------->
   
-  <div class="row">
-    <div class="col-sm-12">
-      <h4 class="page-header"></h4>
-      <div class="row">
-        <%= @describe_text.content %>
-      </div>
-    </div>
-    
-  </div>
-  
-  
-  
-</section>
+</div>
 
 <%#= render "footer" %>

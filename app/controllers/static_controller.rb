@@ -8,4 +8,22 @@ class StaticController < ApplicationController
   def faq
 
   end
+  
+  def pool_spa_help
+
+  end
+  
+  def tutorial
+    @tutorial = params[:tutorial]
+  end
+  
+  def pool_tutorial
+    
+  end
+  def spa_tutorial
+    
+  end
+  def commercial_tutorial
+    
+  end
 end

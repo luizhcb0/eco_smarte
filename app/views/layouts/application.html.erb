@@ -28,31 +28,41 @@
           <div class="navbar-collapse collapse">
             <% if current_user %>
               <ul class="nav navbar-nav">
-                <li>Documents</a></li>
+                <li><a href="">Documents</a></li>
                 <li class="<%= 'active' if current_page?(faq_path) %>"><%= link_to 'Setup/FAQ', faq_path %></li>
-                <li><a href="">Pool/Spa Help</a></li>
+                <li class="<%= 'active' if (current_page?(pool_spa_help_path) || current_page?(pool_tutorial_path)  || current_page?(spa_tutorial_path)  || current_page?(commercial_tutorial_path)) %>">
+                  <%= link_to 'Pool/Spa Help', pool_spa_help_path %>
+                </li>
                 <li><a href="">Videos</a></li>
                 <li><a href="">Contact Us</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <%= link_to current_user.username, root_path %>
-                </li>
+                <li class="dropdown">
+                    <%= link_to root_path, {class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button"} do %>
+                    Hello, <%= current_user.email %> <span class="caret"></span>
+                    <% end %>
+              		<ul class="dropdown-menu">
+                		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+                		<!--  It does not exist on non admins -->
+              		</ul>
+            		</li>
               </ul>
             <% else %>
               <ul class="nav navbar-nav">
                 <li><a href="">Documents</a></li>
-                <li class="<%= 'active' if current_page?(faq_path) %>"><%= link_to 'Setup/FAQ', faq_path %></li>
-                <li><a href="">Pool/Spa Help</a></li>
+                <li class="<%= 'active' if current_page?(faq_path)  %>"><%= link_to 'Setup/FAQ', faq_path %></li>
+                <li class="<%= 'active' if (current_page?(pool_spa_help_path) || current_page?(pool_tutorial_path)  || current_page?(spa_tutorial_path)  || current_page?(commercial_tutorial_path)) %>">
+                  <%= link_to 'Pool/Spa Help', pool_spa_help_path %>
+                </li>
                 <li><a href="">Videos</a></li>
                 <li><a href="">Contact Us</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <%= link_to "Register",  root_path  %>
+                  <%= link_to "Register", new_user_registration_path  %>
                 </li>
                 <li>
-                  <%= link_to "Login",  root_path  %>
+                  <%= link_to "Login",  new_user_session_path  %>
                 </li>
               </ul>
             <% end %>
@@ -60,7 +70,9 @@
         </div>
     </nav>
     
-    <%= yield %>
+    <section class="container-fluid">
+      <%= yield %>
+    </section>
     
   </body>
 </html>

@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   root to: 'static#index'
   
   get 'faq', to: 'static#faq', as: 'faq'
+  get 'pool_spa_help', to: 'static#pool_spa_help', as: 'pool_spa_help'
+  # get 'tutorial/:tutorial', to: 'static#tutorial', as: 'tutorial'
+  get 'pool_tutorial', to: 'static#pool_tutorial', as: 'pool_tutorial'
+  get 'spa_tutorial', to: 'static#spa_tutorial', as: 'spa_tutorial'
+  get 'commercial_tutorial', to: 'static#commercial_tutorial', as: 'commercial_tutorial'
 end

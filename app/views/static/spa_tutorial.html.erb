@@ -1,0 +1,729 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    change_view('ph');
+  });
+
+	var array_for_prev = [];
+	//function that switchs the style.display to inline
+	function show_display(id) {
+		document.getElementById(id).style.display = 'inline';
+	}
+	//function that switches style.dsiplay to none
+	function hide_display(id) {
+		document.getElementById(id).style.display = 'none';
+	}
+	
+	//removes onclick functions.
+	function remove_onclick() {
+		document.getElementById(1).onClick='';
+		document.getElementById(2).onClick='';
+		document.getElementById(3).onClick='';
+		document.getElementById(4).onClick='';
+		document.getElementById(5).onClick='';
+		document.getElementById(6).onClick='';
+		document.getElementById(7).onClick='';
+	}
+	
+	function change_view(input) {
+	
+		array_for_prev.push(input);
+	
+		if (input == 'ph') {
+			
+		
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>What is your pH Level?</h2><br>';
+			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
+		
+			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
+			
+			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");	
+			
+			document.getElementById(4).value='How do I measure my pH?';
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('how_ph');");
+			
+			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my spa?</strong></h2>'+
+			'<h3 align="left">A pH above 7.2 renders the copper a less effective sanitizer, which can lead to bacteria growth and other sanitation issues. A high pH can also lead to "copper fall out." '+
+			'Copper fall out is when the copper falls out of its ION form and returns to a solid state. This can cause your spa water to appear blue in color and can also cause "plating." '+
+			'Plating is when copper deposits itself to the surface of your spa causing bluish deposits. Thankfully, these deposits are not permanent. Dropping your pH down to 6.8 (and maintaining '+
+			'a lower copper level of .5 ppm) will allow the copper to fall back into its desired ION form.  Real high ph, 7.8 and above, for a few days can cause calcium to plate the spa and cause a sand paper feel. </h3>';
+			
+
+		}
+		
+		else if (input == 'lower_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is the water a crystal clear, bright lime or grass green?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('lower_ph_yes');");
+			
+			
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+		}
+		
+		else if(input == 'lower_ph_yes') {
+		
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			show_display('previous');
+			
+			document.getElementById(1).value="Alkalinity is fine";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML='<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.'+
+			'<br><br>To raise the alkalinity:</h2>'+
+			'<ol align="left"><li>Add 1 tbls baking soda to the spa.</li>'+
+			'<li>After 24 hours, retest the pH.</li>'+
+			'<li>If the pH level still lower than 6.6, add another 1 tbls baking soda. </li>'+
+			'<li>A total of 2 tbls baking soda should be enough to raise the pH to 6.8 - 7.2.</li></ol>'+
+			'<br><h2>Aim for the low end of the range to avoid causing a pH "bounce" that is hard to correct.</h2>';
+		
+		}
+		
+		else if (input == 'higher_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is there visible algae growth (the water is cloudy and/or green)?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('higher_ph_yes');");
+			
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('higher_ph_no');");
+			
+			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my spa?</strong></h2>'+
+			'<h3 align="left">A pH above 7.2 renders the copper a less effective sanitizer, which can lead to algae growth and other sanitation issues. A high pH can also lead to "copper fall out." '+
+			'Copper fall out is when the copper falls out of its ION form and returns to a solid state. This can cause your spa water to appear blue in color and can also cause "plating." '+
+			'Plating is when copper deposits itself to the surface of your spa causing bluish deposits. Thankfully, these deposits are not permanent. Dropping your pH down to 6.8 (and maintaining '+
+			'a lower copper level of .5 ppm) will allow the copper to fall back into its desired ION form. </h3>';
+		
+		}
+		
+		else if(input == 'higher_ph_no') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value='pH is at correct level';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML = '<h3>To Lower the pH Level:</h3><br><ol align="left">'+
+			'<li>dd 1/8th cup acid and mix with water.</li>'+
+			'<li>Walk around the spa gradually adding the acid/water solution evenly to the spa.</li>'+
+			'<li>Wait a day for the solution to mix thoroughly, and then test the pH again.  If the pH is still above 7.2, add another dose of water/acid solution.</li></ol>'+
+			'<h2>pH needs to be 6.8 - 7.2<br><br>Tips for pH management:</h2><ol align="left">'+
+			'<li>The higher the pH is, the more acid is required, exponentially, to bring it down.  Err on the side of using more acid to bring the pH down more quickly. The pH will always tend to correct itself upward if it does get too low.</li>'+
+			'<li>The trick for extreme stability is keeping the pH around 6.8, and not letting it get above 7.0.</li>'+
+			'<li>ECOsmarte only recommends using liquid muriatic acid or a product called "Acid Magic" to lower pH. Never use dry acid, as it raises sodium levels in the spa.</li></ol>';
+			
+		}
+		
+		else if(input == 'higher_ph_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			document.getElementById(1).value="There is no algae";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML='<h2>To eliminate algae:</h2><ol align="left">'+
+			'<li>Begin lowering the pH to 6.8 - 7.2. (Aim for 6.8). For tips to Lower pH levels, <a class="tutorial_link" onclick="change_view(\'higher_ph_no\')">Click Here</a></li>'+
+			'<li>Apply 1 quart non-metal algaecide during daylight hours.  If possible, apply the algaecide in the morning, which is when algae feeds.</li>'+
+			'<li>Wait 12 hours, then put in non-chlorine shock (potassium monopersulfate), using the formula 5 lbs per 20,000 gallons of spa water. </li>'+
+			'<li>Wait 24 hours.  If the spa isn\'t all the way clear, add another dose of the non-chlorine shock.</li></ol>';
+			
+		}
+		
+		else if(input == 'how_ph') {
+
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
+		
+			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');")
+			
+			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");
+			
+			document.getElementById('text').innerHTML = '<h2>To test the pH:</h2><ol align="left"><li>Make sure the plastic sample tube is clean and dry.</li>'+
+			'<li>Take a sample of water from about 18" below the surface of the water, away from the return jets and skimmers.</li>'+
+			'<li>Add 5 drops of phenol red to the water sample. </li>'+
+			'<li>Put the cap on the sample tube and turn the tube over to mix.</li>'+
+			'<li>Hold the sample out at arms length and compare side by side to the pH color samples.</li>'+
+			'<li>Record the results.</li></ol>'+
+			'<h2>After testing, what is your pH Level?</h2>';	
+		}
+		
+		else if (input == 'medium_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			show_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h2>What is the copper reading?</h2>';
+			document.getElementById(1).value=('Below .4ppm');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+			
+			document.getElementById(2).value=(".4 - .7ppm");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+			document.getElementById(3).value=("Above .7ppm");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
+			
+			document.getElementById(4).value=("How To Test Copper");
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('test_copper');");
+			
+			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my spa affect my Copper Test?</strong></h3>'+
+			'<h3 align="left">A pH reading above 7.2 is going to give you a <strong>FALSE LOW</strong> copper reading, meaning you may have an optimum copper level even though the test says you do not.'+
+			' Adjust the pH down below 7.2 (ideally 6.8) and retest the copper.'+
+			'<br><br>A pH reading below 6.8 is going to give you a <strong>FALSE HIGH</strong> copper reading, meaning you may not have an optimum copper level even though the test says you do.  Low pH will tend'+
+			'to correct itself on its own. However, you can adjust the pH up to 6.8 using baking soda.';
+		}	
+		
+		else if(input == 'test_copper') {
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Below .4ppm';
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+		
+			document.getElementById(2).value=".4ppm - .7ppm";
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');")
+			
+			document.getElementById(3).value='Above .7ppm';
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
+			
+			document.getElementById('text').innerHTML='<h2>To Test Copper Levels:<br><br><a class="tutorial_link" onclick="change_view(\'how_ph\')">Test the pH</a> first.  Adjust the pH 6.8-7.2, if needed, before testing the copper level.</h2>'+
+			'<ol align="left"><li>With a clean, dry sample tube, take a sample of water about 18" below the water - away from return jets and skimmers.</li>'+
+			'<li>Add 5 drops of Copper A to the tube, cap it, and turn it upside-down to mix.</li>'+
+			'<li>Add 5 drops of Copper B to the same tube, cap it, and turn it upside-down to mix.</li>'+
+			'<li>Wait three minutes.</li>'+
+			'<li>With the color chart on a flat surface, hold the tube about 1" above the chart.  Look down through the length of the tube and compare to the color chart.</li>'+
+			'<li>Record Results. The spa must have a copper level between .4 - .7ppm.</li></ol>'+
+			'<h2>After testing, what is the Copper Level?</h2>';
+	
+		}
+		
+		else if (input == 'high_copper') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Are there blue-green stains on the spa surface?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('high_copper_yes');");
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
+			
+			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my spa affect my Copper Test?</strong></h3>'+
+			'<h3 align="left">A pH reading above 7.2 is going to give you a <strong>FALSE LOW</strong> copper reading, meaning you may have an optimum copper level even though the test says you do not.'+
+			' Adjust the pH down below 7.2 (ideally 6.8) and retest the copper.'+
+			'<br><br>A pH reading below 6.8 is going to give you a <strong>FALSE HIGH</strong> copper reading, meaning you may not have an optimum copper level even though the test says you do.  Low pH will tend'+
+			'to correct itself on its own. However, you can adjust the pH up to 6.8 using baking soda.';
+			
+		}
+		
+		else if(input == 'high_copper_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="There are no stains";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
+			
+			document.getElementById('text').innerHTML='<h3 align="left">Staining in the spa can be caused by the copper chloride that may result if pH is above 8.0, if there is still chlorine in the spa, and/or the city fill water is highly chlorinated.  Staining can be prevented by maintaining the pH within 6.8 – 7.2, aiming for 6.8.<br><br>'+
+			'If chlorine was added to the spa while the copper level was up, and is the reason for the staining, the spa needs to be <a class="tutorial_link" onclick="change_view(\'no_change\')">drained and washed with hydrogen peroxide.</mark></a>'+
+			'<br><br></h3><h3>If chlorine is not the reason for the staining, follow these steps eliminate the staining:</h3><ol align="left">'+
+			'<li>Drain 2 feet of water and refill to lower the copper level to below .3 ppm.</li>'+
+			'<li>Raise the water level up over the top of the staining.</li>'+
+			'<li>Add enough liquid muriatic acid to lower the pH to 6.0 or lower.</li>'+
+			'<li>After about 12 hours, test the copper level. If the copper level is .7 ppm or higher, drain another 2 feet of water and refill. </li>'+
+			'<li>Once all the stains are gone, raise the pH with borax (1 - 2 tbls per day) until the pH is back up to 6.8.</li>'
+			+'<li>If the stains are NOT gone within 3 days, drain the spa and wash it with hydrogen peroxide to eliminate the stains.</li>'+
+			'</ol>'+
+			'<h3>If the stains are NOT gone within 3 days, drain the spa and wash it with hydrogen peroxide to eliminate the stains.</h3>';
+
+
+		}
+		
+		else if (input == 'super_high_copper') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is the copper over 1.0 ppm?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper_yes');");
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+		}
+		
+		else if(input == 'super_high_copper_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="Copper is at correct level";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+
+			document.getElementById('text').innerHTML='<h2>High copper levels can be caused by some simple but common mistakes:</h2>'+
+			'<ol align="left"><li>Check the chamber to ensure that the water flows through the copper first, then the titanium, meaning the water hits thin black plates last before heading to the spa.  Copper electrodes must be closest to the pump.</li>'+
+			'<li>Never ionize or oxidize when water is not flowing.  For programmable systems, make sure “OXY” and “ION” start and end times are set within the “spa” start and end times, or no power will be delivered.</li>'+
+			'<li>Make sure the spa is not being over-ionized.  Only ionize when you need copper. It\'s not uncommon for spots to go months before thehy require ionization.</li>'+
+			'<li>A low pH will cause a false high reading of copper.  To avoid this, make sure pH always remains within 6.8-7.2.</li></ol>'+
+			'<h2>To lower the copper copper level, use the following method:</h2>'+
+			'<ol align="left"><li>Drain 6 - 12 inches of water from the spa and refill.</li>'+
+			'<li>Retest the copper.</li>'+
+			'<li>If the copper level is still above .7ppm, drain another 6 to 12 inches and refill.</li></ol>';
+		}
+		
+		else if (input == 'calcium_reading') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>What is the calcium reading?</h2>';
+			document.getElementById(1).value=('Below 400ppm');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
+		
+			document.getElementById(2).value=("400ppm or Higher");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
+			
+			document.getElementById(3).value=("How to Test Calcium");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('test_calcium');");
+		}	
+		
+		
+		else if(input == 'test_calcium') {
+		
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Below 400ppm';
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
+		
+			document.getElementById(2).value="400ppm or Higher";
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('low_phosphate');")
+			
+			document.getElementById('text').innerHTML='<h2>To Test Calcium Level:</h2><ol align="left">'+
+			'<li>Dip one paper calcium test strip into the water for 3 seconds and then remove.</li>'+
+			'<li>Immediately match to the closest color on the color chart.</li>'+
+			'<li>Read results as ppm and record.</li></ol><h2>After testing, what is your Calcium level?</h2>';
+			
+		}
+		
+		else if(input == 'low_calcium') {
+		
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			show_display('previous');
+			
+			document.getElementById(1).value="Calcium level is correct";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
+			
+			document.getElementById('text').innerHTML='<h3>If calcium levels are low, add calcium hardness increaser.<br><br>'+
+			'Calcium hardness increaser is commonly found at your local pool/spa store. Follow manufacturers directions to raise the calcium level to 400 ppm.</h3>';
+			
+		}
+		
+		else if(input == 'low_phosphate') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is this a Fresh Fill?</h2>';
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('water_description');");
+		
+			
+		}
+		
+			else if(input == 'spring_yes') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h3>Make sure filters are cleaned or new. Use 2 parts water, 1 part acid to properly clean the filters.<br><br>'+
+			'Make sure to always fill the spa through the skimmer to avoid air in the plumbing lines.<br><br>'+
+			'Once the spa is filled, proceed to adjusting your ph (6.8 - 7.2), copper (0.4 - 0.7), and calcium (400+) levels.';
+			
+
+		
+			
+		}
+		
+		else if(input == 'water_description') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			hide_display(5);
+			show_display('text2');
+			show_display('help_screen2');
+			show_display(6);
+			show_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Choose the best description of the water.</h2>';
+			
+			document.getElementById(1).value=('Cloudy');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('cloudy_yes');");
+		
+			document.getElementById(2).value=("Green");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green');");
+		
+			document.getElementById(3).value=("Bad Odor");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('bad_odor');");
+
+			
+			document.getElementById('text2').innerHTML = '<h2>Or, the water causes...</h2>';
+			
+			document.getElementById(6).value=("Burning Eyes");
+			document.getElementById(6).setAttribute( "onClick", "javascript:change_view('burning_eyes');");
+			
+			document.getElementById(7).value=("Green Hair");
+			document.getElementById(7).setAttribute( "onClick", "javascript:change_view('green_hair');");
+		
+			
+			
+		}
+		
+		else if(input == 'cloudy_yes'){
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			
+			document.getElementById('text').innerHTML="<h3>Most common cause for cloudy water is dirty filters.  The filters should be cleaned every 1 - 3 weeks depending on spa use.<br><br>"+
+			"Soak filters in a 2-part water, 1 part muriatic acid solution for 12 hours.  ECOsmarte recommends having 2 sets of filters to make the maintenance easier.<br><br>"+
+			"Test the pH. If the pH is over 7.2, adjust down to 6.8. <a class='tutorial_link' onclick='change_view(\"higher_ph_no\")'>Click Here to lower pH</a>";
+		
+		}
+		
+		else if(input == 'burning_eyes') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h3>The most common reason for burning eyes in a spa is low pH levels. Make sure the pH level of the water is between 6.8 and 7.2.<br><br>'+
+			'<a href=\'#\' onclick=\'change_view("green_yes")\'>Click Here to raise pH.</a>';
+			
+			
+		}
+		
+		else if(input == 'bad_odor') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML="<ol align='left'><li>Dirty filters could be a cause of bad odor in water.  The filters should be cleaned every 1 - 3 weeks depending on spa use.</li>"+
+			"<ul><li>Soak filters in a 2-part water, 1 part muriatic acid solution for 12 hours.  ECOsmarte recommends having 2 sets of filters to make the maintenance easier.</li></ul>"+
+			"<li>Test the pH. If the pH is over 7.2, adjust down to 6.8. <a class='tutorial_link' onclick='change_view(\"higher_ph_no\")'>Click Here to lower pH</a></li>"+
+			"<li>In rare cases, low pH may also cause the water to smell.  If the pH is below 6.8, adjust the pH levels with baking soda. <a class='tutorial_link' onclick='change_view(\"green_yes\")'>Click Here to raise pH.</a></li>"+
+			"<li>High copper may also cause smell to water.  If copper is reading above 1.0, evacuate some water out of the spa and bring the copper level back down to 0.4 to 0.6.</li></ol>";
+	
+		}
+		
+		
+		else if(input == 'green'){
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('green_yes');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green_no');");
+			
+			document.getElementById('text').innerHTML="<h2>Is the water lime green but crystal clear?</h2>";
+		
+		}
+		
+		else if(input == 'green_yes'){
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML="<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.  To raise the alkalinity:</h2><ol align='left'>"+
+			"<li>Add 1 tbls baking soda to the spa.</li>"+
+			"<li>After 24 hours, retest the pH.</li>"+
+			"<li>If the pH level is still lower than 6.8, add another 1 tbls baking soda.</li>"+
+			"<li>A total of 2 tbls baking soda should be enough to raise the pH to 6.8 – 7.2.</li>"+
+			"<li>Aim for the low end of the range to avoid causing a pH “bounce” that is hard to correct.</li></ol>";
+		
+		}
+		
+		else if(input == 'green_no'){
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML="<h3>Dirty filters could be the cause of having green water.  The filters should be cleaned every 1 - 3 weeks depending on spa use.<br><br>"+
+			"Soak filters in a 2-part water, 1 part muriatic acid solution for 12 hours.  ECOsmarte recommends having 2 sets of filters to make the maintenance easier.<br><br>"+
+			"Test the pH. If the pH is over 7.2, adjust down to 6.8. <a class='tutorial_link' onclick='change_view(\"higher_ph_no\")'>Click Here to lower pH</a>";
+		
+		}
+		
+		
+		else if(input == 'green_hair') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>A number of issues can result in green hair.</h2><ol align="left">'+
+			'<li>Copper levels above .7 ppm can cause green hair.  Make sure copper levels are always within .4 - .7 ppm.  Sometimes, running copper at .5 ppm instead of .7 ppm will help.<a class="tutorial_link" onclick="change_view(\'super_high_copper_yes\')">Click Here to lower Copper</a></li>'+
+			'<li>Calcium levels below 200 ppm can cause green hair.  Make sure the calcium level is always at least 400 ppm.<a class="tutorial_link" onclick="change_view(\'low_calcium\')">Click Here to raise Calcium</a></li>'+
+			'<li>High pH can also cause green hair.  Make sure the pH is always 6.8-7.2. <a class="tutorial_link" onclick="change_view(\'higher_ph_no\')">Click Here to lower pH</a></li>'+
+			'<li>Chlorine in the spa will react with the copper, causing copper chloride, which stains the spa and can cause green hair.  Don\'t use chlorine in an ECOsmarte spa. Use lemon juice to rinse hair that has turned green from chlorine.</li>'+
+			'<li>If chlorine-based products are not being used and there is still green hair, thoroughly rinse hair before swimming.</li>'+
+			'<li>Unfortunately, some hair will still get a green tinge even if it is rinsed before swimming, likely due to chlorinated city water. If this happens, simply remove the green tinge with lemon juice.</li></ol>';
+			
+		}
+		
+	}
+	
+	function prev_function() {
+		var temp = array_for_prev.pop();
+		var temp2 = array_for_prev.pop();
+
+		change_view(temp2);
+		
+	}
+	
+	function start_over() {
+		change_view('ph');
+	}
+</script>
+
+<center>
+	<div id="text"></div>
+	
+	<div id="help_screen">
+	
+		<input id = '1' class="myButton" type="button" value="option1" style="display:none">
+		<input id = '2' class="myButton" type="button" value="option2" style="display:none">
+		<input id = '3' class="myButton" type="button" value="option3" style="display:none">
+		<input id = '4' class="myButton" type="button" value="option4" style="display:none">
+		<input id = '5' class="myButton" type="button" value="option5" style="display:none">
+	
+	</div>
+	<div id="text2"></div>
+	<div id="help_screen2">
+	
+		
+		<input id = '6' class="myButton" type="button" value="option6" style="display:none">
+		<input id = '7' class="myButton" type="button" value="option7" style="display:none">
+		
+	</div>
+	
+	<div id="prev">
+		<input id="previous" class="myButton"type="button" value="Previous" onclick="prev_function()" style="display:none">
+		<input id="previous" class="myButton"type="button" value="Start Over" onclick="start_over()">
+	</div>
+</center>

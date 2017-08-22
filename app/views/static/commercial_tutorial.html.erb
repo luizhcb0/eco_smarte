@@ -1,0 +1,2278 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    change_view('ph');
+  });
+
+  //function that switchs the style.display to inline
+  function show_display(id) {
+    document.getElementById(id).style.display = 'inline';
+
+  }
+  //function that switches style.dsiplay to none
+  function hide_display(id) {
+    document.getElementById(id).style.display = 'none';
+
+  }
+
+  //removes onclick functions.
+  function remove_onclick() {
+    document.getElementById(1).onClick='';
+    document.getElementById(2).onClick='';
+    document.getElementById(3).onClick='';
+    document.getElementById(4).onClick='';
+    document.getElementById(5).onClick='';
+    document.getElementById(6).onClick='';
+    document.getElementById(7).onClick='';
+  }
+
+  var pool_size;
+  var filter_size;
+  var pump_size;
+  var array_for_prev = [];
+  
+
+  function change_view(input) {
+
+
+		array_for_prev.push(input);
+		if (input == 'ph') {
+			
+		    
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>What is your pH Level?</h2><br><h3>The most common pool problems often start with the most important thing, the pH, to be outside the required range of 6.8 – 7.2.</h3>';
+			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
+		
+			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
+			
+			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");	
+			
+			document.getElementById(4).value='How do I measure my pH?';
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('how_ph');");
+			
+			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my pool?</strong></h2>'+
+			'<h3 align="left">A pH above 7.2 renders the copper a less effective sanitizer, which can lead to algae growth and other sanitation issues. A high pH can also lead to "copper fall out." '+
+			'Copper fall out is when the copper falls out of its ION form and returns to a solid state. This can cause your pool water to appear blue in color and can also cause "plating." '+
+			'Plating is when copper deposits itself to the surface of your pool causing bluish deposits. Thankfully, these deposits are not permanent. Dropping your pH down to 6.8 (and maintaining '+
+			'a lower copper level of .5 ppm) will allow the copper to fall back into its desired ION form. </h3>';
+			
+
+		}
+        
+		else if (input == 'lower_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is the water a crystal clear, bright lime or grass green?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('lower_ph_yes');");
+			
+			
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+		}
+		
+		else if (input == 'medium_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			show_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h2>What is the copper reading?</h2>';
+			document.getElementById(1).value=('Below .4ppm');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+			
+			document.getElementById(2).value=(".4 - .7ppm");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+			document.getElementById(3).value=("Above .7ppm");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
+			
+			document.getElementById(4).value=("How To Test Copper");
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('test_copper');");
+			
+			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my pool affect my Copper Test?</strong></h3>'+
+			'<h3 align="left">A pH reading above 7.2 is going to give you a <strong>FALSE LOW</strong> copper reading, meaning you may have an optimum copper level even though the test says you do not.'+
+			' Adjust the pH down below 7.2 (ideally 6.8) and retest the copper.'+
+			'<br><br>A pH reading below 6.8 is going to give you a <strong>FALSE HIGH</strong> copper reading, meaning you may not have an optimum copper level even though the test says you do.  Low pH will tend'+
+			'to correct itself on its own. However, you can adjust the pH up to 6.8 using baking soda.';
+		}	
+
+		else if (input == 'high_copper') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Are there blue-green stains on the pool surface?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('high_copper_yes');");
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
+			
+			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my pool affect my Copper Test?</strong></h3>'+
+			'<h3 align="left">A pH reading above 7.2 is going to give you a <strong>FALSE LOW</strong> copper reading, meaning you may have an optimum copper level even though the test says you do not.'+
+			' Adjust the pH down below 7.2 (ideally 6.8) and retest the copper.'+
+			'<br><br>A pH reading below 6.8 is going to give you a <strong>FALSE HIGH</strong> copper reading, meaning you may not have an optimum copper level even though the test says you do.  Low pH will tend'+
+			'to correct itself on its own. However you can adjust the pH up to 6.8 using baking soda.';
+			
+		}
+		
+		else if (input == 'super_high_copper') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is the copper over 1.0 ppm?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper_yes');");
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+			
+		}
+		
+		else if (input == 'higher_ph') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			show_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is there visible algae growth (the water is cloudy and/or green)?</h2>';
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('higher_ph_yes');");
+			
+			
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('higher_ph_no');");
+			
+			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my pool?</strong></h2>'+
+			'<h3 align="left">A pH above 7.2 renders the copper a less effective sanitizer, which can lead to algae growth and other sanitation issues. A high pH can also lead to "copper fall out." '+
+			'Copper fall out is when the copper falls out of its ION form and returns to a solid state. This can cause your pool water to appear blue in color and can also cause "plating." '+
+			'Plating is when copper deposits itself to the surface of your pool causing bluish deposits. Thankfully, these deposits are not permanent. Dropping your pH down to 6.8 (and maintaining '+
+			'a lower copper level of .5 ppm) will allow the copper to fall back into its desired ION form. </h3>';
+		
+		}
+			
+		else if (input == 'calcium_reading') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>What is the calcium reading?</h2>';
+			document.getElementById(1).value=('Below 400ppm');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
+		
+			document.getElementById(2).value=("400ppm or Higher");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('phosphate_reading');");
+			
+			document.getElementById(3).value=("How to Test Calcium");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('test_calcium');");
+		}
+
+
+		
+		else if (input == 'phosphate_reading') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			show_display('text2');
+			
+				
+			document.getElementById('text').innerHTML = '<h2>What is the phosphate reading?</h2>';
+			document.getElementById(1).value=('0 - 200ppb');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
+		
+			document.getElementById(2).value=("Over 200ppb");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('high_phosphate');");
+			
+			document.getElementById(3).value=("How To Test Phosphate");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('how_phosphate');");
+			
+			//document.getElementById(4).value=("Yes");
+			//document.getElementById(4).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
+			
+			//document.getElementById(5).value=("No");
+			//document.getElementById(5).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
+			
+			document.getElementById(6).value=("How to Test Chlorine");
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
+			
+			document.getElementById(7).value=("How to prevent chloramine buildup");
+			document.getElementById(7).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
+			hide_display(5);
+			show_display(6);
+			show_display(7);
+			
+			document.getElementById('text2').innerHTML= '<h3><strong>How do Phosphates affect my pool an ECOsmarte System?</strong></h3><h3 align="left">Phosphates are food for algae. Leaving or adding phosphates in the pool will cause recurrent algae blooms, which can lead to a green pool and can also cause cloudy water. Phosphates are in the water supplies now because of farm runoff, acid rain, and municipal water treatment.  Whenever water is added to the pool, phosphates might also be added. Phosphates will inhibit your ECOsmarte systems ability to generate copper.  If you are struggling to raise copper, check for phosphates. Although your phosphate test that came with your ECOsmarte system tests for most phosphates, a digital phosphate test at your pool store (or the Micro 10 Digital Test kit for your home) can confirm the presence of phosphates that your home test cannot. ';
+		}
+		
+		else if(input == 'chlorine_yes')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			
+			document.getElementById(6).value=('Difference is less than 1 ppm');
+			document.getElementById(7).value=('Difference is more than 1 ppm');
+			document.getElementById('text2').innerHTML = '<h2>If total chlorine differs by more than 1 ppm than free chlorine levels: </h2><br><h3>Shock the pool with a non-chlorine shock (potassium monopersulphate), 1 lb per 10,000 gallons</h3><br><h3>This will eliminate the inorganic chloramine in the pool</h3><br>';
+			
+			show_display('text2');
+			show_display(6);
+			show_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('chlorine_less_than_1_ppm_01');");
+			document.getElementById(7).setAttribute( "onClick", "javascript: change_view('chlorine_more_than_1_ppm_01');");
+		}
+		
+		else if(input == 'chlorine_less_than_1_ppm_01')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br><br>';
+			document.getElementById(6).value=('Continue');
+			
+			 
+			show_display(6);
+			show_display('text2');
+			hide_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+			
+		}
+		
+		else if(input == 'chlorine_more_than_1_ppm_01')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>If after one day the total chlorine is still larger than 1 ppm, please drain 10% of the water and refill </h2><h2>This will reduce the organic chloramine in the pool</h2><br>';
+			document.getElementById(6).value=('Difference is less than 1 ppm');
+			document.getElementById(7).value=('Difference is more than 1 ppm');
+			
+		    show_display(6);
+			show_display(7); 
+			show_display('text2');
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('chlorine_less_than_1_ppm_02');");
+			document.getElementById(7).setAttribute( "onClick", "javascript: change_view('chlorine_more_than_1_ppm_02');");
+		}
+		else if(input == 'chlorine_less_than_1_ppm_02')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br>';
+			document.getElementById(6).value=('Continue');
+		    show_display(6);
+			show_display('text2');
+			hide_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+			
+			
+		}
+		else if(input == 'chlorine_more_than_1_ppm_02')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>Repeat previous draining and refilling procedure until difference is less than 1 ppm</h2><br>';
+			document.getElementById(6).value=('Continue');
+		    show_display(6);
+			show_display('text2');
+			hide_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+		}
+		
+		else if(input == 'chlorine_no')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to continue to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br>';
+			document.getElementById(6).value=('Continue');
+		    show_display(6);
+			show_display('text2');
+			hide_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+		}
+		
+		else if(input == 'chlorine_howtotest')
+		{
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text');
+			document.getElementById('text2').innerHTML = '<h2>Below details how to test free and total chlorine using LaMotte low range chlorine test strips, please refer to your chlorine test kit if using a different brand.</h2><h3>Take a sample of pool water</h3><h3>Dip a free chlorine test strip into the water</h3><h3>Compare color change to the test strip bottle</h3><h3>Dip a total chlorine test strip into the water</h3><h3>Compare color change to the test strip bottle</h3><br>';
+			document.getElementById(6).value=('Continue');
+		    show_display(6);
+			show_display('text2');
+			hide_display(7);
+			
+			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('chlorine_yes');");
+		}
+		
+		else if(input == 'chlorine_howtoprevent')
+		{
+			
+		}
+		
+		
+		else if(input == 'low_phosphate') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+				document.getElementById('text').innerHTML = '<h2>Is this a spring start-up?</h2>';
+				
+				document.getElementById(1).value=('Yes');
+				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('spring_yes');");
+			
+				document.getElementById(2).value=("No");
+				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('water_description');");
+		}
+       
+        
+		else if(input == 'spring_yes') {
+			
+			show_display('text');
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display('text2');
+			hide_display(6);
+			hide_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Is the water temperature above 70°F?</h2>';
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('water_description');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('cold_water');");
+		
+			
+		}
+		
+		
+		else if(input == 'size_pool') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What size is the pool?</h2>';
+			
+			document.getElementById(1).value=('0 - 30,000 gallons');
+			document.getElementById(1).setAttribute( "onClick", "javascript: pool_size = 'small';change_view('filter_type');");
+		
+			document.getElementById(2).value=("30,001 - 45,000 gallons");
+			document.getElementById(2).setAttribute( "onClick", "javascript: pool_size = 'medium';change_view('filter_type');");
+		
+			document.getElementById(3).value=("45,001 - 100,000 gallons");
+			document.getElementById(3).setAttribute( "onClick", "javascript: pool_size = 'large';change_view('filter_type');");
+
+		}
+
+		
+		else if(input == 'filter_type') {
+			
+			remove_onclick();
+
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What type of filter is being used?</h2>';			
+			
+
+			document.getElementById(1).value=('Sand');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('sand_filter');");
+		
+			document.getElementById(2).value=("DE");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('DE_filter');");
+		
+			document.getElementById(3).value=("Other");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('other_filter');");
+		
+			
+		}
+        
+
+		else if(input == 'sand_pressure') {	
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h3>Backwash the filter for 2 1/2 minutes.<br><br>Rinse for 30 seconds.<br><br>Backwash again for 2 1/2 minutes.<br><br>Rinse for 30 seconds.<br><br>Within 24 hours after backwashing, does the pool begin to clear up?</h3>';			
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('continue_acid_wash');");
+	
+		}
+		
+
+		else if(input == 'continue_acid_wash') {
+			
+			remove_onclick();
+			
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>If the pool is not clearing up after the filter backwash, do an acid wash:<br><br></h3><ol align='left'>"+
+			"<li>Shut off the pump and close the valves.</li>"+
+			"<li>Take off the valve head.</li>"+
+			"<li>Unscrew the drain plug.</li>"+
+			"<li>Drain the water until the media is visible (this may take a while)</li>"+
+			"<li>Examine the surface of the media.  Take out clumps of debris and check for level media.  Dips in the media or media tilted to one side may indicate a broken lateral.</li>"+
+			"<li>If the filter is a sand filter with sand, pour 2 gallons of liquid muriatic acid, or enough to cover the filter media, into the filter.</li>"+
+			"<li>If the filter is a sand filter with GlassPack® Filter Media, pour 2 gallons of regular liquid household bleach into the filter, covering the media.</li>"+
+			"<li>Replace the drain plug.</li>"+
+			"<li>Let the filter to soak overnight (about 12 hours).</li>"+
+			"<li>Backwash the filter to 'waste'.</li></ol>"+
+			"<h3>After another 24 hours, does the pool begin to clear up?</h3>";
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('beach');");
+	
+		}
+
+		
+		else if(input == 'beach') {
+			
+			remove_onclick();
+			
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>While the pump and filter are running, place a beach ball (or something that floats) on the surface of the water and watch how it moves.  If it gets stalled someplace, then the pool water is not circulating effectively.<br><br>"+
+			"Does the ball circulate around the pool without stalling or getting stuck?</h3>";
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('main_drain');");
+	
+		}
+		
+		else if(input == 'main_drain') {
+			
+			remove_onclick();
+			
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Is there a main drain in the pool that is working?</h3>";
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('return');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+	
+		}
+		
+		
+		else if(input == 'return') {
+			
+			remove_onclick();
+			
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Are the return jets pointing straight out toward the middle of the pool (not up, down, or sideways)?</h3>";
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('point_jets');");
+	
+		}
+		
+		else if(input == 'point_jets') {
+			
+			remove_onclick();
+			
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Point the jets directly toward the center of the pool, not up or down or to either side.<br><br>Does the pool begin to clear within 24 hours?</h3>";
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+	
+		}
+		
+		else if(input == 'clean_DE_filter') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Have the DE filter broken down for cleaning and checked for broken laterals.<br><br>Run the filter for another 24 hours after these maintenance steps have been taken.<br><br>After 24 hours does the pool begin to clear up?</h3>";
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid_wash');");
+	
+		}
+		else if(input == 'acid_wash') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			
+			document.getElementById('text').innerHTML = "<h3>If the pool is not clearing up after the filter backwash, do an acid wash:</h3>"+
+			"<ol align = 'left'><li>Have the DE filter broken down for cleaning and checked for broken grids.</li>"
+			+"<li>Remove the grids.</li>"
+			+"<li>Soak the grids in a 2 parts water to 1 part liquid muriatic acid solution for 12 hours.  (Soaking grids is critical twice yearly.)</li>"
+			+"<li>Reassemble the grids. </li>"
+			+"<li>Add DE powder.</li>"
+			+"<li>Run the filter for another 24 hours after these maintenance steps have been taken.</li></ol>"+
+			"<h3>After 24 hours, does the pool begin to clean up?</h3>"
+			
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('beach');");
+	
+		}
+	    
+        
+		else if(input == 'main_drain') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Is there a main drain in the pool that is working?</h3>";
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('return_jets');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+	
+		}
+		else if(input == 'return_jets') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Are the return jets pointing straight out toward the middle of the pool(not up, down or sideways)?</h3>";
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('point_return_jets');");
+	
+		}
+		else if(input == 'point_return_jets') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = "<h3>Point the jets directly toward the center of the pool, not up or down or to either side.<br><br>Does the pool begin to clear within 24 hours?</h3>";
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+	
+		}
+		
+		else if(input == 'DE_pressure') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h3>Backwash the filter for 1 minute.<br><br>Rinse for 30 seconds.<br><br>Backwash again for 1 minute.<br><br>Rinse for 30 seconds.<br><br>Within 24 hours after backwashing, does the pool begin to clear up?</h3>';			
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid_wash');");
+	
+		}
+		
+		else if(input == 'under_6') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('above_70');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('cold_water_2');");
+			
+			document.getElementById('text').innerHTML = '<h2>Is the water temperature above 70°F?</h2>';			
+	
+		}
+
+
+		
+		else if(input == 'above_70') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+		
+			document.getElementById(2).value=("No");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+			
+			document.getElementById('text').innerHTML = '<h3>Cloudy water can also be caused by a lot of swimmers.  If anticipating high swimming, make sure the oxidize mode is running during the swim time. <br><br>'+
+			'If there are a lot of swimmers, add non-chlorine shock to the water after swimming is done.<br><br>'+
+			'If needed, after 24 hours, add another non-chlorine shock.<br><br>Does the pool begin to clear up?</h3>';			
+	
+		}
+
+		
+		else if(input == 'continue_clear') {
+			
+			remove_onclick();
+			
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pool should continue to clear up.</h3>';			
+	
+		}
+		else if(input == 'pressure') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What is the current amount of pressure rise in the filter?</h2>';			
+			
+			// Basically checking if its a sand or a DE filter
+			if ((filter_size == 300) || (filter_size == 600) || (filter_size == 900)) {
+				document.getElementById(1).value=('Under 6 lbs');
+				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('under_6');");
+				
+				
+				document.getElementById(2).value=('6 lbs or more');
+				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('sand_pressure');");
+			}
+			else {
+				document.getElementById(1).value=('Under 10 lbs');
+				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
+				
+				
+				document.getElementById(2).value=('10 lbs or more');
+				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('DE_pressure');");
+			
+			}
+			
+		}
+		
+		
+		else if(input == 'pump_size') {
+			
+			remove_onclick();
+
+			show_display(2);
+			show_display(3);
+			show_display(1);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What size pump is being used?</h2>';			
+			
+	
+			document.getElementById(1).value=('1 hp');
+				//Pool Size Smalls
+				if ((pool_size == 'small') && (filter_size == 300)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure');");
+				}
+				if ((pool_size == 'small') && (filter_size == 42)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure');");
+				}
+				if ((pool_size == 'small') && (filter_size == 600)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_small_no');");
+				}
+				if ((pool_size == 'small') && (filter_size == 60)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_small_no_DE');");
+				}
+				if ((pool_size == 'small') && (filter_size == 900)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'small') && (filter_size == 72)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no_DE');");
+				}
+				
+				//Pool Size MEdium
+
+				if ((pool_size == 'medium') && (filter_size == 600)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_small_no');");
+				}
+				if ((pool_size == 'small') && (filter_size == 60)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_small_no_DE');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 900)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 72)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no_DE');");
+				}
+				
+				//Pool Size Large
+				if ((pool_size == 'large') && (filter_size == 900)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'large') && (filter_size == 72)){
+					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no_DE');");
+				}
+								
+			document.getElementById(2).value=("1 1/2 hp");
+			//Pool Size Smalls
+				if ((pool_size == 'small') && (filter_size == 300)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_too_much');");
+				}
+				if ((pool_size == 'small') && (filter_size == 42)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_too_much');");
+				}
+				if ((pool_size == 'small') && (filter_size == 600)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure');");
+				}
+				if ((pool_size == 'small') && (filter_size == 60)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure');");
+				}
+				if ((pool_size == 'small') && (filter_size == 900)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'small') && (filter_size == 72)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no_DE');");
+				}
+		
+		
+			//Pool Size MEdium
+
+				if ((pool_size == 'medium') && (filter_size == 600)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 60)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 900)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 72)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no_DE');");
+				}
+				
+			//Pool Size Large
+
+				if ((pool_size == 'large') && (filter_size == 900)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no');");
+				}
+				if ((pool_size == 'large') && (filter_size == 72)){
+					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no_DE');");
+				}
+
+			document.getElementById(3).value=("2 hp");
+				//Pool Size Smalls
+				if ((pool_size == 'small') && (filter_size == 300)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much');");
+				}
+				if ((pool_size == 'small') && (filter_size == 42)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much');");
+				}
+				if ((pool_size == 'small') && (filter_size == 600)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much_2');");
+				}
+				if ((pool_size == 'small') && (filter_size == 60)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much_2');");
+				}
+				if ((pool_size == 'small') && (filter_size == 900)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+				if ((pool_size == 'small') && (filter_size == 72)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+		
+		
+				//Pool Size MEdium
+
+				if ((pool_size == 'medium') && (filter_size == 600)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much_2');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 60)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much_2');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 900)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+				if ((pool_size == 'medium') && (filter_size == 72)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+				
+				//Pool Size Large
+
+				if ((pool_size == 'large') && (filter_size == 900)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+				if ((pool_size == 'large') && (filter_size == 72)){
+					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure');");
+				}
+		}
+		
+		else if(input == 'sand_filter') {
+			
+			remove_onclick();
+			show_display(3);
+			show_display(4);
+			show_display(2);
+			show_display(1);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What size sand filter is being used?</h2>';			
+			
+
+			document.getElementById(1).value=('200 lbs or less');
+			if (pool_size == 'small') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=200;change_view('small_sand_small_filter');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=200;change_view('medium_sand_small_filter');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=200;change_view('large_sand_small_filter');");
+			}
+			
+			
+			document.getElementById(2).value=("300 lbs");
+			if (pool_size == 'small') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=300;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=300;change_view('medium_sand_small_filter');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=300;change_view('large_sand_small_filter');");
+			}
+			
+			
+			document.getElementById(3).value=("600 lbs");
+			if (pool_size == 'small') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=600;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=600;change_view('pump_size');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=600;change_view('large_sand_small_filter');");
+			}
+			
+			
+			document.getElementById(4).value=("900 lbs");
+			if (pool_size == 'small') {
+				document.getElementById(4).setAttribute( "onClick", "javascript: filter_size=900;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(4).setAttribute( "onClick", "javascript: filter_size=900;change_view('pump_size');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(4).setAttribute( "onClick", "javascript: filter_size=900;change_view('pump_size');");
+			}
+		
+			
+		}
+		
+		else if(input == 'DE_filter') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			hide_display('help_screen2');
+			
+			document.getElementById('text').innerHTML = '<h2>What size DE filter is being used?</h2>';			
+			
+
+			document.getElementById(1).value=('42 sq.ft.');
+			if (pool_size == 'small') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=42;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=42;change_view('medium_DE_small_filter');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=42;change_view('large_DE_small_filter');");
+			}
+			
+			
+			document.getElementById(2).value=("60 sq.ft.");
+			if (pool_size == 'small') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=60;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=60;change_view('pump_size');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=60;change_view('large_DE_small_filter');");
+			}
+		
+			document.getElementById(3).value=("72 sq.ft.");
+			if (pool_size == 'small') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=72;change_view('pump_size');");
+			}
+			if (pool_size == 'medium') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=72;change_view('pump_size');");
+			}
+			if (pool_size == 'large') {
+				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=72;change_view('pump_size');");
+			}
+		
+		}
+		
+		
+		else if(input == 'water_description') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			show_display(5);
+			show_display('text2');
+			show_display('help_screen2');
+			show_display(6);
+			show_display(7);
+			
+			document.getElementById('text').innerHTML = '<h2>Choose the best description of the water.</h2>';
+			
+			document.getElementById(1).value=('Cloudy');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('cloudy_yes');");
+		
+			document.getElementById(2).value=("Green");
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green');");
+		
+			document.getElementById(3).value=("Bad Odor");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('bad_odor');");
+		
+			document.getElementById(4).value=("Insects in the Water");
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('insects');");
+			
+			document.getElementById('text2').innerHTML = '<h2>Or, the water causes...</h2>';
+			
+			document.getElementById(5).value=("Stains on Pool Surface");
+			document.getElementById(5).setAttribute( "onClick", "javascript:change_view('stains_on_pool');");
+			
+			document.getElementById(6).value=("Burning Eyes");
+			document.getElementById(6).setAttribute( "onClick", "javascript:change_view('burning_eyes');");
+			
+			document.getElementById(7).value=("Green Hair");
+			document.getElementById(7).setAttribute( "onClick", "javascript:change_view('green_hair');");
+		}
+
+		else if(input == 'stains_on_pool') {
+			
+			remove_onclick();
+			
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display(4);
+			
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3 align="left">Brown stains (plating) are caused by iron, green stains by copper, and grey/black stains by oxidized iron or copper.  If it is a vinyl pool, there could be water mold under the liner.'+
+			'<br><br><center><strong>Before Removing Stains (Plating)</strong></center></h3><ol align="left">'+
+			'<li>Copper level must be at .3 ppm or lower.</li>'+
+			'<li>Phosphate level must be at 0 ppb.</li>'+
+			'<li>Calcium level must be at 400 ppm or higher.</li>'+
+			'<li>pH can remain at 6.8-7.2.</li>'+
+			'<br><br><h3 align="left">If there are any stains, discolorations, or markings anywhere on the pool surface, the stains need to be tested to determine how to remove them.  Once the conditions above are met, apply a small amount of each of the following products to the stained area, one substance at a time.'+
+			'<br><br><center><strong>Chlorine</strong></h3><ol align="left">'+
+			'<li>Put a chlorine puck inside of a sock and place the puck in direct contact with the stain.</li>'+
+			'<li>See what happens.  Also, notice what happens when the chlorine is removed.  If the stain went away, did it return after the chlorine was removed?</li></ol>'+
+			'<br><h3><center><strong>Liquid Acid<br></strong></center></h3><ol align="left">'+
+			'<li>Use Liquid Muriatic Acid (Hydrochloric Acid) or “Acid Magic” (Muriatic Acid Replacement).</li>'+
+			'<li>Submerge a piece of PVC pipe so that the other end is close to an area of staining.</li>'+
+			'<li>Pour liquid acid down the pipe so the acid is applied directly to an area of stain.</li>'+
+			'<li>Notice whether the stain reacts, and how it reacts.</li>'+
+			'<br><h3><center><strong>Non-Chlorine Shock</strong></center></h3><ol align="left">'+
+			'<li>Use non-chlorine shock that contains potassium monopersulfate at 40% minimum strength.  “GLB Oxy-Brite” is the preferred brand to use.</li>'+
+			'<li>Thoroughly rinse the PVC pipe between any tests to make sure the products dont mix.</li>'+
+			'<li>Submerge the PVC pipe so it is close to an area of staining.  </li>'+
+			'<li>Pour non-chlorine shock down the tube to apply it directly to the stain.</li>'+
+			'<li>Notice whether the stain reacts, and how it reacts.</li>'+
+			'<br><br><h3><strong>*Important! - Do not allow non-chlorine shock and liquid acid to mix.  Mixing these products is extremely dangerous.  Apply each product to a different area.'+
+			'<br><br><center></strong>Choose which product causes a change (or no change).</h3>';
+			
+				
+			document.getElementById(1).value=("Chlorine");
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('chlorine_call_ECO');");
+			
+			document.getElementById(2).value=('Liquid Acid');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid');");
+		
+			document.getElementById(3).value=("Non-Chlorine Shock");
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('non_chlorine');");
+	
+			document.getElementById(4).value=("No Change");
+			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('no_change');");
+
+
+
+		}
+		
+		else if(input == 'cloudy_yes'){
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_present');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('is_algae_present');");
+			
+			document.getElementById('text').innerHTML="<h3>If water appears cloudy, or like milk, the cause is most likely algae, water temperature below 70°F, or filtration issues, such as DE powder in the pool.<br><br>"+
+			"For pools that have recently been converted to ECOsmarte, cloudy water could be caused by ionization descaling in the pool pipes.  This process is normal and beneficial, and will eventually cease.  Generally, a cloudy pool as a result of descaling will last from 1 to 3 weeks, however the water may become cloudy periodically until all scaling has been removed.<br><br>"+
+			"Test that pH is 6.8 – 7.2, Copper is .4 - .7 ppm, and Calcium is 400 ppm or above.  Adjust as needed.<br><br>"+
+			"Test phosphates.  Are phosphates present?</h3>";
+		
+		}
+
+	    
+		else if(input == 'green'){
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('green_yes');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green_no');");
+			
+			document.getElementById('text').innerHTML="<h2>Is the water lime green but crystal clear?</h2>";
+		
+		}
+		
+
+		else if(input == 'green_yes'){
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML="<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.  To raise the alkalinity:</h2><ol align='left'>"+
+			"<li>Add 4 lbs baking soda to the pool.</li>"+
+			"<li>After 24 hours, retest the pH.</li>"+
+			"<li>If the pH level is still lower than 6.8, add another 4 lbs baking soda.</li>"+
+			"<li>A total of 8 lbs baking soda should be enough to raise the pH to 6.8 – 7.2.</li>"+
+			"<li>Aim for the low end of the range to avoid causing a pH “bounce” that is hard to correct.</li></ol>";
+		
+		}
+		
+
+		else if(input == 'green_no'){
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_present');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('is_algae_present');");
+			
+			document.getElementById('text').innerHTML="<h3>Pool water can turn green due to algae caused by the sun, warm temperatures, nitrates, or lack of proper filtration, circulation, or sanitization.<br><br>"+
+			"To prevent this, brush regularly to prevent dirt harboring in pores, suction vacuum, and backwash after a pressure rise of 6 lbs and before 10 lbs.<br><br>"+
+			"Test phosphates.  Are phosphates present?</h3>";
+		
+		}
+
+		
+		else if(input == 'phosphate_present'){
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('algae_present');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
+			
+			document.getElementById('text').innerHTML="<h3><strong>If Algae is present, remove algae first before removing phosphates. Removing algae adds more phosphate into the water.<br><br>"+
+			"If phosphates are present and algae is not present, use a recommended phosphate remover.</strong><br><br>"+
+			"If the phosphates are under 1000ppb:<ol align='left'>"+
+			"<li>Sea Klear Phosphate Remover</li>"+
+			"<li>Phos-Free</li>"+
+			"<li>Phos-X</li>"+
+			"<li>Zero-Phos</li></ol>"+
+			"If the phosphates are over 1000ppb:<ol align='left'><li>Sea Klear Phosphate Remover</li></ol>"+
+			"Follow the instructions on the container to determine the appropriate amount of remover for the pool.<br><br><strong>Is algae present?</strong></h3>";
+		
+		}
+		
+		else if(input == 'is_algae_present') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+		
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('algae_present');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
+			
+			document.getElementById('text').innerHTML = '<h2>Is algae present?</h2>';
+			
+		}
+		
+
+		else if(input == 'algae_present') {
+			
+			remove_onclick();
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+		
+			document.getElementById(1).value=('Yes');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
+			
+			document.getElementById(2).value=('No');
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
+			
+			document.getElementById('text').innerHTML = '<h2>Whenever you have algae, start by running the pool 24hrs a day till the pool clears up.<br><br>'+
+			'Make Sure the Algaecide has NO copper. Ask the pool store for any algaecide with a 40 or 60 on the bottle. Algaecide Poly 60 is the most commonly used.<br><br>'+
+			'To eliminate algae: </h2><ol align="left">'+
+			'<li>Begin lowering the pH to 6.8 – 7.2. (Aim for 6.8)</li>'+
+			'<li>Apply 1 quart non-metal algaecide during daylight hours. If possible, apply the algaecide in the morning, which is when algae feeds.</li>'+
+			'<li>Wait 12 to 24 hours. If the water is hazy, murky, or cloudy, put in a non-chlorine shock (potassium peroxymonosulfate) using the formula 5 lbs per 20,000 gallons of pool water.  Avoid the non-chlorine shock if the pool is clear.</li>'+
+			'<li>Wait 24 hours. If the pool isn’t all the way clear, add another dose of the non-chlorine shock.</li>'+
+			'<li>Watch the filter gage pressure, backwash only if there is a pressure rise between 6lbs and 10lbs.</li></ol>'+
+			'<h2>Are phosphates present? Make sure to remove phosphates now that algae is clear. <a class="tutorial_link" onclick="change_view(\'phosphate_present\')">Guide to lower phosphate Here.</a><br><br>Does the pool begin to clear up?</h2>';
+		}
+
+		
+		else if(input == 'cold_water') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+		
+			document.getElementById(1).value=('Temperature is above 70°F');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('water_description');");
+			
+			document.getElementById('text').innerHTML = '<h2>Cold water can be cloudy until reaching 70 degrees. </h2>';
+			
+		}
+		
+		else if(input == 'cold_water_2') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+		
+			document.getElementById(1).value=('Temperature is above 70°F');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('above_70');");
+			
+			document.getElementById('text').innerHTML = '<h2>Cold water can be cloudy until reaching 70 degrees. </h2>';
+			
+		}
+		
+
+		else if(input == 'chlorine_call_ECO') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3 align="left">If the stain went away with the chlorine, and maybe even returned when the chlorine was removed, the problem is organic.  If the pool is vinyl, there could be water getting underneath the liner, creating mold that would eventually cause the pool to leak.'+
+			'<br><br><center><strong>If the stain went away with chlorine, call or email ECOsmarte for further instructions on how to get rid of the stain.</strong><br><br>Twin Cities and International 1-612-866-1200<br>Outside Twin Cities  1-800-466-7946<br><br>Email:  larryc@ecosmarte.com<br><br>Have all the current test results on hand along with the answers to these questions. </h3>';
+			
+		}
+		
+		else if(input == 'call_ECO') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3><strong>Call or email ECOsmarte for further help.</strong><br><br>Twin Cities and International 1-612-866-1200<br>Outside Twin Cities  1-800-466-7946<br><br>Email:  larryc@ecosmarte.com<br><br>Have all the current test results on hand along with the answers to these questions. </h3>';
+			
+		}
+		
+		else if(input == 'pressure_small_no') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter of this size.  A 1.5hp pump is normally required for a 600lb filter.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+			
+		}	
+		else if(input == 'pressure_small_no_DE') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for this size filter.  A 1.5hp pump is normally required for a 60 sq ft filter.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+			
+		}
+		else if(input == 'pressure_too_much') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is too powerful for this size filter.  A 1hp pump is needed.  If the flow of water is too fast, the particles get pushed through the filter, rather than getting caught.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+			
+		}	
+		
+		else if(input == 'pressure_too_much_2') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is too powerful for this size filter.  A 1.5hp pump is needed.  If the flow of water is too fast, the particles get pushed through the filter, rather than getting caught.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+		}	
+		else if(input == 'pressure_medium_no') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter this size.  A 2hp pump is normally required for a 900 lb filter.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+			
+		}
+		else if(input == 'pressure_medium_no_DE') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter this size.  A 2hp pump is normally required for a 72 sq ft filter.<br><br>'+
+			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
+			
+			document.getElementById(1).value=('Continue');
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
+			
+		}
+		
+		else if(input == 'small_sand_small_filter') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The filter is undersized for the pool.  An upgrade to a 300lb filter with a 1hp pump is normally required for optimal filtration on a pool of this size.</h3>';
+			
+		}
+		else if(input == 'medium_sand_small_filter') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The filter is too small for this size pool.  A 600 lb filter is normally required for optimal filtration.</h3>';
+			
+		}
+
+		else if(input == 'medium_DE_small_filter') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The filter is too small for this size pool.  A 60 sq.ft. filter is normally required for optimal filtration.</h3>';
+			
+		}
+		
+		else if(input == 'large_sand_small_filter') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The filter is too small for this size pool.  A 900 lb sand filter is normally required for optimal filtration in this pool.</h3>';
+			
+		}
+		else if(input == 'large_DE_small_filter') {
+			
+			remove_onclick();
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById('text').innerHTML = '<h3>The filter is too small for this size pool.  A 72 sq.ft. filter is normally required for optimal filtration in this pool.</h3>';
+			
+		}
+
+		else if(input == 'acid') {
+			
+			remove_onclick();
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="How To Test ph";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('how_ph');");
+			
+			document.getElementById('text').innerHTML = '<h2>If the stain reacted to the liquid acid by going away, the stain is a metal.<br><br>To Remove the Stain:</h2><ol align="left">'+
+			'<li>Lower the copper level to .3 ppm or less.</li>'+
+			'<li>In a bucket, mix water and acid, putting water in the bucket first, then the acid.  (Quantities are not important, but you want more water than acid.)  A total of 2-3 gallons will be used.</li>'+
+			'<li>Walk the acid/water solution around the pool, adding it to the pool water until the stain is gone.</li>'+
+			'<li>If the stain completely disappears with the acid, use Borax at 4lbs per day to raise the pH back to 6.8 - 7.2.</li>'+
+			'<li>If there is still some staining after 3 days of having a lower pH, then use baking soda to raise the pH back to 6.8.  It is important to not let the pH rise above 7.2, or the stains will reoccur.</li></ol>';
+			
+		}
+
+		else if(input == 'lower_ph_yes') 
+		{
+		
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			show_display('previous');
+			
+			document.getElementById(1).value="Alkalinity is fine";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML='<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.'+
+			'<br><br>To raise the alkalinity:</h2>'+
+			'<ol align="left"><li>Add 4 lbs baking soda to the pool.</li>'+
+			'<li>After 24 hours, retest the pH.</li>'+
+			'<li>If the pH level still lower than 6.6, add another 4 lbs baking soda. </li>'+
+			'<li>A total of 8 lbs baking soda should be enough to raise the pH to 6.8 - 7.2.</li></ol>'+
+			'<br><h2>Aim for the low end of the range to avoid causing a pH "bounce" that is hard to correct.</h2>';
+		
+		}
+		
+
+		else if(input == 'low_calcium') {
+		
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			show_display('previous');
+			
+			document.getElementById(1).value="Calcium level is correct";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_reading');");
+			
+			document.getElementById('text').innerHTML='<h3>If the calcium test indicates that the calcium is below 400ppm, add calcium chloride flakes to raise the hardness and to balance the pool.<br><br>'+
+			'Calcium chloride flakes can be found at the pool store and places that make concrete.  Make sure to get the flakes and not the pellets.'+
+			'<br><br>A very general rule of thumb is that 100lbs of calcium will raise the calcium level in a pool 20,000 gallon pool about 100 ppm.  Add 50lb bags at a time and test in between each 50 lbs.'+
+			'</h3><ol align="left">'+
+			'<li>Put a little calcium at a time in a leaf skimmer. Swish it around toward the middle of the pool until it dissolves.  Repeat this process to add 50 - 100 lbs of calcium.</li>'+
+			'<li>Wait a couple days before testing the water again to make sure the calcium is thoroughly mixed into the pool water. </li>'+
+			'<li>Retest the water.</li>'+
+			'<li>Repeat this process until the calcium level is at least above 400ppm.</li></ol>'+
+			'<h3>Calcium is usually very stable in the water and only drops if there is a lot of rain.  Test calcium levels after heavy storms and about every six months.</h3>';
+			
+		}
+		else if(input == 'higher_ph_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			document.getElementById(1).value="There is no algae";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML='<h2>To eliminate algae:</h2><ol align="left">'+
+			'<li>Begin lowering the pH to 6.8 - 7.2. (Aim for 6.8). For tips to Lower pH levels, <a class="tutorial_link" onclick="change_view(\'higher_ph_no\')">Click Here</a></li>'+
+			'<li>Apply 1 quart non-metal algaecide during daylight hours.  If possible, apply the algaecide in the morning, which is when algae feeds.</li>'+
+			'<li>Wait 12 hours, then put in non-chlorine shock (potassium monopersulfate), using the formula 5 lbs per 20,000 gallons of pool water. </li>'+
+			'<li>Wait 24 hours.  If the pool is not all the way clear, add another dose of the non-chlorine shock.</li></ol>';
+			
+		}
+		else if(input == 'high_copper_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="There are no stains";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
+			
+			
+			document.getElementById('text').innerHTML='<h3 align="left">Staining in the pool can be caused by the copper chloride that may result if pH is above 8.0, if there is still chlorine in the pool, and/or the city fill water is highly chlorinated.  Staining can be prevented by maintaining the pH within 6.8 – 7.2, aiming for 6.8.<br><br>'+
+			'If chlorine was added to the pool while the copper level was up, and is the reason for the staining, the pool needs to be <a class="tutorial_link" onclick="change_view(\'no_change\')">drained and washed with hydrogen peroxide.</a>'+
+			'<br><br></h3><h3>If chlorine is not the reason for the staining, follow these steps eliminate the staining:</h3><ol align="left">'+
+			'<li>Drain 2 feet of water and refill to lower the copper level to below .3 ppm.</li>'+
+			'<li>Raise the water level up over the top of the staining.</li>'+
+			'<li>Add enough liquid muriatic acid to lower the pH to 6.0 or lower.</li>'+
+			'<li>After about 12 hours, test the copper level. If the copper level is .7 ppm or higher, drain another 2 feet of water and refill. </li>'+
+			'<li>Once all the stains are gone, raise the pH with borax (4 - 8 lbs per day) until the pH is back up to 6.8.</li>'
+			+'<li>If the stains are NOT gone within 3 days, drain the pool and wash it with hydrogen peroxide to eliminate the stains.</li>'+'</ol>'+
+			'<h3>If the stains are NOT gone within 3 days, drain the pool and wash it with hydrogen peroxide to eliminate the stains.</h3>';
+            
+
+		}
+
+        
+		else if(input == 'high_phosphate') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="Phosphate level is correct";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
+			
+			document.getElementById('text').innerHTML='<h3>Phosphates are a fertilizer for algae, so phosphates in the pool will cause recurrent algae blooms.  Phosphates are in the water supplies now because of farm runoff, and phosphates are also in rain. Whenever water is added to the pool, phosphates are also being added.</h3>'+
+			'<h3><strong>Use a phosphate removal product to eliminate phosphates.</strong><br><strong>If the phosphates are under 1000ppb:</strong><br><br>Sea Klear Phosphate Remover'+
+			'<br>Phos-Free<br>Phos-X<br>Zero-Phos<br><br><strong>If the phosphates are over 1000ppb </strong><br><br>Sea Klear Phosphate Remover</h3>'+
+			'<strong>Follow the instructions on the container to determine the appropriate amount of remover for the pool.<br></strong>';
+			
+		}
+
+
+		else if(input == 'super_high_copper_yes') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value="Copper is at correct level";
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+
+			document.getElementById('text').innerHTML='<h2>High copper levels can be caused by some simple but common mistakes:</h2>'+
+			'<ol align="left"><li>Check the chamber to ensure that the water flows through the copper first, then the titanium, meaning the water hits thin black plates last before heading to the pool.  Copper electrodes must be closest to the pump.</li>'+
+			'<li>Never ionize or oxidize when water is not flowing.  For programmable systems, make sure “OXY” and “ION” start and end times are set within the “POOL” start and end times, or no power will be delivered.</li>'+
+			'<li>Make sure the pool is not being over-ionized.  Only ionize once per week.</li>'+
+			'<li>Metallic Algaecide can cause high copper.  Instead, use any algaecide with a 40 or 60 on the bottle - Algaecide Poly 60 is most commonly used.</li>'+
+			'<li>A low pH will cause a false high reading of copper.  To avoid this, make sure pH always remains within 6.8-7.2.</li></ol>'+
+			'<h2>To lower the copper copper level, use either of the following methods:<br><br>Method 1</h2>'+
+			'<ol align="left"><li>Drain 2 feet of water from the pool and refill.</li>'+
+			'<li>Retest the copper.</li>'+
+			'<li>If the copper level is still above .7ppm, drain another 2 feet and refill.</li></ol>'+
+			'<h2>Method 2</h2><ol align="left">'+
+			'<li>Place 4 Ferre Tabs (from a local pool store or online at ecosmarteonlinestore.com) into the skimmers.</li></ol>';
+		}
+
+		else if(input == 'higher_ph_no') {
+			show_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			document.getElementById(1).value='pH is at correct level';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
+			
+			document.getElementById('text').innerHTML = '<h3>To Lower the pH Level:</h3><br><ol align="left">'+
+			'<li>Fill a 5 gallon bucket about halfway with pool water.  Then, add liquid muriatic acid to the bucket, creating a solution of about 2 parts water to one part acid.</li>'+
+			'<li>Walk around the pool gradually adding the acid/water solution evenly to the pool.</li>'+
+			'<li>Wait a day for the solution to mix thoroughly, and then test the pH again.  If the pH is still above 7.2, add another dose of water/acid solution.</li></ol>'+
+			'<h2>pH needs to be 6.8 - 7.2<br><br>Tips for pH management:</h2><ol align="left">'+
+			'<li>The higher the pH is, the more acid is required, exponentially, to bring it down.  Err on the side of using more acid to bring the pH down more quickly. The pH will always tend to correct itself upward if it does get too low.</li>'+
+			'<li>The trick for extreme stability is keeping the pH around 6.8, and not letting it get above 7.0.</li>'+
+			'<li>ECOsmarte only recommends using liquid muriatic acid or a product called "Acid Magic" to lower pH. Never use dry acid, as it raises sodium levels in the pool.</li></ol>';
+			
+		}
+
+
+		
+		else if(input == 'how_ph') {
+
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
+		
+			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
+			
+			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");
+			
+			document.getElementById('text').innerHTML = '<h2>To test the pH:</h2><ol align="left"><li>Make sure the plastic sample tube is clean and dry.</li>'+
+			'<li>Take a sample of water from about 18" below the surface of the water, away from the return jets and skimmers.</li>'+
+			'<li>Add 5 drops of phenol red to the water sample. </li>'+
+			'<li>Put the cap on the sample tube and turn the tube over to mix.</li>'+
+			'<li>Hold the sample out at arms length and compare side by side to the pH color samples.</li>'+
+			'<li>Record the results.</li></ol>'+
+			'<h2>After testing, what is your pH Level?</h2>';	
+		}
+		
+		else if(input == 'how_phosphate') {
+
+			show_display(1);
+			show_display(2);
+			
+			show_display('previous');
+		
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='0-200ppb';
+			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('low_phosphate');");
+		
+			document.getElementById(2).value="Over 200ppb";
+			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('high_phosphate');")
+			
+			document.getElementById('text').innerHTML = '<h2>To test the phosphate levels:</h2><ol align="left">'+
+			'<li>With a clean, dry sample tube, take a 10 mL sample of water from about 18″ below the surface of the water, away from the return jets and skimmers.</li>'+
+			'<li>Gently bend a phosphate test strip in half (do not fold), with pads facing inward.  Place the strip inside the test tube cap.</li>'+
+			'<li>Cap the test tube and invert the tube slowly 5 times, allowing the air bubble to go from the top to bottom and bottom to top.</li>'+
+			'<li>Remove the cap and test strip.</li>'+
+			'<li>Place the bottom of the test tube on the white boxed area of the color chart on the phosphate test container.  Look down through the top of the OPEN test tube and compare it to the color chart.</li>'+
+			'<li>Read results as ppb and record. </li></ol>'+
+			'<h2 align="left">*Note that this test kit does not test for all phosphates.  It is recommended to bring a water sample into a local pool store to double check the phosphate level.</h2>';	
+		}
+
+		
+		else if(input == 'test_copper') {
+			show_display(1);
+			show_display(2);
+			show_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Below .4ppm';
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
+		
+			document.getElementById(2).value=".4ppm - .7ppm";
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');")
+			
+			document.getElementById(3).value='Above .7ppm';
+			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
+			
+			document.getElementById('text').innerHTML='<h2>To Test Copper Levels:<br><br><a class="tutorial_link" onclick="change_view(\'how_ph\')">Test the pH</a> first.  Adjust the pH 6.8-7.2, if needed, before testing the copper level.</h2>'+
+			'<ol align="left"><li>With a clean, dry sample tube, take a sample of water about 18" below the water - away from return jets and skimmers.</li>'+
+			'<li>Add 5 drops of Copper A to the tube, cap it, and turn it upside-down to mix.</li>'+
+			'<li>Add 5 drops of Copper B to the same tube, cap it, and turn it upside-down to mix.</li>'+
+			'<li>Wait three minutes.</li>'+
+			'<li>With the color chart on a flat surface, hold the tube about 1" above the chart.  Look down through the length of the tube and compare to the color chart.</li>'+
+			'<li>Record Results. The pool must have a copper level between .4 - .7ppm. On a 20,000 gallon pool, it takes, on average, 4 hours to move .1ppm and 12 hours to move .3ppm.</li></ol>'+
+			'<h2>After testing, what is the Copper Level?</h2>';
+	
+		}
+
+
+		else if(input == 'test_calcium') {
+		
+			show_display(1);
+			show_display(2);
+			hide_display(3);
+			show_display('previous');
+		
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			
+			hide_display('text2');
+			
+			document.getElementById(1).value='Below 400ppm';
+			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
+		
+			document.getElementById(2).value="400ppm or Higher";
+			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('phosphate_reading');")
+			
+			document.getElementById('text').innerHTML='<h2>To Test Calcium Level:</h2><ol align="left">'+
+			'<li>Dip one paper calcium test strip into the water for 3 seconds and then remove.</li>'+
+			'<li>Immediately match to the closest color on the color chart.</li>'+
+			'<li>Read results as ppm and record.</li></ol><h2>After testing, what is your Calcium level?</h2>';
+			
+		}
+
+		else if(input == 'bad_odor') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>The only way the pool water gets "smelly" is because the filter needs to be deep cleaned.<br><br>To Deep Clean Sand Filters:</h2><ol align="left">'+
+			'<li>Shut off the pump and close the valves.</li>'+
+			'<li>Take off the valve head. </li>'+
+			'<li>Unscrew the drain plug.</li>'+
+			'<li>Drain the water until the media is visible (this may take a while).</li>'+
+			'<li>Examine the surface of the media.  Take out clumps of debris and check for level media.  Dips in the media or media tilted to one side may indicate a broken lateral.  If laterals are broken, have them repaired by a pool professional.</li>'+
+			'<li>Replace the drain plug.</li>'+
+			'<li>If the filter is a sand filter with sand, pour 2 gallons of liquid muriatic acid, or enough to cover the filter media, into the filter.</li>'+
+			'<li>If the filter is a sand filter with GlassPack® Filter Media, pour 2 gallons of regular liquid household bleach into the filter, covering the media.</li>'+
+			'<li>Let the filter to soak overnight (about 12 hours).</li>'+
+			'<li>Backwash the filter to "waste".</li>'+
+			'</ol><h2>To Deep Clean DE Filters:</h2><ol align="left">'+
+			'<li>Have the DE filter broken down for cleaning and checked for broken grids.</li>'+
+			'<li>Remove the grids.</li>'+
+			'<li>Soak the grids in a 2 parts water to 1 part liquid muriatic acid solution for 12 hours.  (Soaking grids is critical twice yearly.)</li>'+
+			'<li>Reassemble the grids. </li>'+
+			'<li>Add DE powder.</li>'+
+			'</ol>';
+	
+		}
+		else if(input == 'insects') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>Insects can lay eggs and live in the filter. To eliminate them completely, the filter needs to be "acid washed":<br><br>For Sand Filters:</h2><ol align="left">'+
+			'<li>Shut off the pump and close the valves.</li>'+
+			'<li>Take off the valve head. </li>'+
+			'<li>Unscrew the drain plug.</li>'+
+			'<li>Drain the water until the media is visible (this may take a while).</li>'+
+			'<li>Examine the surface of the media.  Take out clumps of debris and check for level media.  Dips in the media or media tilted to one side may indicate a broken lateral.  If laterals are broken, have them repaired by a pool professional.</li>'+
+			'<li>If the filter is a sand filter with sand, pour 2 gallons of liquid muriatic acid, or enough to cover the filter media, into the filter.</li>'+
+			'<li>If the filter is a sand filter with GlassPack® Filter Media, pour 2 gallons of regular liquid household bleach into the filter, covering the media.</li>'+
+			'<li>Replace the drain plug.</li>'+
+			'<li>Let the filter to soak overnight (about 12 hours).</li>'+
+			'<li>Backwash the filter to "waste".</li>'+
+			'</ol><h2>For DE Filters:</h2><ol align="left">'+
+			'<li>Have the DE filter broken down for cleaning and checked for broken grids.</li>'+
+			'<li>Remove the grids.</li>'+
+			'<li>Soak the grids in a 2 parts water to 1 part liquid muriatic acid solution for 12 hours.  (Soaking grids is critical twice yearly.)</li>'+
+			'<li>Reassemble the grids. </li>'+
+			'<li>Add DE powder.</li></ol>';
+		}
+        
+		else if(input == 'burning_eyes') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>The most common reason for burning eyes in a pool is a new vinyl pool liner.<br><br>'+
+			'New vinyl liners release gas for up to 3 years after installation.  The gases irritate eyes, cause the pH to rise constantly, and cause the liner to feel slippery.<br><br>'+
+			'Follow these steps to "cure" the liner and stop the "off-gassing":</h2>'+
+			'<ol align = "left"><li>Lower the copper to .3 ppm or below. <a class="tutorial_link" onclick="change_view(\'super_high_copper_yes\')">Click Here to lower Copper</a></li>'+
+			'<li>Use one gallon of regular liquid household bleach for every 10,000 gallons of water in the pool.  Pour the bleach in the pool.  </li>'+
+			'<li>Continue this process each week for 6 to 8 weeks.</li>'+
+			'<li>The liner will be finished off-gassing (curing) when it no longer feels slippery.</li></ol>';
+		}
+        
+        
+		else if(input == 'green_hair') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>A number of issues can result in green hair.</h2><ol align="left">'+
+			'<li>Phosphate levels above 200 ppb can cause green hair on blonde or silver haired swimmers.  To prevent green hair, make sure the phosphate level is always below 200 ppb. <a class="tutorial_link" onclick="change_view(\'high_phosphate\')">Click Here to lower Phosphates</a></li>'+
+			'<li>Copper levels above .7 ppm can cause green hair.  Make sure copper levels are always within .4 - .7 ppm.  Sometimes, running copper at .5 ppm instead of .7 ppm will help.<a class="tutorial_link" onclick="change_view(\'super_high_copper_yes\')">Click Here to lower Copper</a></li>'+
+			'<li>Calcium levels below 200 ppm can cause green hair.  Make sure the calcium level is always at least 400 ppm.<a class="tutorial_link" onclick="change_view(\'low_calcium\')">Click Here to raise Calcium</a></li>'+
+			'<li>High pH can also cause green hair.  Make sure the pH is always 6.8-7.2. <a class="tutorial_link" onclick="change_view(\'higher_ph_no\')">Click Here to lower pH</a></li>'+
+			'<li>Chlorine in the pool will react with the copper, causing copper chloride, which stains the pool and can cause green hair.  Do not use chlorine in an ECOsmarte pool. Use lemon juice to rinse hair that has turned green from chlorine.</li>'+
+			'<li>If chlorine-based products are not being used and there is still green hair, thoroughly rinse hair before swimming.</li>'+
+			'<li>Unfortunately, some hair will still get a green tinge even if it is rinsed before swimming, likely due to chlorinated city water. If this happens, simply remove the green tinge with lemon juice.</li></ol>';
+		}
+        
+		else if(input == 'no_change') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h3>Are the stains blue green? Has anyone added chlorine or a chlorinated product to the ECOsmarte water? If chlorine was added to an ECOsmarte pool, it will combine with the copper and produce copper chloride, which attaches to the pool surface.<br><br>To remove the stains, the pool has to be drained and washed with hydrogen peroxide:</h3>'+
+			'<ol align="left"><li>Drain the pool.</li>'+
+			'<li>Apply hydrogen peroxide with a garden sprayer.</li>'+
+			'<li>Add enough acid to lower the pH to 6.0 or lower.</li>'+
+			'<li>Let it bubble for about 10 minutes.</li>'+
+			'<li>Rinse it off and repeat the process one more time.</li></ol>';
+		}
+        
+		
+		else if(input == 'non_chlorine') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h2>If the stain is removed with the non-chlorine shock, the stain is a metal.<br><br>To Remove the Stain:</h2><ol align="left">'+
+			'<li>Begin lowering the pH to 6.8 – 7.2.</li>'+
+			'<li>Apply 1 quart non-metal algaecide. If possible, apply the algaecide in the morning, which is when algae feeds.</li>'+
+			'<li>Wait 12 hours and put in non-chlorine shock (potassium monopersulfate), using the formula 5 lbs per 20,000 gallons of pool water.</li>'+
+			'<li>Wait 24 hours and, if the pool is not yet quite clear, add another dose of non-chlorine shock.</li></ol>';
+		}
+        
+
+		else if(input == 'other_filter') {
+			hide_display(1);
+			hide_display(2);
+			hide_display(3);
+			hide_display(4);
+			hide_display(5);
+			hide_display(6);
+			hide_display(7);
+			hide_display('text2');
+			
+			show_display('previous');
+			
+			document.getElementById('text').innerHTML='<h3 align="left">The only types of filters that work with an ECOsmarte pool are sand and DE. Cartridge filters do not work with ECOsmarte.<br><br>'+
+			'ECOsmarte does not vaporize particles the way chemical sanitation does, so the load on a cartridge filter is just too high. The amount of maintenance required makes a cartridge filter an illogical choice. A cartridge filter would need to be cleaned several times per day in order to filter properly.<br><br>'+
+			'The type of filter that works best with ECOsmarte is a sand filter with Glass Pack® Filter Media. The combination of affordability, ease of maintenance, and efficiency of filtration makes it the best choice for non-chemically sanitized pools.</h3>';
+	
+		}
+	}
+	
+  function prev_function() {
+		var temp = array_for_prev.pop();
+		var temp2 = array_for_prev.pop();
+		// alert(temp);
+		change_view(temp2);
+		// alert('worked');
+		
+	}
+	
+	function start_over() {
+		change_view('ph');
+	}
+</script>
+
+<center>
+	<div id="text"></div>
+	
+	<div id="help_screen">
+	
+		<input id = '1' class="myButton" type="button" value="option1" style="display:none">
+		<input id = '2' class="myButton" type="button" value="option2" style="display:none">
+		<input id = '3' class="myButton" type="button" value="option3" style="display:none">
+		<input id = '4' class="myButton" type="button" value="option4" style="display:none">
+		<input id = '5' class="myButton" type="button" value="option5" style="display:none">
+		
+	
+	</div>
+	<div id="text2"></div>
+	<div id="help_screen2">
+	
+		
+		<input id = '6' class="myButton" type="button" value="option6" style="display:none">
+		<input id = '7' class="myButton" type="button" value="option7" style="display:none">
+		
+	</div>
+	
+	<div id="prev">
+		<input id="previous" class="myButton"type="button" value="Previous" onclick="prev_function()" style="display:none">
+		<input id="previous" class="myButton"type="button" value="Start Over" onclick="start_over()">
+	</div>
+</center>
