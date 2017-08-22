@@ -1,0 +1,39 @@
+<% if flash[:success] %>
+    <div id="flash_success" class="alert alert-success"><%= flash[:success] %></div>
+<% elsif flash[:error] %>
+    <div id="flash_error" class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
+
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="map">
+      <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1413.9870305677541!2d-93.2513759067465!3d44.8628228440412!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f62f5c52966345%3A0xeadf2ea2252a3d8f!2sEcosmarte+Planet+Friendly!5e0!3m2!1sen!2sus!4v1407254311152" width="1170" height="520" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-5 col-sm-offset-1">
+    <div class="address">
+      <address>
+        <h4>Address</h4><br><br>
+        1600 E. 78th St<br>
+        Minneapolis, MN 55423<br>
+        612-866-1200
+        <br><br>
+        <h4>Contact Info</h4><br><br>
+        <strong>Local Phone:</strong> 612-866-1200<br>
+        <strong>Toll Free:</strong> 1-800-466-7946<br>
+        <strong>Fax:</strong> 612-866-0152<br>
+        <strong>Help:</strong> larryc@ecosmarte.com
+      </address>
+    </div>
+  </div>
+  
+  <div class="col-sm-5">
+    <div class="contact_form">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>

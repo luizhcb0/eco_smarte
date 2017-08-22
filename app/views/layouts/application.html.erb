@@ -34,7 +34,7 @@
                   <%= link_to 'Pool/Spa Help', pool_spa_help_path %>
                 </li>
                 <li><a href="">Videos</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li class="<%= 'active' if current_page?(new_contact_path) %>"><%= link_to 'Contact Us', new_contact_path %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -55,7 +55,7 @@
                   <%= link_to 'Pool/Spa Help', pool_spa_help_path %>
                 </li>
                 <li><a href="">Videos</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li class="<%= 'active' if current_page?(new_contact_path) %>"><%= link_to 'Contact Us', new_contact_path %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li>

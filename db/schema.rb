@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601003826) do
+ActiveRecord::Schema.define(version: 20170822213551) do
+
+  create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                                  null: false
+    t.string   "email",                                 null: false
+    t.string   "website",                  default: ""
+    t.string   "subject",                               null: false
+    t.text     "content",    limit: 65535,              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                                  null: false
+    t.string   "email",                                 null: false
+    t.string   "website",                  default: ""
+    t.string   "subject",                               null: false
+    t.text     "content",    limit: 65535,              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
 
   create_table "texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535, null: false
@@ -21,6 +41,10 @@ ActiveRecord::Schema.define(version: 20170601003826) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
+    t.string   "phone",                               null: false
+    t.string   "address",                             null: false
+    t.string   "city",                                null: false
+    t.integer  "cstm_type",                           null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

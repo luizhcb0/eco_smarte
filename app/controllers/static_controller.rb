@@ -26,4 +26,8 @@ class StaticController < ApplicationController
   def commercial_tutorial
     
   end
+  
+  def contact 
+  
+  end
 end

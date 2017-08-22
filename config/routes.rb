@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+  
+  resources :contacts, only: [:new, :create]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static#index'
   
@@ -9,4 +14,7 @@ Rails.application.routes.draw do
   get 'pool_tutorial', to: 'static#pool_tutorial', as: 'pool_tutorial'
   get 'spa_tutorial', to: 'static#spa_tutorial', as: 'spa_tutorial'
   get 'commercial_tutorial', to: 'static#commercial_tutorial', as: 'commercial_tutorial'
+  
+  
+  
 end
