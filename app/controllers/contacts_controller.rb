@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include StrongParamsHolder
   
-  def new
+  def index
     @contact = Contact.new
     @message = ContactMessage.new
   end

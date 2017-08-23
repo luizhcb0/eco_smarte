@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  enum cstm_type: %w(pool_spa_user company commercial whole_house_costumer factory)
+  enum user_type: %w(admin pool_spa_user company commercial whole_house_costumer factory)
+  
+  after_create_commit { self.username = self.email }
 end

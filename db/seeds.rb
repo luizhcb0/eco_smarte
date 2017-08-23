@@ -12,3 +12,5 @@ Text.create(
     Please Log In using the menu bar at the top of the screen and create a profile for your pool and begin to track and enter data.", 
   description: "description"
 )
+
+User.create(user_type: "admin", name: "Luiz", email: "luizhcb0@gmail.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111")

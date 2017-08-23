@@ -1,27 +1,34 @@
 <div class="row">
   <div class="col-sm-4 col-sm-offset-2">
-    <%#= link_to tutorial_path(tutorial: "pool"), class: "pool_spa_help_container" do %>
-    <%= link_to pool_tutorial_path, class: "pool_spa_help_container" do %>
-      <%= image_tag "pool.jpg", class: "pool_spa_help_img" %>
-      Pool Help
-    <% end %>
+    <%#= link_to tutorial_path(tutorial: "pool"), class: "help_container" do %>
+    <div class="help_container">
+      <%= link_to pool_tutorial_path, class: "help_link" do %>
+        <%= image_tag "pool.jpg", class: "help_img" %>
+        <div class="help_desc">Pool Help</div>
+      <% end %>
+    </div>
+    
   </div>
   <div class="col-sm-4">
-    <%#= link_to tutorial_path(tutorial: "spa"), class: "pool_spa_help_container" do %>
-    <%= link_to spa_tutorial_path, class: "pool_spa_help_container" do %>
-      <%= image_tag "spa.jpg", class: "pool_spa_help_img" %>
-      Spa Help
-    <% end %>
+    <%#= link_to tutorial_path(tutorial: "spa"), class: "help_container" do %>
+    <div class="help_container">
+      <%= link_to spa_tutorial_path, class: "help_link" do %>
+        <%= image_tag "spa.jpg", class: "help_img" %>
+        <div class="help_desc">Spa Help</div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
-    <%#= link_to tutorial_path(tutorial: "commercial"), class: "pool_spa_help_container" do %>
-    <%= link_to commercial_tutorial_path, class: "pool_spa_help_container" do %>
-      <%= image_tag "commercial.jpg", class: "pool_spa_help_img" %>
-      Commercial Pool Help
-    <% end %>
+    <%#= link_to tutorial_path(tutorial: "commercial"), class: "help_container" do %>
+    <div class="help_container">
+      <%= link_to commercial_tutorial_path, class: "help_link" do %>
+        <%= image_tag "commercial.jpg", class: "help_img" %>
+        <div class="help_desc">Commercial Pool Help</div>
+      <% end %>
+    </div>
   </div>
 </div>
 

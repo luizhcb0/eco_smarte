@@ -42,6 +42,12 @@ body {
   margin-top: 60px;
 }
 
+@media (min-width: 768px) {
+  .group {
+    margin-bottom: 50px !important;
+  }
+}  
+
 footer {
   color: #ddd;
   // background-color: #f8fdff;

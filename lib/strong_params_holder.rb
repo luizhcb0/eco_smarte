@@ -4,7 +4,7 @@
 
 module StrongParamsHolder
   def sign_up_params
-    params.require(:user).permit(:name, :city, :address, :phone, :email, :cstm_type, :password, :password_confirmation)
+    params.require(:user).permit(:name, :city, :address, :phone, :email, :user_type, :password, :password_confirmation)
   end
   
   def contact_params

@@ -3,12 +3,13 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:index, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static#index'
   
   get 'faq', to: 'static#faq', as: 'faq'
+  get 'documents', to: 'static#documents', as: 'documents'
   get 'pool_spa_help', to: 'static#pool_spa_help', as: 'pool_spa_help'
   # get 'tutorial/:tutorial', to: 'static#tutorial', as: 'tutorial'
   get 'pool_tutorial', to: 'static#pool_tutorial', as: 'pool_tutorial'

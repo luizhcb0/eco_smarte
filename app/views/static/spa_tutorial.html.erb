@@ -44,16 +44,16 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>What is your pH Level?</h2><br>';
-			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).innerHTML = 'Less than 6.8';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
 		
-			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).innerHTML = "6.8 - 7.2";
 			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
 			
-			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).innerHTML = 'Greater than 7.2';
 			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");	
 			
-			document.getElementById(4).value='How do I measure my pH?';
+			document.getElementById(4).innerHTML = 'How do I measure my pH?';
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('how_ph');");
 			
 			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my spa?</strong></h2>'+
@@ -79,12 +79,12 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is the water a crystal clear, bright lime or grass green?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('lower_ph_yes');");
 			
 			
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 		}
@@ -101,7 +101,7 @@
 			hide_display('text2');
 			show_display('previous');
 			
-			document.getElementById(1).value="Alkalinity is fine";
+			document.getElementById(1).innerHTML = "Alkalinity is fine";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML='<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.'+
@@ -128,11 +128,11 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is there visible algae growth (the water is cloudy and/or green)?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('higher_ph_yes');");
 			
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('higher_ph_no');");
 			
 			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my spa?</strong></h2>'+
@@ -153,7 +153,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value='pH is at correct level';
+			document.getElementById(1).innerHTML = 'pH is at correct level';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML = '<h3>To Lower the pH Level:</h3><br><ol align="left">'+
@@ -177,7 +177,7 @@
 			hide_display(7);
 			
 			hide_display('text2');
-			document.getElementById(1).value="There is no algae";
+			document.getElementById(1).innerHTML = "There is no algae";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML='<h2>To eliminate algae:</h2><ol align="left">'+
@@ -202,13 +202,13 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).innerHTML = 'Less than 6.8';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
 		
-			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).innerHTML = "6.8 - 7.2";
 			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');")
 			
-			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).innerHTML = 'Greater than 7.2';
 			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");
 			
 			document.getElementById('text').innerHTML = '<h2>To test the pH:</h2><ol align="left"><li>Make sure the plastic sample tube is clean and dry.</li>'+
@@ -236,17 +236,17 @@
 			show_display('text2');
 			
 			document.getElementById('text').innerHTML = '<h2>What is the copper reading?</h2>';
-			document.getElementById(1).value=('Below .4ppm');
+			document.getElementById(1).innerHTML = ('Below .4ppm');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
 			
-			document.getElementById(2).value=(".4 - .7ppm");
+			document.getElementById(2).innerHTML = (".4 - .7ppm");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
-			document.getElementById(3).value=("Above .7ppm");
+			document.getElementById(3).innerHTML = ("Above .7ppm");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
 			
-			document.getElementById(4).value=("How To Test Copper");
+			document.getElementById(4).innerHTML = ("How To Test Copper");
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('test_copper');");
 			
 			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my spa affect my Copper Test?</strong></h3>'+
@@ -269,13 +269,13 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Below .4ppm';
+			document.getElementById(1).innerHTML = 'Below .4ppm';
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 		
-			document.getElementById(2).value=".4ppm - .7ppm";
+			document.getElementById(2).innerHTML = ".4ppm - .7ppm";
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');")
 			
-			document.getElementById(3).value='Above .7ppm';
+			document.getElementById(3).innerHTML = 'Above .7ppm';
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
 			
 			document.getElementById('text').innerHTML='<h2>To Test Copper Levels:<br><br><a class="tutorial_link" onclick="change_view(\'how_ph\')">Test the pH</a> first.  Adjust the pH 6.8-7.2, if needed, before testing the copper level.</h2>'+
@@ -303,10 +303,10 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Are there blue-green stains on the spa surface?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('high_copper_yes');");
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
 			
 			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my spa affect my Copper Test?</strong></h3>'+
@@ -327,7 +327,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="There are no stains";
+			document.getElementById(1).innerHTML = "There are no stains";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
 			
 			document.getElementById('text').innerHTML='<h3 align="left">Staining in the spa can be caused by the copper chloride that may result if pH is above 8.0, if there is still chlorine in the spa, and/or the city fill water is highly chlorinated.  Staining can be prevented by maintaining the pH within 6.8 – 7.2, aiming for 6.8.<br><br>'+
@@ -359,10 +359,10 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is the copper over 1.0 ppm?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper_yes');");
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
 		}
@@ -377,7 +377,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="Copper is at correct level";
+			document.getElementById(1).innerHTML = "Copper is at correct level";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 
 			document.getElementById('text').innerHTML='<h2>High copper levels can be caused by some simple but common mistakes:</h2>'+
@@ -405,13 +405,13 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>What is the calcium reading?</h2>';
-			document.getElementById(1).value=('Below 400ppm');
+			document.getElementById(1).innerHTML = ('Below 400ppm');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
 		
-			document.getElementById(2).value=("400ppm or Higher");
+			document.getElementById(2).innerHTML = ("400ppm or Higher");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
 			
-			document.getElementById(3).value=("How to Test Calcium");
+			document.getElementById(3).innerHTML = ("How to Test Calcium");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('test_calcium');");
 		}	
 		
@@ -430,10 +430,10 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Below 400ppm';
+			document.getElementById(1).innerHTML = 'Below 400ppm';
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
 		
-			document.getElementById(2).value="400ppm or Higher";
+			document.getElementById(2).innerHTML = "400ppm or Higher";
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('low_phosphate');")
 			
 			document.getElementById('text').innerHTML='<h2>To Test Calcium Level:</h2><ol align="left">'+
@@ -455,7 +455,7 @@
 			hide_display('text2');
 			show_display('previous');
 			
-			document.getElementById(1).value="Calcium level is correct";
+			document.getElementById(1).innerHTML = "Calcium level is correct";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
 			
 			document.getElementById('text').innerHTML='<h3>If calcium levels are low, add calcium hardness increaser.<br><br>'+
@@ -477,10 +477,10 @@
 			
 			document.getElementById('text').innerHTML = '<h2>Is this a Fresh Fill?</h2>';
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('spring_yes');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('water_description');");
 		
 			
@@ -522,22 +522,22 @@
 			
 			document.getElementById('text').innerHTML = '<h2>Choose the best description of the water.</h2>';
 			
-			document.getElementById(1).value=('Cloudy');
+			document.getElementById(1).innerHTML = ('Cloudy');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('cloudy_yes');");
 		
-			document.getElementById(2).value=("Green");
+			document.getElementById(2).innerHTML = ("Green");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green');");
 		
-			document.getElementById(3).value=("Bad Odor");
+			document.getElementById(3).innerHTML = ("Bad Odor");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('bad_odor');");
 
 			
 			document.getElementById('text2').innerHTML = '<h2>Or, the water causes...</h2>';
 			
-			document.getElementById(6).value=("Burning Eyes");
+			document.getElementById(6).innerHTML = ("Burning Eyes");
 			document.getElementById(6).setAttribute( "onClick", "javascript:change_view('burning_eyes');");
 			
-			document.getElementById(7).value=("Green Hair");
+			document.getElementById(7).innerHTML = ("Green Hair");
 			document.getElementById(7).setAttribute( "onClick", "javascript:change_view('green_hair');");
 		
 			
@@ -614,10 +614,10 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('green_yes');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green_no');");
 			
 			document.getElementById('text').innerHTML="<h2>Is the water lime green but crystal clear?</h2>";
@@ -701,29 +701,28 @@
 	}
 </script>
 
-<center>
-	<div id="text"></div>
-	
-	<div id="help_screen">
-	
-		<input id = '1' class="myButton" type="button" value="option1" style="display:none">
-		<input id = '2' class="myButton" type="button" value="option2" style="display:none">
-		<input id = '3' class="myButton" type="button" value="option3" style="display:none">
-		<input id = '4' class="myButton" type="button" value="option4" style="display:none">
-		<input id = '5' class="myButton" type="button" value="option5" style="display:none">
-	
-	</div>
-	<div id="text2"></div>
-	<div id="help_screen2">
-	
+<div class="row">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div id="text"></div>
 		
-		<input id = '6' class="myButton" type="button" value="option6" style="display:none">
-		<input id = '7' class="myButton" type="button" value="option7" style="display:none">
+		<div id="help_screen">
+			<button id="1" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="2" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="3" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="4" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="5" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+		</div>
 		
+		<div id="text2"></div>
+		
+		<div id="help_screen2">
+			<button id="6" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="7" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+		</div>
+		
+		<div id="prev">
+			<button id="previous" class="btn btn-tutorial" type="button" name="button" onclick="prev_function()" style="display:none">Previous</button>
+			<button id="previous" class="btn btn-tutorial" type="button" name="button" onclick="start_over()">Start Over</button>
+		</div>
 	</div>
-	
-	<div id="prev">
-		<input id="previous" class="myButton"type="button" value="Previous" onclick="prev_function()" style="display:none">
-		<input id="previous" class="myButton"type="button" value="Start Over" onclick="start_over()">
-	</div>
-</center>
+</div>

@@ -51,16 +51,16 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>What is your pH Level?</h2><br><h3>The most common pool problems often start with the most important thing, the pH, to be outside the required range of 6.8 – 7.2.</h3>';
-			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).innerHTML = 'Less than 6.8';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
 		
-			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).innerHTML = "6.8 - 7.2";
 			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
 			
-			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).innerHTML = 'Greater than 7.2';
 			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");	
 			
-			document.getElementById(4).value='How do I measure my pH?';
+			document.getElementById(4).innerHTML = 'How do I measure my pH?';
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('how_ph');");
 			
 			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my pool?</strong></h2>'+
@@ -86,12 +86,12 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is the water a crystal clear, bright lime or grass green?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('lower_ph_yes');");
 			
 			
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 		}
@@ -112,17 +112,17 @@
 			show_display('text2');
 			
 			document.getElementById('text').innerHTML = '<h2>What is the copper reading?</h2>';
-			document.getElementById(1).value=('Below .4ppm');
+			document.getElementById(1).innerHTML = ('Below .4ppm');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
 			
-			document.getElementById(2).value=(".4 - .7ppm");
+			document.getElementById(2).innerHTML = (".4 - .7ppm");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
-			document.getElementById(3).value=("Above .7ppm");
+			document.getElementById(3).innerHTML = ("Above .7ppm");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
 			
-			document.getElementById(4).value=("How To Test Copper");
+			document.getElementById(4).innerHTML = ("How To Test Copper");
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('test_copper');");
 			
 			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my pool affect my Copper Test?</strong></h3>'+
@@ -146,10 +146,10 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Are there blue-green stains on the pool surface?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('high_copper_yes');");
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
 			
 			document.getElementById('text2').innerHTML= '<h3><strong>How does the pH of my pool affect my Copper Test?</strong></h3>'+
@@ -174,10 +174,10 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is the copper over 1.0 ppm?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper_yes');");
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 			
 		}
@@ -196,11 +196,11 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>Is there visible algae growth (the water is cloudy and/or green)?</h2>';
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('higher_ph_yes');");
 			
 			
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('higher_ph_no');");
 			
 			document.getElementById('text2').innerHTML= '<h2><strong>How does HIGH pH affect my pool?</strong></h2>'+
@@ -225,13 +225,13 @@
 			hide_display(7);
 			
 			document.getElementById('text').innerHTML = '<h2>What is the calcium reading?</h2>';
-			document.getElementById(1).value=('Below 400ppm');
+			document.getElementById(1).innerHTML = ('Below 400ppm');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
 		
-			document.getElementById(2).value=("400ppm or Higher");
+			document.getElementById(2).innerHTML = ("400ppm or Higher");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('phosphate_reading');");
 			
-			document.getElementById(3).value=("How to Test Calcium");
+			document.getElementById(3).innerHTML = ("How to Test Calcium");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('test_calcium');");
 		}
 
@@ -249,25 +249,25 @@
 			
 				
 			document.getElementById('text').innerHTML = '<h2>What is the phosphate reading?</h2>';
-			document.getElementById(1).value=('0 - 200ppb');
+			document.getElementById(1).innerHTML = ('0 - 200ppb');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
 		
-			document.getElementById(2).value=("Over 200ppb");
+			document.getElementById(2).innerHTML = ("Over 200ppb");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('high_phosphate');");
 			
-			document.getElementById(3).value=("How To Test Phosphate");
+			document.getElementById(3).innerHTML = ("How To Test Phosphate");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('how_phosphate');");
 			
-			//document.getElementById(4).value=("Yes");
+			//document.getElementById(4).innerHTML = ("Yes");
 			//document.getElementById(4).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
 			
-			//document.getElementById(5).value=("No");
+			//document.getElementById(5).innerHTML = ("No");
 			//document.getElementById(5).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
 			
-			document.getElementById(6).value=("How to Test Chlorine");
+			document.getElementById(6).innerHTML = ("How to Test Chlorine");
 			document.getElementById(6).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
 			
-			document.getElementById(7).value=("How to prevent chloramine buildup");
+			document.getElementById(7).innerHTML = ("How to prevent chloramine buildup");
 			document.getElementById(7).setAttribute( "onClick", "javascript: change_view('chlorine_yes');" );
 			hide_display(5);
 			show_display(6);
@@ -285,8 +285,8 @@
 			hide_display(5);
 			hide_display('text');
 			
-			document.getElementById(6).value=('Difference is less than 1 ppm');
-			document.getElementById(7).value=('Difference is more than 1 ppm');
+			document.getElementById(6).innerHTML = ('Difference is less than 1 ppm');
+			document.getElementById(7).innerHTML = ('Difference is more than 1 ppm');
 			document.getElementById('text2').innerHTML = '<h2>If total chlorine differs by more than 1 ppm than free chlorine levels: </h2><br><h3>Shock the pool with a non-chlorine shock (potassium monopersulphate), 1 lb per 10,000 gallons</h3><br><h3>This will eliminate the inorganic chloramine in the pool</h3><br>';
 			
 			show_display('text2');
@@ -306,7 +306,7 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br><br>';
-			document.getElementById(6).value=('Continue');
+			document.getElementById(6).innerHTML = ('Continue');
 			
 			 
 			show_display(6);
@@ -326,8 +326,8 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>If after one day the total chlorine is still larger than 1 ppm, please drain 10% of the water and refill </h2><h2>This will reduce the organic chloramine in the pool</h2><br>';
-			document.getElementById(6).value=('Difference is less than 1 ppm');
-			document.getElementById(7).value=('Difference is more than 1 ppm');
+			document.getElementById(6).innerHTML = ('Difference is less than 1 ppm');
+			document.getElementById(7).innerHTML = ('Difference is more than 1 ppm');
 			
 		    show_display(6);
 			show_display(7); 
@@ -345,7 +345,7 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br>';
-			document.getElementById(6).value=('Continue');
+			document.getElementById(6).innerHTML = ('Continue');
 		    show_display(6);
 			show_display('text2');
 			hide_display(7);
@@ -363,7 +363,7 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>Repeat previous draining and refilling procedure until difference is less than 1 ppm</h2><br>';
-			document.getElementById(6).value=('Continue');
+			document.getElementById(6).innerHTML = ('Continue');
 		    show_display(6);
 			show_display('text2');
 			hide_display(7);
@@ -380,7 +380,7 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>Below are steps that can be taken to continue to prevent chloramine buildup</h2><h3>Provide a shower for swimmers to take before swimming</h3><h3>Scrub and vacuum the pool daily</h3><h3>Replace at least 5% of the water of the pool daily</h3><br>';
-			document.getElementById(6).value=('Continue');
+			document.getElementById(6).innerHTML = ('Continue');
 		    show_display(6);
 			show_display('text2');
 			hide_display(7);
@@ -397,7 +397,7 @@
 			hide_display(5);
 			hide_display('text');
 			document.getElementById('text2').innerHTML = '<h2>Below details how to test free and total chlorine using LaMotte low range chlorine test strips, please refer to your chlorine test kit if using a different brand.</h2><h3>Take a sample of pool water</h3><h3>Dip a free chlorine test strip into the water</h3><h3>Compare color change to the test strip bottle</h3><h3>Dip a total chlorine test strip into the water</h3><h3>Compare color change to the test strip bottle</h3><br>';
-			document.getElementById(6).value=('Continue');
+			document.getElementById(6).innerHTML = ('Continue');
 		    show_display(6);
 			show_display('text2');
 			hide_display(7);
@@ -425,10 +425,10 @@
 			
 				document.getElementById('text').innerHTML = '<h2>Is this a spring start-up?</h2>';
 				
-				document.getElementById(1).value=('Yes');
+				document.getElementById(1).innerHTML = ('Yes');
 				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('spring_yes');");
 			
-				document.getElementById(2).value=("No");
+				document.getElementById(2).innerHTML = ("No");
 				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('water_description');");
 		}
        
@@ -448,10 +448,10 @@
 			
 			document.getElementById('text').innerHTML = '<h2>Is the water temperature above 70°F?</h2>';
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('water_description');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('cold_water');");
 		
 			
@@ -475,13 +475,13 @@
 			
 			document.getElementById('text').innerHTML = '<h2>What size is the pool?</h2>';
 			
-			document.getElementById(1).value=('0 - 30,000 gallons');
+			document.getElementById(1).innerHTML = ('0 - 30,000 gallons');
 			document.getElementById(1).setAttribute( "onClick", "javascript: pool_size = 'small';change_view('filter_type');");
 		
-			document.getElementById(2).value=("30,001 - 45,000 gallons");
+			document.getElementById(2).innerHTML = ("30,001 - 45,000 gallons");
 			document.getElementById(2).setAttribute( "onClick", "javascript: pool_size = 'medium';change_view('filter_type');");
 		
-			document.getElementById(3).value=("45,001 - 100,000 gallons");
+			document.getElementById(3).innerHTML = ("45,001 - 100,000 gallons");
 			document.getElementById(3).setAttribute( "onClick", "javascript: pool_size = 'large';change_view('filter_type');");
 
 		}
@@ -504,13 +504,13 @@
 			document.getElementById('text').innerHTML = '<h2>What type of filter is being used?</h2>';			
 			
 
-			document.getElementById(1).value=('Sand');
+			document.getElementById(1).innerHTML = ('Sand');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('sand_filter');");
 		
-			document.getElementById(2).value=("DE");
+			document.getElementById(2).innerHTML = ("DE");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('DE_filter');");
 		
-			document.getElementById(3).value=("Other");
+			document.getElementById(3).innerHTML = ("Other");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('other_filter');");
 		
 			
@@ -533,10 +533,10 @@
 			
 			document.getElementById('text').innerHTML = '<h3>Backwash the filter for 2 1/2 minutes.<br><br>Rinse for 30 seconds.<br><br>Backwash again for 2 1/2 minutes.<br><br>Rinse for 30 seconds.<br><br>Within 24 hours after backwashing, does the pool begin to clear up?</h3>';			
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('continue_acid_wash');");
 	
 		}
@@ -570,10 +570,10 @@
 			"<li>Backwash the filter to 'waste'.</li></ol>"+
 			"<h3>After another 24 hours, does the pool begin to clear up?</h3>";
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('beach');");
 	
 		}
@@ -597,10 +597,10 @@
 			document.getElementById('text').innerHTML = "<h3>While the pump and filter are running, place a beach ball (or something that floats) on the surface of the water and watch how it moves.  If it gets stalled someplace, then the pool water is not circulating effectively.<br><br>"+
 			"Does the ball circulate around the pool without stalling or getting stuck?</h3>";
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('main_drain');");
 	
 		}
@@ -622,10 +622,10 @@
 			
 			document.getElementById('text').innerHTML = "<h3>Is there a main drain in the pool that is working?</h3>";
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('return');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 	
 		}
@@ -648,10 +648,10 @@
 			
 			document.getElementById('text').innerHTML = "<h3>Are the return jets pointing straight out toward the middle of the pool (not up, down, or sideways)?</h3>";
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('point_jets');");
 	
 		}
@@ -673,10 +673,10 @@
 			
 			document.getElementById('text').innerHTML = "<h3>Point the jets directly toward the center of the pool, not up or down or to either side.<br><br>Does the pool begin to clear within 24 hours?</h3>";
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 	
 		}
@@ -696,10 +696,10 @@
 			hide_display('help_screen2');
 			
 			document.getElementById('text').innerHTML = "<h3>Have the DE filter broken down for cleaning and checked for broken laterals.<br><br>Run the filter for another 24 hours after these maintenance steps have been taken.<br><br>After 24 hours does the pool begin to clear up?</h3>";
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid_wash');");
 	
 		}
@@ -728,10 +728,10 @@
 			"<h3>After 24 hours, does the pool begin to clean up?</h3>"
 			
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('beach');");
 	
 		}
@@ -751,10 +751,10 @@
 			hide_display('help_screen2');
 			
 			document.getElementById('text').innerHTML = "<h3>Is there a main drain in the pool that is working?</h3>";
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('return_jets');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 	
 		}
@@ -772,10 +772,10 @@
 			hide_display('help_screen2');
 			
 			document.getElementById('text').innerHTML = "<h3>Are the return jets pointing straight out toward the middle of the pool(not up, down or sideways)?</h3>";
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('point_return_jets');");
 	
 		}
@@ -793,10 +793,10 @@
 			hide_display('help_screen2');
 			
 			document.getElementById('text').innerHTML = "<h3>Point the jets directly toward the center of the pool, not up or down or to either side.<br><br>Does the pool begin to clear within 24 hours?</h3>";
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 	
 		}
@@ -816,10 +816,10 @@
 			
 			document.getElementById('text').innerHTML = '<h3>Backwash the filter for 1 minute.<br><br>Rinse for 30 seconds.<br><br>Backwash again for 1 minute.<br><br>Rinse for 30 seconds.<br><br>Within 24 hours after backwashing, does the pool begin to clear up?</h3>';			
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid_wash');");
 	
 		}
@@ -838,10 +838,10 @@
 			hide_display('text2');
 			hide_display('help_screen2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('above_70');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('cold_water_2');");
 			
 			document.getElementById('text').innerHTML = '<h2>Is the water temperature above 70°F?</h2>';			
@@ -864,10 +864,10 @@
 			hide_display('text2');
 			hide_display('help_screen2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 		
-			document.getElementById(2).value=("No");
+			document.getElementById(2).innerHTML = ("No");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 			
 			document.getElementById('text').innerHTML = '<h3>Cloudy water can also be caused by a lot of swimmers.  If anticipating high swimming, make sure the oxidize mode is running during the swim time. <br><br>'+
@@ -912,19 +912,19 @@
 			
 			// Basically checking if its a sand or a DE filter
 			if ((filter_size == 300) || (filter_size == 600) || (filter_size == 900)) {
-				document.getElementById(1).value=('Under 6 lbs');
+				document.getElementById(1).innerHTML = ('Under 6 lbs');
 				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('under_6');");
 				
 				
-				document.getElementById(2).value=('6 lbs or more');
+				document.getElementById(2).innerHTML = ('6 lbs or more');
 				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('sand_pressure');");
 			}
 			else {
-				document.getElementById(1).value=('Under 10 lbs');
+				document.getElementById(1).innerHTML = ('Under 10 lbs');
 				document.getElementById(1).setAttribute( "onClick", "javascript: change_view('call_ECO');");
 				
 				
-				document.getElementById(2).value=('10 lbs or more');
+				document.getElementById(2).innerHTML = ('10 lbs or more');
 				document.getElementById(2).setAttribute( "onClick", "javascript: change_view('DE_pressure');");
 			
 			}
@@ -949,7 +949,7 @@
 			document.getElementById('text').innerHTML = '<h2>What size pump is being used?</h2>';			
 			
 	
-			document.getElementById(1).value=('1 hp');
+			document.getElementById(1).innerHTML = ('1 hp');
 				//Pool Size Smalls
 				if ((pool_size == 'small') && (filter_size == 300)){
 					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure');");
@@ -993,7 +993,7 @@
 					document.getElementById(1).setAttribute( "onClick", "javascript: pump_size = 1;change_view('pressure_medium_no_DE');");
 				}
 								
-			document.getElementById(2).value=("1 1/2 hp");
+			document.getElementById(2).innerHTML = ("1 1/2 hp");
 			//Pool Size Smalls
 				if ((pool_size == 'small') && (filter_size == 300)){
 					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_too_much');");
@@ -1039,7 +1039,7 @@
 					document.getElementById(2).setAttribute( "onClick", "javascript: pump_size = 1.5;change_view('pressure_medium_no_DE');");
 				}
 
-			document.getElementById(3).value=("2 hp");
+			document.getElementById(3).innerHTML = ("2 hp");
 				//Pool Size Smalls
 				if ((pool_size == 'small') && (filter_size == 300)){
 					document.getElementById(3).setAttribute( "onClick", "javascript: pump_size = 2;change_view('pressure_too_much');");
@@ -1102,7 +1102,7 @@
 			document.getElementById('text').innerHTML = '<h2>What size sand filter is being used?</h2>';			
 			
 
-			document.getElementById(1).value=('200 lbs or less');
+			document.getElementById(1).innerHTML = ('200 lbs or less');
 			if (pool_size == 'small') {
 				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=200;change_view('small_sand_small_filter');");
 			}
@@ -1114,7 +1114,7 @@
 			}
 			
 			
-			document.getElementById(2).value=("300 lbs");
+			document.getElementById(2).innerHTML = ("300 lbs");
 			if (pool_size == 'small') {
 				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=300;change_view('pump_size');");
 			}
@@ -1126,7 +1126,7 @@
 			}
 			
 			
-			document.getElementById(3).value=("600 lbs");
+			document.getElementById(3).innerHTML = ("600 lbs");
 			if (pool_size == 'small') {
 				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=600;change_view('pump_size');");
 			}
@@ -1138,7 +1138,7 @@
 			}
 			
 			
-			document.getElementById(4).value=("900 lbs");
+			document.getElementById(4).innerHTML = ("900 lbs");
 			if (pool_size == 'small') {
 				document.getElementById(4).setAttribute( "onClick", "javascript: filter_size=900;change_view('pump_size');");
 			}
@@ -1168,7 +1168,7 @@
 			document.getElementById('text').innerHTML = '<h2>What size DE filter is being used?</h2>';			
 			
 
-			document.getElementById(1).value=('42 sq.ft.');
+			document.getElementById(1).innerHTML = ('42 sq.ft.');
 			if (pool_size == 'small') {
 				document.getElementById(1).setAttribute( "onClick", "javascript: filter_size=42;change_view('pump_size');");
 			}
@@ -1180,7 +1180,7 @@
 			}
 			
 			
-			document.getElementById(2).value=("60 sq.ft.");
+			document.getElementById(2).innerHTML = ("60 sq.ft.");
 			if (pool_size == 'small') {
 				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=60;change_view('pump_size');");
 			}
@@ -1191,7 +1191,7 @@
 				document.getElementById(2).setAttribute( "onClick", "javascript: filter_size=60;change_view('large_DE_small_filter');");
 			}
 		
-			document.getElementById(3).value=("72 sq.ft.");
+			document.getElementById(3).innerHTML = ("72 sq.ft.");
 			if (pool_size == 'small') {
 				document.getElementById(3).setAttribute( "onClick", "javascript: filter_size=72;change_view('pump_size');");
 			}
@@ -1220,27 +1220,27 @@
 			
 			document.getElementById('text').innerHTML = '<h2>Choose the best description of the water.</h2>';
 			
-			document.getElementById(1).value=('Cloudy');
+			document.getElementById(1).innerHTML = ('Cloudy');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('cloudy_yes');");
 		
-			document.getElementById(2).value=("Green");
+			document.getElementById(2).innerHTML = ("Green");
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green');");
 		
-			document.getElementById(3).value=("Bad Odor");
+			document.getElementById(3).innerHTML = ("Bad Odor");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('bad_odor');");
 		
-			document.getElementById(4).value=("Insects in the Water");
+			document.getElementById(4).innerHTML = ("Insects in the Water");
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('insects');");
 			
 			document.getElementById('text2').innerHTML = '<h2>Or, the water causes...</h2>';
 			
-			document.getElementById(5).value=("Stains on Pool Surface");
+			document.getElementById(5).innerHTML = ("Stains on Pool Surface");
 			document.getElementById(5).setAttribute( "onClick", "javascript:change_view('stains_on_pool');");
 			
-			document.getElementById(6).value=("Burning Eyes");
+			document.getElementById(6).innerHTML = ("Burning Eyes");
 			document.getElementById(6).setAttribute( "onClick", "javascript:change_view('burning_eyes');");
 			
-			document.getElementById(7).value=("Green Hair");
+			document.getElementById(7).innerHTML = ("Green Hair");
 			document.getElementById(7).setAttribute( "onClick", "javascript:change_view('green_hair');");
 		}
 
@@ -1283,16 +1283,16 @@
 			'<br><br><center></strong>Choose which product causes a change (or no change).</h3>';
 			
 				
-			document.getElementById(1).value=("Chlorine");
+			document.getElementById(1).innerHTML = ("Chlorine");
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('chlorine_call_ECO');");
 			
-			document.getElementById(2).value=('Liquid Acid');
+			document.getElementById(2).innerHTML = ('Liquid Acid');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('acid');");
 		
-			document.getElementById(3).value=("Non-Chlorine Shock");
+			document.getElementById(3).innerHTML = ("Non-Chlorine Shock");
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('non_chlorine');");
 	
-			document.getElementById(4).value=("No Change");
+			document.getElementById(4).innerHTML = ("No Change");
 			document.getElementById(4).setAttribute( "onClick", "javascript: change_view('no_change');");
 
 
@@ -1311,10 +1311,10 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_present');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('is_algae_present');");
 			
 			document.getElementById('text').innerHTML="<h3>If water appears cloudy, or like milk, the cause is most likely algae, water temperature below 70°F, or filtration issues, such as DE powder in the pool.<br><br>"+
@@ -1337,10 +1337,10 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('green_yes');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('green_no');");
 			
 			document.getElementById('text').innerHTML="<h2>Is the water lime green but crystal clear?</h2>";
@@ -1382,10 +1382,10 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_present');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('is_algae_present');");
 			
 			document.getElementById('text').innerHTML="<h3>Pool water can turn green due to algae caused by the sun, warm temperatures, nitrates, or lack of proper filtration, circulation, or sanitization.<br><br>"+
@@ -1407,10 +1407,10 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('algae_present');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
 			
 			document.getElementById('text').innerHTML="<h3><strong>If Algae is present, remove algae first before removing phosphates. Removing algae adds more phosphate into the water.<br><br>"+
@@ -1437,10 +1437,10 @@
 			hide_display(7);
 			hide_display('text2');
 		
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('algae_present');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
 			
 			document.getElementById('text').innerHTML = '<h2>Is algae present?</h2>';
@@ -1460,10 +1460,10 @@
 			hide_display(7);
 			hide_display('text2');
 		
-			document.getElementById(1).value=('Yes');
+			document.getElementById(1).innerHTML = ('Yes');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('continue_clear');");
 			
-			document.getElementById(2).value=('No');
+			document.getElementById(2).innerHTML = ('No');
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('size_pool');");
 			
 			document.getElementById('text').innerHTML = '<h2>Whenever you have algae, start by running the pool 24hrs a day till the pool clears up.<br><br>'+
@@ -1490,7 +1490,7 @@
 			hide_display(7);
 			hide_display('text2');
 		
-			document.getElementById(1).value=('Temperature is above 70°F');
+			document.getElementById(1).innerHTML = ('Temperature is above 70°F');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('water_description');");
 			
 			document.getElementById('text').innerHTML = '<h2>Cold water can be cloudy until reaching 70 degrees. </h2>';
@@ -1509,7 +1509,7 @@
 			hide_display(7);
 			hide_display('text2');
 		
-			document.getElementById(1).value=('Temperature is above 70°F');
+			document.getElementById(1).innerHTML = ('Temperature is above 70°F');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('above_70');");
 			
 			document.getElementById('text').innerHTML = '<h2>Cold water can be cloudy until reaching 70 degrees. </h2>';
@@ -1565,7 +1565,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter of this size.  A 1.5hp pump is normally required for a 600lb filter.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 			
 		}	
@@ -1584,7 +1584,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for this size filter.  A 1.5hp pump is normally required for a 60 sq ft filter.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 			
 		}
@@ -1603,7 +1603,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is too powerful for this size filter.  A 1hp pump is needed.  If the flow of water is too fast, the particles get pushed through the filter, rather than getting caught.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 			
 		}	
@@ -1623,7 +1623,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is too powerful for this size filter.  A 1.5hp pump is needed.  If the flow of water is too fast, the particles get pushed through the filter, rather than getting caught.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 		}	
 		else if(input == 'pressure_medium_no') {
@@ -1641,7 +1641,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter this size.  A 2hp pump is normally required for a 900 lb filter.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 			
 		}
@@ -1660,7 +1660,7 @@
 			document.getElementById('text').innerHTML = '<h3>The pump is not powerful enough for a filter this size.  A 2hp pump is normally required for a 72 sq ft filter.<br><br>'+
 			'However, if you are certain that the pump is not the problem, press Continue.</h3>';
 			
-			document.getElementById(1).value=('Continue');
+			document.getElementById(1).innerHTML = ('Continue');
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('pressure');");
 			
 		}
@@ -1755,7 +1755,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="How To Test ph";
+			document.getElementById(1).innerHTML = "How To Test ph";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('how_ph');");
 			
 			document.getElementById('text').innerHTML = '<h2>If the stain reacted to the liquid acid by going away, the stain is a metal.<br><br>To Remove the Stain:</h2><ol align="left">'+
@@ -1780,7 +1780,7 @@
 			hide_display('text2');
 			show_display('previous');
 			
-			document.getElementById(1).value="Alkalinity is fine";
+			document.getElementById(1).innerHTML = "Alkalinity is fine";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML='<h2>When the pH is very low and the water is a bright lime green, but crystal clear, the alkalinity is low.'+
@@ -1806,7 +1806,7 @@
 			hide_display('text2');
 			show_display('previous');
 			
-			document.getElementById(1).value="Calcium level is correct";
+			document.getElementById(1).innerHTML = "Calcium level is correct";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('phosphate_reading');");
 			
 			document.getElementById('text').innerHTML='<h3>If the calcium test indicates that the calcium is below 400ppm, add calcium chloride flakes to raise the hardness and to balance the pool.<br><br>'+
@@ -1830,7 +1830,7 @@
 			hide_display(7);
 			
 			hide_display('text2');
-			document.getElementById(1).value="There is no algae";
+			document.getElementById(1).innerHTML = "There is no algae";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML='<h2>To eliminate algae:</h2><ol align="left">'+
@@ -1850,7 +1850,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="There are no stains";
+			document.getElementById(1).innerHTML = "There are no stains";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('super_high_copper');");
 			
 			
@@ -1879,7 +1879,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="Phosphate level is correct";
+			document.getElementById(1).innerHTML = "Phosphate level is correct";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_phosphate');");
 			
 			document.getElementById('text').innerHTML='<h3>Phosphates are a fertilizer for algae, so phosphates in the pool will cause recurrent algae blooms.  Phosphates are in the water supplies now because of farm runoff, and phosphates are also in rain. Whenever water is added to the pool, phosphates are also being added.</h3>'+
@@ -1900,7 +1900,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value="Copper is at correct level";
+			document.getElementById(1).innerHTML = "Copper is at correct level";
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 
 			document.getElementById('text').innerHTML='<h2>High copper levels can be caused by some simple but common mistakes:</h2>'+
@@ -1927,7 +1927,7 @@
 			hide_display(7);
 			hide_display('text2');
 			
-			document.getElementById(1).value='pH is at correct level';
+			document.getElementById(1).innerHTML = 'pH is at correct level';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
 			
 			document.getElementById('text').innerHTML = '<h3>To Lower the pH Level:</h3><br><ol align="left">'+
@@ -1957,13 +1957,13 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Less than 6.8';
+			document.getElementById(1).innerHTML = 'Less than 6.8';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('lower_ph');");
 		
-			document.getElementById(2).value="6.8 - 7.2";
+			document.getElementById(2).innerHTML = "6.8 - 7.2";
 			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('medium_ph');");
 			
-			document.getElementById(3).value='Greater than 7.2';
+			document.getElementById(3).innerHTML = 'Greater than 7.2';
 			document.getElementById(3).setAttribute( "onClick", "javascript: show_display('previous');change_view('higher_ph');");
 			
 			document.getElementById('text').innerHTML = '<h2>To test the pH:</h2><ol align="left"><li>Make sure the plastic sample tube is clean and dry.</li>'+
@@ -1990,10 +1990,10 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='0-200ppb';
+			document.getElementById(1).innerHTML = '0-200ppb';
 			document.getElementById(1).setAttribute( "onClick", "javascript: show_display('previous');change_view('low_phosphate');");
 		
-			document.getElementById(2).value="Over 200ppb";
+			document.getElementById(2).innerHTML = "Over 200ppb";
 			document.getElementById(2).setAttribute( "onClick", "javascript: show_display('previous');change_view('high_phosphate');")
 			
 			document.getElementById('text').innerHTML = '<h2>To test the phosphate levels:</h2><ol align="left">'+
@@ -2020,13 +2020,13 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Below .4ppm';
+			document.getElementById(1).innerHTML = 'Below .4ppm';
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('calcium_reading');");
 		
-			document.getElementById(2).value=".4ppm - .7ppm";
+			document.getElementById(2).innerHTML = ".4ppm - .7ppm";
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('calcium_reading');")
 			
-			document.getElementById(3).value='Above .7ppm';
+			document.getElementById(3).innerHTML = 'Above .7ppm';
 			document.getElementById(3).setAttribute( "onClick", "javascript: change_view('high_copper');");
 			
 			document.getElementById('text').innerHTML='<h2>To Test Copper Levels:<br><br><a class="tutorial_link" onclick="change_view(\'how_ph\')">Test the pH</a> first.  Adjust the pH 6.8-7.2, if needed, before testing the copper level.</h2>'+
@@ -2055,10 +2055,10 @@
 			
 			hide_display('text2');
 			
-			document.getElementById(1).value='Below 400ppm';
+			document.getElementById(1).innerHTML = 'Below 400ppm';
 			document.getElementById(1).setAttribute( "onClick", "javascript: change_view('low_calcium');");
 		
-			document.getElementById(2).value="400ppm or Higher";
+			document.getElementById(2).innerHTML = "400ppm or Higher";
 			document.getElementById(2).setAttribute( "onClick", "javascript: change_view('phosphate_reading');")
 			
 			document.getElementById('text').innerHTML='<h2>To Test Calcium Level:</h2><ol align="left">'+
@@ -2249,30 +2249,28 @@
 	}
 </script>
 
-<center>
-	<div id="text"></div>
-	
-	<div id="help_screen">
-	
-		<input id = '1' class="myButton" type="button" value="option1" style="display:none">
-		<input id = '2' class="myButton" type="button" value="option2" style="display:none">
-		<input id = '3' class="myButton" type="button" value="option3" style="display:none">
-		<input id = '4' class="myButton" type="button" value="option4" style="display:none">
-		<input id = '5' class="myButton" type="button" value="option5" style="display:none">
+<div class="row">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div id="text"></div>
 		
-	
-	</div>
-	<div id="text2"></div>
-	<div id="help_screen2">
-	
+		<div id="help_screen">
+			<button id="1" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="2" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="3" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="4" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="5" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+		</div>
 		
-		<input id = '6' class="myButton" type="button" value="option6" style="display:none">
-		<input id = '7' class="myButton" type="button" value="option7" style="display:none">
+		<div id="text2"></div>
 		
+		<div id="help_screen2">
+			<button id="6" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+			<button id="7" class="btn btn-tutorial" type="button" name="button" style="display:none"></button>
+		</div>
+		
+		<div id="prev">
+			<button id="previous" class="btn btn-tutorial" type="button" name="button" onclick="prev_function()" style="display:none">Previous</button>
+			<button id="previous" class="btn btn-tutorial" type="button" name="button" onclick="start_over()">Start Over</button>
+		</div>
 	</div>
-	
-	<div id="prev">
-		<input id="previous" class="myButton"type="button" value="Previous" onclick="prev_function()" style="display:none">
-		<input id="previous" class="myButton"type="button" value="Start Over" onclick="start_over()">
-	</div>
-</center>
+</div>
