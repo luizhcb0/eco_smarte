@@ -5,10 +5,6 @@ class StaticController < ApplicationController
     @describe_text = Text.find_by(id: 1)
   end
   
-  def faq
-
-  end
-  
   def pool_spa_help
 
   end
@@ -17,17 +13,12 @@ class StaticController < ApplicationController
     @tutorial = params[:tutorial]
   end
   
-  def pool_tutorial
-    
-  end
-  def spa_tutorial
-    
-  end
-  def commercial_tutorial
-    
+  def basics_partials
+    render partial: "basics_partials"
   end
   
-  def contact 
+  def quiz
   
   end
+  
 end

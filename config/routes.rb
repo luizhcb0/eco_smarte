@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get 'pool_tutorial', to: 'static#pool_tutorial', as: 'pool_tutorial'
   get 'spa_tutorial', to: 'static#spa_tutorial', as: 'spa_tutorial'
   get 'commercial_tutorial', to: 'static#commercial_tutorial', as: 'commercial_tutorial'
+  get 'ecosmarte_basics', to: 'static#ecosmarte_basics', as: 'ecosmarte_basics'
+  get 'basics_partials', to: 'static#basics_partials', as: 'basics_partials'
+  get 'ecosmarte_university', to: 'static#ecosmarte_university', as: 'ecosmarte_university'
+  get 'quiz/:quiz_number', to: 'static#quiz', as: 'quiz'
   
   
   
