@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1>Pool and Spa Systems Test</h1>
+    	<h2>Basics Questionnaire</h2><br />
+    	(To be completed after ECOsmarte for Dummies) <br /><br />
+    	<b>Customer service, professional sales, and service</b><br />
+    	<b><u>Passing Grade = 9</u></b>	
+    <br><br>
+    
+    <%= form_tag "/quiz_answer" do %>
+    
+      <% @quiz.each do |number, content| %>
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align:left;"><h4><%= content[:question] %></h4></div>
+            <div class="panel-body">
+              <% content[:answers].each do |letter, value| %>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <%= radio_button_tag number, letter, false, class: "form-check-input" %>
+                  <%= value %>
+                </label>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= hidden_field_tag :quiz, @quiz %>
+      
+      <%= submit_tag "Submit", class: "btn btn-tutorial" %>
+    <% end %>
+    
+    
+  </div>
+</div>

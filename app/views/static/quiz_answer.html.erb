@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1>Pool and Spa Systems Test</h1>
+    	<h2>Basics Questionnaire</h2><br />
+    	(To be completed after ECOsmarte for Dummies) <br /><br />
+    	<b>Customer service, professional sales, and service</b><br />
+    	<b><u>Passing Grade = 9</u></b>	
+    <br><br>
+    
+    <% @quiz.each do |number, content| %>
+      <div class="row">
+        <div class="panel panel-info">
+          <div class="panel-heading" style="text-align:left;"><h4><%= content[:question] %></h4></div>
+          <div class="panel-body">
+            
+          <% if content[:answered].nil? %>
+            <div class="">
+              <p>You did not answer this question</p>
+            </div>
+          <% elsif content[:answered] == content[:correct] %>
+            <% @points = @points + 1 %>
+            <div class="correct">
+              <p>You are right! The correct answer is:<br> <%= content[:answers][content[:correct]] %></p>
+            </div>
+            <br>
+            You earned 1 point
+          <% else %>
+            <div class="wrong">
+              <p>You answer was: <%= content[:answers][content[:answered]] %><br>
+                But the correct one is: <%= content[:answers][content[:correct]] %></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <% if @points >= 9 %>
+      You got <%= @points %> point(s)<br>
+      Congratulations! You have passed our Pool and Spa Systems Test
+    <% else %>
+      Sorry, you did not pass in our Pool and Spa Systems Test.<br>
+      Please follow the lessons again to take the test.
+    <% end %>
+  </div>
+</div>
