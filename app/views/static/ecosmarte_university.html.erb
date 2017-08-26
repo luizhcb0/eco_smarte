@@ -1,196 +1,36 @@
-<script type="text/javascript">
-  $next = '';
-  $array_for_prev = [];
-	//function that switchs the style.display to inline
-	function showDisplay($id) {
-		$($id).css( 'display', 'inline' );
-	}
-	//function that switches style.dsiplay to none
-	function hideDisplay($id) {
-		$($id).css( 'display', 'none' );
-	}
-  
-  function goPrev() {
-		$temp = $array_for_prev.pop();
-		$temp2 = $array_for_prev.pop();
-		changeView($temp2);
-	}
-  
-  function renderPartial($page_id) {
-    $.ajax({
-      type: "GET",
-      url: "/basics_partials",
-      dataType: "html",
-      success: function($response){
-        $a = $($response).filter($page_id);
-        $('#text').html($a);
-      }
-    });
-  }
-  
-  $(document).ready( function() {
-    changeView('#index');
-    
-    $('#home').click(function() {
-      changeView('#index');
-    });
-    
-    $('#previous').click(function() {
-      goPrev();
-    });
-    
-    $('#next').click(function() {
-      changeView($next);
-    });
-  });
-  
-  function changeView($input) {
-    
-    $array_for_prev.push($input);
-    
-    switch ($input) {
-      case '#index':
-        hideDisplay('#previous');
-        hideDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#index');
-        $next = '#chemical_levels_1';
-        break;
-      case '#chemical_levels_1':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_levels_1');
-        $next = '#chemical_levels_2';
-        break;
-      case '#chemical_levels_2':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_levels_2');
-        $next = '#chemical_levels_3';
-        break;
-      case '#chemical_levels_3':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_levels_3');
-        $next = '#chemical_copper_1';
-        break;
-      case '#chemical_copper_1':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_copper_1');
-        $next = '#chemical_copper_2';
-        break;
-      case '#chemical_copper_2':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_copper_2');
-        $next = '#chemical_calcium_1';
-        break;
-      case '#chemical_calcium_1':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_calcium_1');
-        $next = '#chemical_calcium_2';
-        break;
-      case '#chemical_calcium_2':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_calcium_2');
-        $next = '#chemical_phosphates_1';
-        break;
-      case '#chemical_phosphates_1':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_phosphates_1');
-        $next = '#chemical_phosphates_2';
-        break;
-      case '#chemical_phosphates_2':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#chemical_phosphates_2');
-        $next = '#back_wash_1';
-        break;
-      case '#back_wash_1':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#back_wash_1');
-        $next = '#back_wash_2';
-        break;
-      case '#back_wash_2':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#back_wash_2');
-        $next = '#setting_controller';
-        break;
-      case '#setting_controller':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#next');
-        renderPartial('#setting_controller');
-        $next = '#chemicals_added';
-        break;
-      case '#chemicals_added':
-        showDisplay('#previous');
-        showDisplay('#home');
-        showDisplay('#test');
-        hideDisplay('#next');
-        renderPartial('#chemicals_added');
-        $next = '#setting_controller';
-        break;
-          
-      default:
-        
-    }
-  }
-
-</script>
-
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
-		
+  <div class="col-sm-10 col-sm-offset-1">
+    <strong><h2>Welcome to ECOsmarte University</h2></strong>
+    <p>Select one of the following lessons or tests to proceed</p>
     <div class="row">
-      <div class="col-sm-12">
-          <div id="text"></div>
+      <div class="col-sm-6">
+        <div class="basics">
+          <strong><h3>ECOsmarte Basics</h3></strong>
+          <div class="navigation">
+            <%= link_to ecosmarte_basics_path, class: "university_link" do %>
+              <button class="btn btn-tutorial" type="button" name="button">Take the Lessons</button>
+            <% end %>
+            <%= link_to quiz_path(quiz_number: 1), class: "university_link" do %>
+              <button class="btn btn-tutorial" type="button" name="button">Take the Test</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-6">
+        <div class="advanced">
+          <strong><h3>ECOsmarte Advanced</h3></strong>
+          <div class="navigation">
+            <%= link_to ecosmarte_basics_path, class: "university_link" do %>
+              <button class="btn btn-tutorial" type="button" name="button">Take the Lesson</button>
+            <% end %>
+            <%= link_to quiz_path(quiz_number: 2), class: "university_link" do %>
+              <button class="btn btn-tutorial" type="button" name="button">Take the Test</button>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-		
-		<div class="row">
-		  <div class="col-sm-4 col-sm-offset-4">
-        <div class="navigation">
-          <div class="nav_button" id="previous" style="display:none">
-            <i class="fa fa-long-arrow-left"></i>
-          </div>
-          
-          <div class="nav_button" id="home" style="display:none">
-            <i class="fa fa-home"></i>
-          </div>
-          
-          <div class="nav_button" id="next" style="display:none">
-            <i class="fa fa-long-arrow-right"></i>
-          </div>
-          
-    		</div>
-		  </div>
-		</div>
-    
-    <div class="row">
-		  <div class="col-sm-4 col-sm-offset-4">
-        <div class="navigation">
-          <%= button_to "Take the Test", quiz_path(quiz_number: 1), id: "test", class: "btn btn-tutorial" %>
-        </div>
-		  </div>
-		</div>  
-    
-	</div>
+  </div>
+  
 </div>

@@ -111,7 +111,7 @@
   overflow: hidden;
   box-shadow: 1px 1px 1px #aaa;
   height: 240px;
-  background-color: #007ecf;
+  background-color: #0099df;
 }
 
 .dashboard_container::after {
@@ -135,6 +135,11 @@
 .dashboard_link {
   color: #fff;
   text-decoration: none !important;
+  line-height: 240px;
+  font-size: 24px;
+}
+.dashboard_link:hover {
+  color: #fff;
 }
 
 // ******************** Basics **************
@@ -198,4 +203,18 @@
 
 .wrong {
   color: #dd2233;
+}
+
+// ************************************************
+
+@media (min-width: 768px) {
+  .basics {
+    padding-right:20px; 
+    border-right: 1px solid #ccc;
+  }
+}
+
+.university_link {
+  margin: auto;
+  margin-top: 90px;
 }

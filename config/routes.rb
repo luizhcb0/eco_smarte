@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'commercial_tutorial', to: 'static#commercial_tutorial', as: 'commercial_tutorial'
   get 'basics_partials', to: 'static#basics_partials', as: 'basics_partials'
   get 'ecosmarte_university', to: 'static#ecosmarte_university', as: 'ecosmarte_university'
+  get 'ecosmarte_basics', to: 'static#ecosmarte_basics', as: 'ecosmarte_basics'
   get 'quiz/:quiz_number', to: 'static#quiz', as: 'quiz'
   post 'quiz_answer', to: 'static#quiz_answer', as: 'quiz_answer'
   
