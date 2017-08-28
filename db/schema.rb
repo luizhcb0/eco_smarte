@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825015805) do
+ActiveRecord::Schema.define(version: 20170827233738) do
 
   create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
@@ -33,8 +33,25 @@ ActiveRecord::Schema.define(version: 20170825015805) do
   end
 
   create_table "pools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",                   null: false
+    t.string   "name",                      null: false
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "state"
+    t.string   "model"
+    t.integer  "volume"
+    t.string   "volume_unit"
+    t.string   "pump_size"
+    t.string   "filter_size"
+    t.string   "filter_type"
+    t.string   "vacuum_brand"
+    t.boolean  "negative_edge"
+    t.boolean  "attached_spa"
+    t.string   "additional_water_features"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
   create_table "texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,10 +63,10 @@ ActiveRecord::Schema.define(version: 20170825015805) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
-    t.string   "username"
-    t.string   "phone",                               null: false
-    t.string   "address",                             null: false
-    t.string   "city",                                null: false
+    t.string   "phone"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "postal_code"
     t.integer  "user_type",                           null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -67,4 +84,21 @@ ActiveRecord::Schema.define(version: 20170825015805) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "waters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pool_id",                     null: false
+    t.float    "temperature",      limit: 24
+    t.string   "temperature_unit"
+    t.float    "ph",               limit: 24
+    t.float    "cuppm",            limit: 24
+    t.float    "calcium",          limit: 24
+    t.float    "phosphate",        limit: 24
+    t.float    "chlorine",         limit: 24
+    t.float    "oxygen",           limit: 24
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["pool_id"], name: "index_waters_on_pool_id", using: :btree
+  end
+
+  add_foreign_key "pools", "users", on_delete: :cascade
+  add_foreign_key "waters", "pools", on_delete: :cascade
 end

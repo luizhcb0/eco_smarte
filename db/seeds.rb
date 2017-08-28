@@ -13,4 +13,4 @@ Text.create(
   description: "description"
 )
 
-User.create(user_type: "admin", name: "Luiz", email: "luizhcb0@gmail.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111")
+User.create(user_type: "admin", name: "Luiz", email: "luizhcb0@gmail.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111", postal_code: "111111")

@@ -3,8 +3,12 @@
 # change when some model be modified
 
 module StrongParamsHolder
+  def user_params
+    params.require(:user).permit(:name, :email, :phone, :city, :address, :postal_code, :user_type, :password, :password_confirmation)
+  end
+  
   def sign_up_params
-    params.require(:user).permit(:name, :city, :address, :phone, :email, :user_type, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :user_type, :password, :password_confirmation)
   end
   
   def contact_params

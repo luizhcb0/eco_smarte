@@ -106,12 +106,14 @@
 // ************************
 
 .dashboard_container {
-  border:1px solid #999 !important;
+  //border:1px solid #999 !important;
+  border:2px solid #35a0c5 !important;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 1px 1px 1px #aaa;
   height: 240px;
-  background-color: #0099df;
+  //background-color: #0099df;
+  background-color: #55b0d5;
 }
 
 .dashboard_container::after {

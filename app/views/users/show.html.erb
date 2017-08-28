@@ -1,0 +1,38 @@
+<section class="container-fluid">
+  <h1><%= @user.name %></h1>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>User Type</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Postal Code</th>
+            </tr>
+            <tr>
+              <td><%= @user.name %></td>
+              <td><%= @user.email %></td>
+              <td><%= @user.user_type %></td>
+              <td><%= @user.phone %></td>
+              <td><%= @user.address %></td>
+              <td><%= @user.city %></td>
+              <td><%= @user.postal_code %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, edit_user_path(@user.id) %>
+
+
+</section>
