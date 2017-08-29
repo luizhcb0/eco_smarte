@@ -7,6 +7,10 @@ module StrongParamsHolder
     params.require(:user).permit(:name, :email, :phone, :city, :address, :postal_code, :user_type, :password, :password_confirmation)
   end
   
+  def water_params
+    params.require(:water).permit(:pool_id, :measurement_date, :temperature, :temperature_unit, :ph, :cuppm, :calcium, :phosphate, :chlorine, :oxygen)
+  end
+  
   def pool_params
     params.require(:pool).permit(:user_id, :pool_model_id, :name, :city, :address, :postal_code, :state, :volume, :volume_unit,
     :pump_size, :filter_type, :filter_size, :vacuum_brand, :negative_edge, :attached_spa, :additional_water_features)

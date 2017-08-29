@@ -16,7 +16,11 @@ class PoolsController < ApplicationController
   def create
     @pool = Pool.new(pool_params)
     if @pool.save
-      redirect_to pools_path
+      if current_user.user_type == "admin"
+        redirect_to pools_path
+      else 
+        redirect_to user_pools_path
+      end
     else
       render :new
     end
@@ -38,6 +42,15 @@ class PoolsController < ApplicationController
   def destroy
     @pool = Pool.find(params[:id])
     @pool.destroy
-    redirect_to pools_path
+    if current_user.user_type == "admin"
+      redirect_to pools_path
+    else 
+      redirect_to user_pools_path
+    end
+  end
+  
+  def user_pools
+    @pools = Pool.get_user_pools(current_user.id)
+    render :index
   end
 end

@@ -29,6 +29,7 @@
             <div class="navbar-collapse collapse">
               <% if current_user %>
                 <ul class="nav navbar-nav">
+                  <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
                   <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to 'Documents', documents_path %></li>
                   <li class="<%= 'active' if current_page?(startup_faq_path) %>"><%= link_to 'Start up/FAQ', startup_faq_path %></li>
                   <li class="<%= 'active' if (current_page?(pool_spa_help_path) || current_page?(pool_tutorial_path)  || current_page?(spa_tutorial_path)  || current_page?(commercial_tutorial_path)) %>">
@@ -43,6 +44,11 @@
                       Hello, <%= current_user.name %> <span class="caret"></span>
                       <% end %>
                 		<ul class="dropdown-menu">
+                      <% if current_user.user_type == "admin" %>
+                        <li><%= link_to "My Profile", user_path(current_user.id) %></li>
+                      <% else %>
+                        <li><%= link_to "My Profile", user_profile_path %></li>
+                      <% end %>
                   		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
                   		<!--  It does not exist on non admins -->
                 		</ul>
@@ -50,6 +56,7 @@
                 </ul>
               <% else %>
                 <ul class="nav navbar-nav">
+                  <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
                   <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to 'Documents', documents_path %></li>
                   <li class="<%= 'active' if current_page?(startup_faq_path)  %>"><%= link_to 'Start up/FAQ', startup_faq_path %></li>
                   <li class="<%= 'active' if (current_page?(pool_spa_help_path) || current_page?(pool_tutorial_path)  || current_page?(spa_tutorial_path)  || current_page?(commercial_tutorial_path)) %>">

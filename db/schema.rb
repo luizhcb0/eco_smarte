@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170828433738) do
 
   create_table "pools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                              null: false
-    t.integer  "pool_model_id",                        null: false
+    t.integer  "pool_model_id"
     t.string   "name",                                 null: false
     t.string   "address"
     t.string   "city"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170828433738) do
 
   create_table "waters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "pool_id",                     null: false
+    t.date     "measurement_date",            null: false
     t.float    "temperature",      limit: 24
     t.integer  "temperature_unit"
     t.float    "ph",               limit: 24

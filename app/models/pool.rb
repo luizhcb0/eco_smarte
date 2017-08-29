@@ -11,4 +11,8 @@ class Pool < ApplicationRecord
   mississippi missouri montana nebraska nevada new_hampshire new_jersey new_mexico new_york north_carolina
   north_dakota ohio oklahoma oregon pennsylvania rhode_island south_carolina south_dakota tennessee texas utah
   vermont virginia washington west_virginia wisconsin wyoming)
+  
+  def self.get_user_pools(user_id)
+    Pool.where(user_id: user_id)
+  end
 end

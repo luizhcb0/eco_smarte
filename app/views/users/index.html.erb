@@ -1,45 +1,37 @@
 <h1>Users</h1>
 
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="table-responsive">
-        <table class="table">
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>User type</th>
+          <th>Actions</th>
+        </tr>
+        <% @users.each do |user| %>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>User type</th>
-            <th>Actions</th>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= role(user.user_type) %></td>
+
+            <td>
+              <%= link_to user_path(user), class:"btn btn-success btn-circle" do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+              <%= link_to edit_user_path(user), class:"btn btn-primary btn-circle" do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+              <%= link_to user_path(user), class:"btn btn-danger btn-circle", method:"delete" do %>
+               <i class="fa fa-trash-o"></i>
+             <% end %>
+            </td>
+
           </tr>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.name %></td>
-              <td><%= user.email %></td>
-              <td><%= user.user_type %></td>
-
-              <td>
-                <%= link_to user_path(user), class:"btn btn-success btn-circle" do %>
-                  <i class="fa fa-eye"></i>
-                <% end %>
-                <%= link_to edit_user_path(user), class:"btn btn-primary btn-circle" do %>
-                  <i class="fa fa-pencil"></i>
-                <% end %>
-                <%= link_to user_path(user), class:"btn btn-danger btn-circle", method:"delete" do %>
-                 <i class="fa fa-trash-o"></i>
-               <% end %>
-              </td>
-
-            </tr>
-          <% end %>
-        </table>
-      </div>
+        <% end %>
+      </table>
     </div>
   </div>
-
-
-<div class="">
-  <%= link_to new_user_path do %>
-    <button class="btn btn-tutorial" name="button">Add User</button>
-  <% end %>
 </div>
-
 

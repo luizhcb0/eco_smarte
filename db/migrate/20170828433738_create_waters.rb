@@ -2,6 +2,7 @@ class CreateWaters < ActiveRecord::Migration[5.0]
   def change
     create_table :waters do |t|
       t.belongs_to :pool, null: false, index: true
+      t.date :measurement_date, null: false
       t.float :temperature, null: true
       t.integer :temperature_unit, null: true
       t.float :ph, null: true

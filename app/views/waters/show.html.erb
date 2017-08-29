@@ -1,0 +1,41 @@
+<section class="container-fluid">
+  <h1><%= @water.pool.name %> Measurements on <%= @water.measurement_date %></h1>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Pool Name</th>
+              <th>Costumer Name</th>
+              <th>Temperature</th>
+              <th>pH</th>
+              <th>Cu (ppm)</th>
+              <th>Calcium</th>
+              <th>Phosphate</th>
+              <th>Chlorine</th>
+              <th>Oxygen</th>
+            </tr>
+            <tr>
+              <td><%= @water.pool.name %></td>
+              <td><%= @water.pool.user.name %></td>
+              <td><%= "#{@water.temperature}  #{@water.temperature_unit.humanize}" %></td>
+              <td><%= @water.ph %></td>
+              <td><%= @water.cuppm %></td>
+              <td><%= @water.calcium %></td>
+              <td><%= @water.phosphate %></td>
+              <td><%= @water.chlorine %></td>
+              <td><%= @water.oxygen %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+  <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, edit_water_path(@water.id) %>
+
+
+</section>

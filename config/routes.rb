@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   
   resources :contacts, only: [:index, :create]
-  resources :users
+  resources :users, only: [:index, :edit, :update, :destroy, :show]
   resources :pools
   resources :waters
 
@@ -23,6 +23,16 @@ Rails.application.routes.draw do
   get 'ecosmarte_basics', to: 'static#ecosmarte_basics', as: 'ecosmarte_basics'
   get 'quiz/:quiz_number', to: 'static#quiz', as: 'quiz'
   post 'quiz_answer', to: 'static#quiz_answer', as: 'quiz_answer'
+  
+  get 'password_edit/:id', to: 'users#password_edit', as: 'password_edit'
+  patch 'password_update/:id', to: 'users#password_update', as: 'password_update'
+  
+  get 'user_profile', to: 'users#user_profile', as: 'user_profile'
+  get 'user_profile_edit', to: 'users#user_profile_edit', as: 'user_profile_edit'
+  patch 'user_profile_update', to: 'users#user_profile_update', as: 'user_profile_update'
+  get 'user_password_edit', to: 'users#user_password_edit', as: 'user_password_edit'
+  patch 'user_password_update', to: 'users#user_password_update', as: 'user_password_update'
+  get 'user_pools', to: 'pools#user_pools', as: 'user_pools'
   
   
   

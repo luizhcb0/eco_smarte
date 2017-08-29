@@ -1,3 +1,7 @@
 <div class="container-fluid">
-  <%= render "form" %>
+  <% if current_user.user_type == "admin" %>
+    <%= render "form" %>
+  <% else %>
+    <%= render "form_profile" %>
+  <% end %>
 </div>

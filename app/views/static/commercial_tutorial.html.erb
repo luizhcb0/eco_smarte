@@ -1,18 +1,12 @@
 <script type="text/javascript">
 
-  $(document).ready(function() {
-    change_view('ph');
-  });
-
   //function that switchs the style.display to inline
   function show_display(id) {
     document.getElementById(id).style.display = 'inline';
-
   }
   //function that switches style.dsiplay to none
   function hide_display(id) {
     document.getElementById(id).style.display = 'none';
-
   }
 
   //removes onclick functions.
@@ -33,7 +27,6 @@
   
 
   function change_view(input) {
-
 
 		array_for_prev.push(input);
 		if (input == 'ph') {
@@ -2247,6 +2240,10 @@
 	function start_over() {
 		change_view('ph');
 	}
+  
+  $(document).ready(function() {
+    change_view('ph');
+  });
 </script>
 
 <div class="row">
