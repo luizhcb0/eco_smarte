@@ -41,11 +41,24 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
     <% if @points >= 9 %>
-      You got <%= @points %> point(s)<br>
-      Congratulations! You have passed our Pool and Spa Systems Test
+      You got <%= @points %> point(s)<br><br>
+      <p>Congratulations! You have passed our Pool and Spa Systems Test.<br>
+      You can now download the certificate and print for your reference.</p>
+      <div class="">
+        <%= link_to "/documents/ECOsmate_University_Cerificate_2.pdf", target: "_blank" do %>
+          <button class="btn btn-tutorial" name="button">Download Certificate</button>
+        <% end %>
+      </div>
+      
     <% else %>
-      Sorry, you did not pass in our Pool and Spa Systems Test.<br>
-      Please follow the lessons again to take the test.
+      You got <%= @points %> point(s)<br><br>
+      <p>Sorry, you did not pass in our Pool and Spa Systems Test.<br>
+      Please follow the lessons again to take the test.<p>
+      <div class="">
+        <%= link_to ecosmarte_university_path, class: "university_link" do %>
+          <button class="btn btn-tutorial" type="button" name="button">Go Back to Univerity</button>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

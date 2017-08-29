@@ -13,4 +13,10 @@ Text.create(
   description: "description"
 )
 
+PoolModel.create(description: "Standard Turbo System")
+PoolModel.create(description: "Programmable with CO2")
+PoolModel.create(description: "WIFI Programmable with CO2")
+PoolModel.create(description: "Standard Spa System")
+PoolModel.create(description: "Programmable Pond System")
+
 User.create(user_type: "admin", name: "Luiz", email: "luizhcb0@gmail.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111", postal_code: "111111")

@@ -5,6 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :phone, null: true
       t.string :address, null: true
       t.string :city, null: true
+      t.string :state, null: true
       t.integer :postal_code, null: true
       t.integer :user_type, null: false
       ## Database authenticatable

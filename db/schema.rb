@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827233738) do
+ActiveRecord::Schema.define(version: 20170828433738) do
 
   create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
@@ -32,25 +32,32 @@ ActiveRecord::Schema.define(version: 20170827233738) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "pool_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "pools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                   null: false
-    t.string   "name",                      null: false
+    t.integer  "user_id",                              null: false
+    t.integer  "pool_model_id",                        null: false
+    t.string   "name",                                 null: false
     t.string   "address"
     t.string   "city"
-    t.string   "zip"
-    t.string   "state"
-    t.string   "model"
-    t.integer  "volume"
-    t.string   "volume_unit"
-    t.string   "pump_size"
-    t.string   "filter_size"
-    t.string   "filter_type"
+    t.string   "postal_code"
+    t.integer  "state"
+    t.float    "volume",                    limit: 24
+    t.integer  "volume_unit"
+    t.integer  "pump_size"
+    t.integer  "filter_type"
+    t.float    "filter_size",               limit: 24
     t.string   "vacuum_brand"
     t.boolean  "negative_edge"
     t.boolean  "attached_spa"
     t.string   "additional_water_features"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["pool_model_id"], name: "index_pools_on_pool_model_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170827233738) do
     t.string   "phone"
     t.string   "address"
     t.string   "city"
+    t.string   "state"
     t.integer  "postal_code"
     t.integer  "user_type",                           null: false
     t.string   "email",                  default: "", null: false
@@ -87,7 +95,7 @@ ActiveRecord::Schema.define(version: 20170827233738) do
   create_table "waters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "pool_id",                     null: false
     t.float    "temperature",      limit: 24
-    t.string   "temperature_unit"
+    t.integer  "temperature_unit"
     t.float    "ph",               limit: 24
     t.float    "cuppm",            limit: 24
     t.float    "calcium",          limit: 24
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170827233738) do
     t.index ["pool_id"], name: "index_waters_on_pool_id", using: :btree
   end
 
+  add_foreign_key "pools", "pool_models", on_delete: :cascade
   add_foreign_key "pools", "users", on_delete: :cascade
   add_foreign_key "waters", "pools", on_delete: :cascade
 end

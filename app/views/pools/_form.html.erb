@@ -1,0 +1,156 @@
+<!-- Logo -->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= image_tag 'ecosmarte.png', class: 'logo_eco' %>
+  </div>
+</div>
+<!--  ------>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for @pool, html: {class: 'form-horizontal'} do |f| %>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :pool_name, class: "col-sm-3 control-label" %>
+          <div class="col-sm-8">
+            <%= f.text_field :name, class: "form-control", autofocus: true %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :product_model, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :pool_model_id, model_array, {include_blank: "Choose a model"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :pool_volume, class: "col-sm-3 control-label"%>
+          <div class="col-sm-5">
+            <%= f.text_field :volume, class: "form-control", autofocus: true  %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :volume_unit, options_for_select(Pool.volume_units.keys.map { |t| [t.humanize, t] }, @pool.volume_unit), {include_blank: "Choose"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :pump_size, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :pump_size, options_for_select(Pool.pump_sizes.keys.map { |t| [t.humanize.titleize, t] }, @pool.pump_size), {include_blank: "Choose"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :filter_type, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :filter_type, options_for_select(Pool.filter_types.keys.map { |t| [t.humanize.titleize, t] }, @pool.filter_type), {include_blank: "Choose"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :filter_size, class: "col-sm-3 control-label"%>
+          <div class="col-sm-5">
+            <%= f.text_field :filter_size, class: "form-control", autofocus: true %>
+          </div>
+          <div style="line-height:34px;">
+            lbs
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :vacuum_brand, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.text_field :vacuum_brand, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :attached_spa, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :attached_spa, options_for_select([['No', true], ['Yes', false]], selected: @pool.attached_spa),{include_blank: "Choose"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :negative_edge, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :negative_edge, options_for_select([['No', true], ['Yes', false]], selected: @pool.negative_edge),{include_blank: "Choose"}, {class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :additional_water_features, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.text_field :additional_water_features, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :address, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.text_field :address, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :city, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.text_field :city, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :postal_code, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.text_field :postal_code, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group group">
+          <%= f.label :state, class: "col-sm-3 control-label"%>
+          <div class="col-sm-8">
+            <%= f.select :state, options_for_select(Pool.states.keys.map { |t| [t.humanize.titleize, t] }, @pool.state), {include_blank: "Choose a state"}, {class: "form-control"} %>
+            <%#= f.text_field :state, class: "form-control", autofocus: true  %>
+          </div>
+        </div>
+      </div>
+      
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      
+      <div class="row">
+        <div class="actions">
+          <%= f.submit "Save", class: "btn btn-tutorial" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>

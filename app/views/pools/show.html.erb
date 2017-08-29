@@ -1,0 +1,71 @@
+<section class="container-fluid">
+  <h1><%= @pool.name %></h1>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Pool Name</th>
+              <th>Costumer Name</th>
+              <th>Model</th>
+              <th>Pool Volume</th>
+              <th>Pump Size</th>
+              <th>Filter Type</th>
+              <th>Filter Size</th>
+              <th>Vacuum Brand</th>
+              <th>Attached Spa</th>
+              <th>Negative Edge</th>
+              <th>Additional Water Features</th>
+            </tr>
+            <tr>
+              <td><%= @pool.name %></td>
+              <td><%= @pool.user.name %></td>
+              <td><%= @pool.pool_model.description %></td>
+              <td><%= @pool.volume %> <%= @pool.volume_unit.titleize %></td>
+              <td><%= @pool.pump_size.humanize.titleize %></td>
+              <td><%= @pool.filter_type.titleize %></td>
+              <td><%= "#{@pool.filter_size}  lbs" %></td>
+              <td><%= @pool.vacuum_brand %></td>
+              <td><%= yes_no(@pool.attached_spa) %></td>
+              <td><%= yes_no(@pool.negative_edge) %></td>
+              <td><%= @pool.additional_water_features %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+  <h4> Pool Address</h4>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Postal Code</th>
+            </tr>
+            <tr>
+              <td><%= @pool.address %></td>
+              <td><%= @pool.city %></td>
+              <td><%= @pool.state.humanize.titleize %></td>
+              <td><%= @pool.postal_code %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, edit_pool_path(@pool.id) %>
+
+
+</section>
