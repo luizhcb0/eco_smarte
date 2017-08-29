@@ -107,14 +107,31 @@
 
 .dashboard_container {
   //border:1px solid #999 !important;
-  border:2px solid #35a0c5 !important;
+  border:1px solid #009edf !important;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 1px 1px 1px #aaa;
   height: 240px;
   //background-color: #0099df;
+  text-shadow: 1px 1px 5px #123;
   background-color: #55b0d5;
   margin-bottom: 12px;
+}
+
+#pool_1 {
+  background-image: url(asset-path('pool_1.jpg'));
+}
+#pool_2 {
+  background-image: url(asset-path('pool_2.jpg'));
+}
+#pool_3 {
+  background-image: url(asset-path('pool_3.jpg'));
+}
+#pool_4 {
+  background-image: url(asset-path('pool_4.jpg'));
+}
+#pool_5 {
+  background-image: url(asset-path('pool_5.jpg'));
 }
 
 .dashboard_container::after {
@@ -221,3 +238,27 @@
   margin: auto;
   margin-top: 90px;
 }
+
+.university_header_container {
+  width:100%;
+  height:240px;
+  overflow:hidden;
+}
+.university_header {
+  width: 100%;
+  height: 240px;
+  background-image: url(asset-path('pool_header.jpg'));
+}
+
+.university_title {
+  color: #fff;
+  text-shadow: 1px 1px 5px #123;
+  padding: 25px;
+  font-size: 34px;
+}
+
+.university_title > p {
+  font-size: 16px;
+}
+
+
