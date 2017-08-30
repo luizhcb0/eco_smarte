@@ -116,6 +116,7 @@
   text-shadow: 1px 1px 5px #123;
   background-color: #55b0d5;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 #pool_1 {
@@ -155,12 +156,18 @@
 .dashboard_link {
   color: #fff;
   text-decoration: none !important;
-  line-height: 240px;
-  font-size: 24px;
+  // line-height: 240px;
+  font-size: 26px;
 }
 .dashboard_link:hover {
   color: #fff;
 }
+
+.dashboard_title {
+  top: 38%;
+  position: relative;
+}
+
 
 // ******************** Basics **************
 
@@ -252,7 +259,7 @@
 
 .university_title {
   color: #fff;
-  text-shadow: 1px 1px 5px #123;
+  text-shadow: 1px 1px 4px #012;
   padding: 25px;
   font-size: 34px;
 }

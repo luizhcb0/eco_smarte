@@ -1,6 +1,6 @@
 class Pool < ApplicationRecord
   belongs_to :user
-  belongs_to :pool_model
+  belongs_to :pool_model, optional: true
   has_many :waters
   
   enum filter_type: %w(sand glass de cartridge)

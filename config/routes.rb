@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   patch 'user_password_update', to: 'users#user_password_update', as: 'user_password_update'
   get 'user_pools', to: 'pools#user_pools', as: 'user_pools'
   
-  
+  get 'new_water_measurement/:pool_id', to: 'waters#new_water_measurement', as: 'new_water_measurement'
+  get 'user_water_measurements', to: 'waters#user_water_measurements', as: 'user_water_measurements'
+  get 'pool_water_measurements/:pool_id', to: 'waters#pool_water_measurements', as: 'pool_water_measurements'
   
 end

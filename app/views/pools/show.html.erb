@@ -22,14 +22,14 @@
             <tr>
               <td><%= @pool.name %></td>
               <td><%= @pool.user.name %></td>
-              <td><%= @pool.pool_model.description %></td>
-              <td><%= @pool.volume %> <%= @pool.volume_unit.titleize %></td>
-              <td><%= @pool.pump_size.humanize.titleize %></td>
-              <td><%= @pool.filter_type.titleize %></td>
+              <td><%= @pool.pool_model.description if @pool.pool_model.present? %></td>
+              <td><%= @pool.volume %> <%= @pool.volume_unit.titleize if @pool.volume_unit.present? %></td>
+              <td><%= @pool.pump_size.humanize.titleize if @pool.pump_size.present? %></td>
+              <td><%= @pool.filter_type.titleize if @pool.filter_type.present? %></td>
               <td><%= "#{@pool.filter_size}  lbs" %></td>
               <td><%= @pool.vacuum_brand %></td>
-              <td><%= yes_no(@pool.attached_spa) %></td>
-              <td><%= yes_no(@pool.negative_edge) %></td>
+              <td><%= yes_no(@pool.attached_spa) if @pool.attached_spa.present? %></td>
+              <td><%= yes_no(@pool.negative_edge) if @pool.negative_edge.present? %></td>
               <td><%= @pool.additional_water_features %></td>
             </tr>
           </tbody>
@@ -54,7 +54,7 @@
             <tr>
               <td><%= @pool.address %></td>
               <td><%= @pool.city %></td>
-              <td><%= @pool.state.humanize.titleize %></td>
+              <td><%= @pool.state.humanize.titleize if @pool.state.present? %></td>
               <td><%= @pool.postal_code %></td>
             </tr>
           </tbody>

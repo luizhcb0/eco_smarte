@@ -1,0 +1,6 @@
+$("#measurements_view").html("<%= escape_javascript(render partial: 'measurements' ) %>");
+
+$("#close").click(function() {
+  // $('#measurements_view').css('display', 'none');
+  $("#measurements_view").html("");
+});

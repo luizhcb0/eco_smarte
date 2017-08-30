@@ -1,44 +1,43 @@
-<h1>Water Measurements</h1>
+<h1>Pools</h1>
 
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="table-responsive">
-        <table class="table">
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Pool Name</th>
+          <th>Costumer Name</th>
+          <th>Model</th>
+          <th>Actions</th>
+        </tr>
+        <% @pools.each do |pool| %>
           <tr>
-            <th>Pool Name</th>
-            <th>Costumer Name</th>
-            <th>Measurement Date</th>
+            <td><%= pool.name %></td>
+            <td><%= pool.user.name %></td>
+            <td><%= pool.pool_model.description %></td>
+
+            <td>
+              <%= link_to new_water_measurement_path(pool_id: pool.id), class:"btn btn-measurement btn-circle" do %>
+               Add Data
+              <% end %>
+              <%= link_to pool_water_measurements_path(pool_id: pool.id), class:"btn btn-measurement btn-circle open", remote: true do %>
+               View Data
+              <% end %>
+            </td>
+
           </tr>
-          <% @waters.each do |water| %>
-            <tr>
-              <td><%= water.pool.name %></td>
-              <td><%= water.pool.user.name %></td>
-              <td><%= water.measurement_date %></td>
-
-              <td>
-                <%= link_to water_path(water), class:"btn btn-success btn-circle" do %>
-                  <i class="fa fa-eye"></i>
-                <% end %>
-                <%= link_to edit_water_path(water), class:"btn btn-primary btn-circle" do %>
-                  <i class="fa fa-pencil"></i>
-                <% end %>
-                <%= link_to water_path(water), class:"btn btn-danger btn-circle", method:"delete" do %>
-                 <i class="fa fa-trash-o"></i>
-               <% end %>
-              </td>
-
-            </tr>
-          <% end %>
-        </table>
-      </div>
+        <% end %>
+      </table>
     </div>
   </div>
+</div>
 
+<div id="measurements_view"></div>
 
-<div class="">
+<!-- <div class="">
   <%= link_to new_water_path do %>
     <button class="btn btn-tutorial" name="button">Add New Data</button>
   <% end %>
 </div>
-
+ -->
 
