@@ -62,4 +62,9 @@ class PoolsController < ApplicationController
     @pool = Pool.new
     render :new_pool
   end
+  
+  def admin_edit_pool
+    @pool = Pool.find(params[:pool_id])
+    render :new_pool
+  end
 end

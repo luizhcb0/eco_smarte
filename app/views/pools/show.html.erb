@@ -63,9 +63,11 @@
     </div>
   </div>
 
-  
-
-  <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, edit_pool_path(@pool.id) %>
+  <% if current_user.user_type == "admin" %>
+    <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, admin_edit_pool_path(@pool.id) %>
+  <% else %>
+    <%= link_to '<button class="btn btn-default" name="button">Edit</button>'.html_safe, edit_pool_path(@pool.id) %>
+  <% end %>
 
 
 </section>

@@ -14,7 +14,7 @@
           <tr>
             <td><%= pool.name %></td>
             <td><%= pool.user.name %></td>
-            <td><%= pool.pool_model.description %></td>
+            <td><%= pool.pool_model.description if pool.pool_model.present? %></td>
 
             <td>
               <%= link_to new_water_measurement_path(pool_id: pool.id), class:"btn btn-measurement btn-circle" do %>

@@ -2,7 +2,8 @@ class WatersController < ApplicationController
   include StrongParamsHolder
 
   def index
-    @waters = Water.all
+    @pools = Pool.all
+    @waters = Water.all.order(measurement_date: :desc)
   end
 
   def show
@@ -16,7 +17,11 @@ class WatersController < ApplicationController
   def create
     @water = Water.new(water_params)
     if @water.save
-      redirect_to user_water_measurements_path
+      if current_user.user_type == "admin"
+        redirect_to waters_path
+      else
+        redirect_to user_water_measurements_path
+      end
     else
       render :new
     end
@@ -24,6 +29,7 @@ class WatersController < ApplicationController
 
   def edit
     @water = Water.find(params[:id])
+    @pool_id = @water.pool_id
   end
 
   def update

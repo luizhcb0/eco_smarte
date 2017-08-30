@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   
   get 'user_pools', to: 'pools#user_pools', as: 'user_pools'
   get 'add_pool', to: 'pools#add_pool', as: 'add_pool'
+  get 'admin_edit_pool/:pool_id', to: 'pools#admin_edit_pool', as: 'admin_edit_pool'
   
   get 'new_water_measurement/:pool_id', to: 'waters#new_water_measurement', as: 'new_water_measurement'
   get 'user_water_measurements', to: 'waters#user_water_measurements', as: 'user_water_measurements'

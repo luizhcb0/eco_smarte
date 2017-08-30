@@ -20,8 +20,14 @@
                 <%= link_to pool_path(pool), class:"btn btn-success btn-circle" do %>
                   <i class="fa fa-eye"></i>
                 <% end %>
-                <%= link_to edit_pool_path(pool), class:"btn btn-primary btn-circle" do %>
-                  <i class="fa fa-pencil"></i>
+                <% if current_user.user_type == "admin" %>
+                  <%= link_to admin_edit_pool_path(pool_id: pool.id), class:"btn btn-primary btn-circle" do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to edit_pool_path(pool), class:"btn btn-primary btn-circle" do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
                 <% end %>
                 <%= link_to pool_path(pool), class:"btn btn-danger btn-circle", method:"delete" do %>
                  <i class="fa fa-trash-o"></i>
