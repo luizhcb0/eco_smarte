@@ -2,9 +2,9 @@
     
   <% if current_user.user_type == "admin" %>
   
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-8 col-sm-offset-2">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <%= link_to users_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_4">
               <span class="dashboard_title">User Search</span>
@@ -12,7 +12,7 @@
           <% end %>
         </div>
         
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <%= link_to pools_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_2">
               <span class="dashboard_title">Pool Search</span>
@@ -20,18 +20,27 @@
           <% end %>
         </div>
         
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <%= link_to waters_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_3">
               <span class="dashboard_title">Water Measurements</span>
             </div>
           <% end %>
         </div>
-        
-        <div class="col-sm-3">
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-4">
           <%= link_to ecosmarte_university_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_1">
               <span class="dashboard_title">Ecosmarte University</span>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-sm-4">
+          <%= link_to ecosmarte_university_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_5">
+              <span class="dashboard_title">Videos</span>
             </div>
           <% end %>
         </div>
