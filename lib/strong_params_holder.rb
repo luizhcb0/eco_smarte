@@ -4,11 +4,13 @@
 
 module StrongParamsHolder
   def user_params
-    params.require(:user).permit(:name, :email, :phone, :city, :address, :postal_code, :user_type, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :phone, :city, :address, :postal_code, :user_type, 
+    :password, :password_confirmation)
   end
   
   def water_params
-    params.require(:water).permit(:pool_id, :measurement_date, :temperature, :temperature_unit, :ph, :cuppm, :calcium, :phosphate, :chlorine, :oxygen)
+    params.require(:water).permit(:pool_id, :measurement_date, :temperature, :temperature_unit, :ph, 
+    :cuppm, :calcium, :phosphate, :chlorine, :oxygen)
   end
   
   def pool_params
@@ -22,5 +24,10 @@ module StrongParamsHolder
   
   def contact_params
     params.require(:contact).permit(:name, :email, :website, :subject, :content)
+  end
+  
+  def warranty_params
+    params.require(:warranty).permit(:first_name, :last_name, :street_address, :street_address_2, :city, :state, 
+    :postal_code, :country, :phone, :email, :model, :other, :serial, :date_purchased, :dealership)
   end
 end

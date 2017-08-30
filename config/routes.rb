@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   
   resources :contacts, only: [:index, :create]
+  resources :warranty, only: [:index, :create]
   resources :users, only: [:index, :edit, :update, :destroy, :show]
   resources :pools
   resources :waters

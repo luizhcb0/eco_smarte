@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828433738) do
+ActiveRecord::Schema.define(version: 20170830212101) do
 
   create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
@@ -90,6 +90,46 @@ ActiveRecord::Schema.define(version: 20170828433738) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "warranties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",       null: false
+    t.string   "last_name",        null: false
+    t.string   "street_address",   null: false
+    t.string   "street_address_2"
+    t.string   "city",             null: false
+    t.string   "state",            null: false
+    t.string   "postal_code",      null: false
+    t.string   "country",          null: false
+    t.string   "phone",            null: false
+    t.string   "email",            null: false
+    t.string   "model",            null: false
+    t.string   "other"
+    t.string   "serial",           null: false
+    t.date     "date_purchased",   null: false
+    t.string   "dealership"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "warranty_mails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",       null: false
+    t.string   "last_name",        null: false
+    t.string   "street_address",   null: false
+    t.string   "street_address_2"
+    t.string   "city",             null: false
+    t.string   "state",            null: false
+    t.string   "postal_code",      null: false
+    t.string   "country",          null: false
+    t.string   "phone",            null: false
+    t.string   "email",            null: false
+    t.string   "model",            null: false
+    t.string   "other"
+    t.string   "serial",           null: false
+    t.string   "date_purchased",   null: false
+    t.string   "dealership"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "waters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
