@@ -7,6 +7,12 @@
 </div>
 <!--  -------------->
 
+<% if flash[:success] %>
+    <div id="flash_success" class="alert alert-success"><%= flash[:success] %></div>
+<% elsif flash[:error] %>
+    <div id="flash_error" class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
+
 <% if current_user %>
   <%= render "dashboard" %>
 <% else %>

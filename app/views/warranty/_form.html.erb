@@ -1,0 +1,110 @@
+<%= form_for @warranty, url: {action: :create}, html: {class: 'form-horizontal'} do |f| %>
+
+      
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-3 control-label"%>
+        <div class="col-sm-3">
+          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= f.label :addres, class: "col-sm-3 control-label"%>
+        <div class="col-sm-6">
+          <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6 col-sm-offset-3">
+          <%= f.text_field :street_address_2, class: "form-control", placeholder: "Address Line 2" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-3 col-sm-offset-3">
+      <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :state, class: "form-control", placeholder: "State/Province/Region" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-3 col-sm-offset-3">
+      <%= f.text_field :postal_code, class: "form-control", placeholder: "Postal Code" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :country, class: "form-control", placeholder: "Coutry" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :email, class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :phone, class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :model, class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.select :model, options_for_select(model_array), {include_blank: "Choose"}, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.text_field :other, class: "form-control", placeholder: "If 'Other', please specify" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :serial_number, class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :serial, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :date_purchased, class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.date_field :date_purchased, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :dealership, "Dealership Where Purchased", class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :dealership, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-2 col-sm-offset-5">
+      <%= f.submit "Submit", class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>
