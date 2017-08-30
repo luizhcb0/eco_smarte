@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   patch 'user_profile_update', to: 'users#user_profile_update', as: 'user_profile_update'
   get 'user_password_edit', to: 'users#user_password_edit', as: 'user_password_edit'
   patch 'user_password_update', to: 'users#user_password_update', as: 'user_password_update'
+  
   get 'user_pools', to: 'pools#user_pools', as: 'user_pools'
+  get 'add_pool', to: 'pools#add_pool', as: 'add_pool'
   
   get 'new_water_measurement/:pool_id', to: 'waters#new_water_measurement', as: 'new_water_measurement'
   get 'user_water_measurements', to: 'waters#user_water_measurements', as: 'user_water_measurements'

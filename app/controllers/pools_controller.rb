@@ -33,7 +33,11 @@ class PoolsController < ApplicationController
   def update
     @pool = Pool.find(params[:id])
     if @pool.update_attributes(pool_params)
-      redirect_to pools_path(@pool.id)
+      if current_user.user_type == "admin"
+        redirect_to pools_path
+      else 
+        redirect_to user_pools_path
+      end
     else
       render :edit
     end
@@ -52,5 +56,10 @@ class PoolsController < ApplicationController
   def user_pools
     @pools = Pool.get_user_pools(current_user.id)
     render :index
+  end
+  
+  def add_pool
+    @pool = Pool.new
+    render :new_pool
   end
 end

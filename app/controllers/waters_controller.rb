@@ -30,7 +30,7 @@ class WatersController < ApplicationController
     @water = Water.find(params[:id])
     if @water.update_attributes(water_params)
       if current_user.user_type == "admin"
-        redirect_to waters_path(@water.id)
+        redirect_to waters_path
       else
         redirect_to user_water_measurements_path
       end

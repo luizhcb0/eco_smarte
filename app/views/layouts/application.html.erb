@@ -56,10 +56,6 @@
               <% else %>
                 <ul class="nav navbar-nav">
                   <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
-                  <li class="<%= 'active' if (current_page?(pool_spa_help_path) || current_page?(pool_tutorial_path)  || current_page?(spa_tutorial_path)  || current_page?(commercial_tutorial_path)) %>">
-                    <%= link_to 'Pool/Spa Help', pool_spa_help_path %>
-                  </li>
-                  <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to 'Documents', documents_path %></li>
                   <li class="<%= 'active' if current_page?(startup_faq_path)  %>"><%= link_to 'Start up/FAQ', startup_faq_path %></li>
                   <li class="<%= 'active' if current_page?(contacts_path) %>"><%= link_to 'Contact Us', contacts_path %></li>
                 </ul>
