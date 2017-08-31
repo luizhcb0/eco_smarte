@@ -19,4 +19,7 @@ PoolModel.create(description: "WIFI Programmable with CO2")
 PoolModel.create(description: "Standard Spa System")
 PoolModel.create(description: "Programmable Pond System")
 
-User.create(user_type: "admin", name: "Luiz", email: "luizhcb0@gmail.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111", postal_code: "111111")
+User.create(user_type: "admin", name: "Admin Eco", email: "admin@ecosmarte.com", phone: "1231231234", address: "North Wintrop", city: "Chicago", password: "111111", postal_code: "111111")
+User.create(user_type: "admin", name: "Larry", email: "larryc@ecosmarte.com", phone: "1231231234", address: "Richfield", city: "Minneapolis", password: "111111", postal_code: "111111")
+User.create(user_type: "user", name: "Luiz", email: "luiz@ecosmarte.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111", postal_code: "111111")
+User.create(user_type: "company", name: "Ben", email: "ben@ecosmarte.com", phone: "1231231234", address: "Brasilia", city: "Brasil", password: "111111", postal_code: "111111")
