@@ -1,7 +1,7 @@
 module PoolsHelper
   
-  def model_array
-    model_array =  PoolModel.all.map { |model| [model.description, model.id] }
+  def pool_model_array
+    pool_model_array =  PoolModel.all.map { |model| [model.description, model.id] }
   end
   
   def user_array
