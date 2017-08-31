@@ -83,4 +83,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: "ecosmartecloud.com" }
+  
+  config.action_mailer.smtp_settings = {
+    address: "smtpout.secureserver.net",
+    port: 80,
+    domain: "ecosmartecloud.com",
+    authentication: "plain",
+    user_name: "mailer@ecosmartecloud.com",
+    password: "Friendly3"
+  }
 end
