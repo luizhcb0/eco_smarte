@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'ecosmarte_basics', to: 'static#ecosmarte_basics', as: 'ecosmarte_basics'
   get 'quiz/:quiz_number', to: 'static#quiz', as: 'quiz'
   post 'quiz_answer', to: 'static#quiz_answer', as: 'quiz_answer'
+  get 'videos', to: 'static#videos', as: 'videos'
   
   get 'password_edit/:id', to: 'users#password_edit', as: 'password_edit'
   patch 'password_update/:id', to: 'users#password_update', as: 'password_update'
