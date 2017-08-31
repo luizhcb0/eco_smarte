@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   include StrongParamsHolder
+  
+  before_action :authenticate_user!
 
   def index
     @users = User.all

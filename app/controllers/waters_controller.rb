@@ -1,5 +1,7 @@
 class WatersController < ApplicationController
   include StrongParamsHolder
+  
+  before_action :authenticate_user!
 
   def index
     @pools = Pool.all
