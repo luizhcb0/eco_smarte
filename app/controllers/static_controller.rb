@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  include StrongParamsHolder
   
   def index
     @images = ["eco_0.jpg", "eco_1.jpg", "eco_2.jpg", "eco_3.jpg", "eco_4.jpg", "eco_5.jpg"]
@@ -15,6 +16,24 @@ class StaticController < ApplicationController
   
   def basics_partials
     render partial: "basics_partials"
+  end
+  
+  def international
+    @contact_mail = Contact.new
+    @contact = ContactMessage.new
+  end
+  
+  def international_mail
+    @contact_mail = Contact.new(contact_params)
+    @contact = ContactMessage.new(contact_params)
+    @contact_mail.request = request
+    if @contact_mail.deliver && @contact.save
+      flash[:success] = "Thank you for your message. We will contact you soon!"
+      redirect_to root_path
+    else
+      flash[:error] = "Cannot send message."
+      render :new
+    end
   end
   
   def quiz

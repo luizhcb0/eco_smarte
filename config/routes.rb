@@ -42,4 +42,9 @@ Rails.application.routes.draw do
   get 'user_water_measurements', to: 'waters#user_water_measurements', as: 'user_water_measurements'
   get 'pool_water_measurements/:pool_id', to: 'waters#pool_water_measurements', as: 'pool_water_measurements'
   
+  get 'international', to: 'static#international', as: 'international'
+  post 'international_mail', to: 'static#international_mail', as: 'international_mail'
+  get 'ecosmarte__wifi', to: 'static#ecosmarte_wifi', as: 'ecosmarte_wifi'
+  get 'privacy_policy', to: 'static#privacy_policy', as: 'privacy_policy'
+  
 end
