@@ -19,7 +19,7 @@ class WarrantyMail < MailForm::Base
     {
       subject: "User Warranty",
       to: "luiz@ecosmarte.com",
-      from: %("#{first_name} #{last_name}" <"#{email}">)
+      from: %("#{first_name} #{last_name}" <#{email}>)
     }
   end
   
