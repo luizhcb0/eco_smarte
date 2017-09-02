@@ -41,34 +41,34 @@
     <div class="contact_form">
       
       
-      <%= form_for @contact_mail, url: {action: :international_mail}, html: {class: 'form-horizontal'} do |f| %>
+      <%= form_for @contact_mail, url: {action: :international_mail}, html: {class: 'form-horizontal'}, novalidate: 'novalidate' do |f| %>
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
               <%= f.label :name, class: "col-sm-3 control-label"%>
               <div class="col-sm-8">
-                <%= f.text_field :name, class: "form-control"  %>
+                <%= f.text_field :name, class: "form-control", required: "required"  %>
               </div>
             </div>
 
             <div class="form-group">
               <%= f.label :email, class: "col-sm-3 control-label"%>
               <div class="col-sm-8">
-                <%= f.email_field :email, class: "form-control"  %>
+                <%= f.email_field :email, class: "form-control", required: "required"  %>
               </div>
             </div>
             
             <div class="form-group">
               <%= f.label :subject, class: "col-sm-3 control-label"%>
               <div class="col-sm-8">
-                <%= f.text_field :subject, {class: "form-control", value: "International Help"}  %>
+                <%= f.text_field :subject, {class: "form-control", value: "International Help", required: "required"}  %>
               </div>
             </div>
             
             <div class="form-group">
               <%= f.label :content, class: "col-sm-3 control-label"%>
               <div class="col-sm-8">
-                <%= f.text_area :content, {class: "form-control message_box", rows: 6}  %>
+                <%= f.text_area :content, {class: "form-control message_box", rows: 6, required: "required"}  %>
               </div>
             </div>
 

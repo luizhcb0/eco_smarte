@@ -6,7 +6,7 @@ class StaticController < ApplicationController
     @describe_text = Text.find_by(id: 1)
   end
   
-  def pool_spa_help
+  def interactive_help
 
   end
   

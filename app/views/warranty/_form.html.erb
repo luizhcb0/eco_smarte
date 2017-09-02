@@ -1,4 +1,4 @@
-<%= form_for @warranty, url: {action: :create}, html: {class: 'form-horizontal'} do |f| %>
+<%= form_for @warranty, url: {action: :create}, html: {class: 'form-horizontal'}, novalidate: 'novalidate' do |f| %>
 
       
   <div class="row">
@@ -6,10 +6,10 @@
       <div class="form-group">
         <%= f.label :name, class: "col-sm-3 control-label"%>
         <div class="col-sm-3">
-          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name", required: "required" %>
         </div>
         <div class="col-sm-3">
-          <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", required: "required" %>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <div class="col-sm-12">
         <%= f.label :addres, class: "col-sm-3 control-label"%>
         <div class="col-sm-6">
-          <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address" %>
+          <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address", required: "required" %>
         </div>
       </div>
     </div>
@@ -37,40 +37,40 @@
   
   <div class="form-group row">
     <div class="col-sm-3 col-sm-offset-3">
-      <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+      <%= f.text_field :city, class: "form-control", placeholder: "City", required: "required" %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :state, class: "form-control", placeholder: "State/Province/Region" %>
+      <%= f.text_field :state, class: "form-control", placeholder: "State/Province/Region", required: "required" %>
     </div>
   </div>
   
   <div class="form-group row">
     <div class="col-sm-3 col-sm-offset-3">
-      <%= f.text_field :postal_code, class: "form-control", placeholder: "Postal Code" %>
+      <%= f.text_field :postal_code, class: "form-control", placeholder: "Postal Code", required: "required" %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :country, class: "form-control", placeholder: "Coutry" %>
+      <%= f.text_field :country, class: "form-control", placeholder: "Coutry", required: "required" %>
     </div>
   </div>
   
   <div class="form-group row">
     <%= f.label :email, class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.text_field :email, class: "form-control", required: "required" %>
     </div>
   </div>
   
   <div class="form-group row">
     <%= f.label :phone, class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.text_field :phone, class: "form-control" %>
+      <%= f.text_field :phone, class: "form-control", required: "required" %>
     </div>
   </div>
   
   <div class="form-group row">
     <%= f.label :model, class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.select :model, options_for_select(model_array), {include_blank: "Choose"}, class: "form-control" %>
+      <%= f.select :model, options_for_select(model_array), {include_blank: "Choose"}, {class: "form-control", required: "required"} %>
     </div>
   </div>
   
@@ -83,14 +83,14 @@
   <div class="form-group row">
     <%= f.label :serial_number, class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.text_field :serial, class: "form-control" %>
+      <%= f.text_field :serial, class: "form-control", required: "required" %>
     </div>
   </div>
   
   <div class="form-group row">
     <%= f.label :date_purchased, class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.date_field :date_purchased, class: "form-control" %>
+      <%= f.date_field :date_purchased, class: "form-control", required: "required" %>
     </div>
   </div>
 

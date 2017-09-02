@@ -9,13 +9,13 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <%= form_for @pool, html: {class: 'form-horizontal'} do |f| %>
+    <%= form_for @pool, html: {class: 'form-horizontal'}, novalidate: 'novalidate' do |f| %>
       
       <div class="row">
         <div class="form-group group">
           <%= f.label :user_name, class: "col-sm-3 control-label"%>
           <div class="col-sm-8">
-            <%= f.select :user_id, options_for_select(user_array, @pool.user_id), {include_blank: "Choose"}, {class: "form-control"} %>
+            <%= f.select :user_id, options_for_select(user_array, @pool.user_id), {include_blank: "Choose"}, {class: "form-control", required: "required"} %>
           </div>
         </div>
       </div>

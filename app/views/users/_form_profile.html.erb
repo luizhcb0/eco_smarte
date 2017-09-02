@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <%= form_for @user, url: {action: :user_profile_update}, html: {class: 'form-horizontal'} do |f| %>
+    <%= form_for @user, url: {action: :user_profile_update}, html: {class: 'form-horizontal'}, novalidate: 'novalidate' do |f| %>
       
       <% if @user.user_type != "admin" %>
       <div class="row">
@@ -16,7 +16,7 @@
           <%= f.label :user_type, class: "col-sm-3 control-label" %>
           <div class="col-sm-8">
             <%#= f.select :user_type, User.user_types.keys.map { |t| [t.humanize, t] }, {}, {class: "form-control"} %>
-            <%= f.select :user_type, user_type_array, {}, {class: "form-control"} %>
+            <%= f.select :user_type, user_type_array, {}, {class: "form-control", required: "required"} %>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <div class="form-group group">
           <%= f.label :name, class: "col-sm-3 control-label"%>
           <div class="col-sm-8">
-            <%= f.text_field :name, class: "form-control", autofocus: true  %>
+            <%= f.text_field :name, class: "form-control", required: "required", autofocus: true  %>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         <div class="form-group group">
           <%= f.label :email, class: "col-sm-3 control-label"%>
           <div class="col-sm-8">
-            <%= f.email_field :email, class: "form-control", autofocus: true  %>
+            <%= f.email_field :email, class: "form-control", required: "required", autofocus: true  %>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   get 'startup_faq', to: 'static#startup_faq', as: 'startup_faq'
   get 'documents', to: 'static#documents', as: 'documents'
-  get 'pool_spa_help', to: 'static#pool_spa_help', as: 'pool_spa_help'
+  get 'interactive_help', to: 'static#interactive_help', as: 'interactive_help'
   # get 'tutorial/:tutorial', to: 'static#tutorial', as: 'tutorial'
   get 'pool_tutorial', to: 'static#pool_tutorial', as: 'pool_tutorial'
   get 'spa_tutorial', to: 'static#spa_tutorial', as: 'spa_tutorial'
