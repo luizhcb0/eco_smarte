@@ -8,7 +8,7 @@ class WarrantyMail < MailForm::Base
   attribute :postal_code, validate: true
   attribute :country, validate: true
   attribute :phone, validate: true
-  attribute :email, validate: true
+  attribute :email, validate: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :model, validate: true
   attribute :other, validate: false
   attribute :serial, validate: true

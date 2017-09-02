@@ -11,16 +11,23 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require jquery-ui/widgets/datepicker
+//= require jquery.turbolinks
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $(function() {
     setTimeout(function(){
       $('.alert').slideUp(600);
     }, 2000);
+  });
+  
+  $( function() {
+    if ( $('.date').prop('type') != 'date' ) {
+      $( ".date" ).datepicker();
+    }
   });
 });
