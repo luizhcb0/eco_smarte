@@ -1,10 +1,7 @@
 $("#measurements_view").html("<%= escape_javascript(render partial: 'measurements' ) %>");
+$('html, body').animate({scrollTop: ($(document).height())}, 160);
 
 $("#close").click(function() {
   // $('#measurements_view').css('display', 'none');
   $("#measurements_view").html("");
-});
-
-$(".open").click(function() {
-  $('html, body').animate({scrollTop: ($(document).height())}, 600);
 });
