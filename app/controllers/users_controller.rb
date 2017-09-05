@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   end
   
   def user_profile
+    @pools = Pool.get_user_pools(current_user.id)
     @user = User.find(current_user.id)
     render :show
   end
