@@ -2,17 +2,23 @@
     
   <% if current_user.user_type == "admin" %>
   
+  <div id="admin_view">
+    
     <div class="col-sm-8 col-sm-offset-2">
+      
       <div class="row">
-        <div class="col-sm-4">
-          <%= link_to users_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_4">
-              <span class="dashboard_title">User Search</span>
-            </div>
-          <% end %>
-        </div>
         
-        <div class="col-sm-4">
+        <div class="col-sm-2 col-sm-offset-10 col-xs-4 col-xs-offset-8">
+          <div class="dashboard_view" id="btn_user_view">
+            <span class="dashboard_view_title">User View</span>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="row">
+        
+        <div class="col-sm-6 col-xs-6">
           <%= link_to pools_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_2">
               <span class="dashboard_title">Pool Search</span>
@@ -20,79 +26,117 @@
           <% end %>
         </div>
         
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to users_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_4">
+              <span class="dashboard_title">User Search</span>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="col-sm-6 col-xs-6">
           <%= link_to waters_path, class: "dashboard_link" do %>
             <div class="dashboard_container" id="pool_3">
-              <span class="dashboard_title">Water Measurements</span>
+              <span class="dashboard_title">List Everyone's Data</span>
             </div>
           <% end %>
         </div>
       </div>
+    
+    </div>
+    
+  </div>
+  
+  <div id="user_view">
+    
+    <div class="col-sm-8 col-sm-offset-2">
       
       <div class="row">
-        <div class="col-sm-4">
-          <%= link_to ecosmarte_university_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_1">
-              <span class="dashboard_title">Ecosmarte University</span>
+        
+        <div class="col-sm-2 col-sm-offset-10 col-xs-4 col-xs-offset-8">
+          <div class="dashboard_view" id="btn_admin_view">
+            <span class="dashboard_view_title">Administrator View</span>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="row">
+        
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_pools_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_2">
+              <span class="dashboard_title">Pool Profiling</span>
             </div>
           <% end %>
         </div>
-        <div class="col-sm-4">
+        
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_water_measurements_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_3">
+              <span class="dashboard_title">Pool Data</span>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="col-sm-6 col-xs-6">
           <%= link_to videos_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_5">
+            <div class="dashboard_container" id="pool_1">
               <span class="dashboard_title">Videos</span>
             </div>
           <% end %>
         </div>
+        
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_profile_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_4">
+              <span class="dashboard_title">User Settings</span>
+            </div>
+          <% end %>
+        </div>
+        
       </div>
     </div>
+    
+  </div>
     
   <% else %>
   
     <div class="col-sm-8 col-sm-offset-2">
-      <div class="row">
-        <div class="col-sm-4">
-          <%= link_to user_profile_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_4">
-              <span class="dashboard_title">My Profile</span>
-            </div>
-          <% end %>
-        </div>
-        
-        <div class="col-sm-4">
-          <%= link_to user_pools_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_2">
-              <span class="dashboard_title">My Pools</span>
-            </div>
-          <% end %>
-        </div>
-        
-        <div class="col-sm-4">
-          <%= link_to user_water_measurements_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_3">
-              <span class="dashboard_title">Water Measurements</span>
-            </div>
-          <% end %>
-        </div>
-      </div>
       
       <div class="row">
-        <div class="col-sm-4">
-          <%= link_to ecosmarte_university_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_1">
-              <span class="dashboard_title">Ecosmarte University</span>
+        
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_pools_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_2">
+              <span class="dashboard_title">Pool Profiling</span>
             </div>
           <% end %>
         </div>
         
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_water_measurements_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_3">
+              <span class="dashboard_title">Pool Data</span>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="col-sm-6 col-xs-6">
           <%= link_to videos_path, class: "dashboard_link" do %>
-            <div class="dashboard_container" id="pool_5">
+            <div class="dashboard_container" id="pool_1">
               <span class="dashboard_title">Videos</span>
             </div>
           <% end %>
         </div>
         
+        <div class="col-sm-6 col-xs-6">
+          <%= link_to user_profile_path, class: "dashboard_link" do %>
+            <div class="dashboard_container" id="pool_4">
+              <span class="dashboard_title">User Settings</span>
+            </div>
+          <% end %>
+        </div>
         
       </div>
     </div>

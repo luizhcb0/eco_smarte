@@ -30,4 +30,5 @@ $(document).on('turbolinks:load', function() {
       $( ".date" ).datepicker();
     }
   });
+
 });

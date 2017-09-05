@@ -48,25 +48,27 @@
               <th>Model</th>
               <th>Actions</th>
             </tr>
-            <% @pools.each do |pool| %>
-              <tr>
-                <td><%= pool.name %></td>
-                <td><%= pool.user.name %></td>
-                <td><%= pool.pool_model.description %></td>
+            <% if @pools.present? %>
+              <% @pools.each do |pool| %>
+                <tr>
+                  <td><%= pool.name %></td>
+                  <td><%= pool.user.name %></td>
+                  <td><%= pool.pool_model.description %></td>
 
-                <td>
-                  <%= link_to pool_path(pool), class:"btn btn-success btn-circle" do %>
-                    <i class="fa fa-eye"></i>
-                  <% end %>
-                  <%= link_to edit_pool_path(pool), class:"btn btn-primary btn-circle" do %>
-                    <i class="fa fa-pencil"></i>
-                  <% end %>
-                  <%= link_to pool_path(pool), class:"btn btn-danger btn-circle", method:"delete" do %>
-                   <i class="fa fa-trash-o"></i>
-                 <% end %>
-                </td>
+                  <td>
+                    <%= link_to pool_path(pool), class:"btn btn-success btn-circle" do %>
+                      <i class="fa fa-eye"></i>
+                    <% end %>
+                    <%= link_to edit_pool_path(pool), class:"btn btn-primary btn-circle" do %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+                    <%= link_to pool_path(pool), class:"btn btn-danger btn-circle", method:"delete" do %>
+                     <i class="fa fa-trash-o"></i>
+                   <% end %>
+                  </td>
 
-              </tr>
+                </tr>
+              <% end %>
             <% end %>
           </table>
         </div>
