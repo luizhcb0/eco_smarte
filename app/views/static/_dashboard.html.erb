@@ -1,14 +1,12 @@
-<div class="row">
-    
-  <% if current_user.user_type == "admin" %>
-  
-  <div id="admin_view">
-    
+<% if current_user.user_type == "admin" %>
+
+<div id="admin_view">
+  <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       
       <div class="row">
         
-        <div class="col-sm-2 col-sm-offset-10 col-xs-4 col-xs-offset-8">
+        <div class="col-sm-3 col-sm-offset-9 col-xs-4 col-xs-offset-8">
           <div class="dashboard_view" id="btn_user_view">
             <span class="dashboard_view_title">User View</span>
           </div>
@@ -44,16 +42,16 @@
       </div>
     
     </div>
-    
   </div>
-  
-  <div id="user_view">
-    
+</div>
+
+<div id="user_view">
+  <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       
       <div class="row">
         
-        <div class="col-sm-2 col-sm-offset-10 col-xs-4 col-xs-offset-8">
+        <div class="col-sm-3 col-sm-offset-9 col-xs-4 col-xs-offset-8">
           <div class="dashboard_view" id="btn_admin_view">
             <span class="dashboard_view_title">Administrator View</span>
           </div>
@@ -97,11 +95,36 @@
         
       </div>
     </div>
-    
   </div>
-    
-  <% else %>
   
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="help_paths">
+        
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <%= link_to ecosmarte_wifi_path, class: "dashboard_bottom_link" do %>
+              <div class="dashboard_bottom">
+                <span class="dashboard_bottom_title">ECOsmarte WiFi</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      If your application is commercial or located in Canada or Australia <%= link_to "Click Here", international_path %>
+    </div>
+  </div>
+</div>
+  
+<% else %>
+
+  <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       
       <div class="row">
@@ -140,31 +163,29 @@
         
       </div>
     </div>
-    
-  <% end %>
-    
-</div>
-
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <div class="help_paths">
-      
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-          <%= link_to ecosmarte_wifi_path, class: "dashboard_bottom_link" do %>
-            <div class="dashboard_bottom">
-              <span class="dashboard_bottom_title">ECOsmarte WiFi</span>
-            </div>
-          <% end %>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="help_paths">
+        
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <%= link_to ecosmarte_wifi_path, class: "dashboard_bottom_link" do %>
+              <div class="dashboard_bottom">
+                <span class="dashboard_bottom_title">ECOsmarte WiFi</span>
+              </div>
+            <% end %>
+          </div>
         </div>
+        
       </div>
-      
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-12">
-    If your application is commercial or located in Canada or Australia <%= link_to "Click Here", international_path %>
+  <div class="row">
+    <div class="col-sm-12">
+      If your application is commercial or located in Canada or Australia <%= link_to "Click Here", international_path %>
+    </div>
   </div>
-</div>
+<% end %>
