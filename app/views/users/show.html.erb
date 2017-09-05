@@ -53,7 +53,7 @@
                 <tr>
                   <td><%= pool.name %></td>
                   <td><%= pool.user.name %></td>
-                  <td><%= pool.pool_model.description %></td>
+                  <td><%= pool.pool_model.description if pool.pool_model.present? %></td>
 
                   <td>
                     <%= link_to pool_path(pool), class:"btn btn-success btn-circle" do %>
