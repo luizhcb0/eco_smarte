@@ -35,7 +35,7 @@
             <%= f.text_field :volume, class: "form-control", autofocus: true  %>
           </div>
           <div class="col-sm-3">
-            <%= f.select :volume_unit, options_for_select(Pool.volume_units.keys.map { |t| [t.humanize, t] }, @pool.volume_unit), {include_blank: "Choose"}, {class: "form-control"} %>
+            <%= f.select :volume_unit, options_for_select(Pool.volume_units.keys.map { |t| [t.humanize, t] }, @pool.volume_unit), {include_blank: "Choose unit"}, {class: "form-control"} %>
           </div>
         </div>
       </div>
@@ -58,14 +58,15 @@
         </div>
       </div>
       
+      
       <div class="row">
         <div class="form-group group">
           <%= f.label :filter_size, class: "col-sm-3 control-label"%>
           <div class="col-sm-5">
-            <%= f.text_field :filter_size, class: "form-control", autofocus: true %>
+            <%= f.text_field :filter_size, class: "form-control", autofocus: true  %>
           </div>
-          <div style="line-height:34px;">
-            lbs
+          <div class="col-sm-3">
+            <%= f.select :filter_size_unit, options_for_select(Pool.filter_size_units.keys.map { |t| [t, t] }, @pool.filter_size_unit), {include_blank: "Choose unit"}, {class: "form-control"} %>
           </div>
         </div>
       </div>

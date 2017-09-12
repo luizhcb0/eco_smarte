@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912165045) do
+ActiveRecord::Schema.define(version: 20170912174147) do
 
   create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170912165045) do
     t.string   "additional_water_features"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.float    "filter_size_unit",          limit: 24
     t.index ["pool_model_id"], name: "index_pools_on_pool_model_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end

@@ -26,7 +26,7 @@
               <td><%= @pool.volume %> <%= @pool.volume_unit.titleize if @pool.volume_unit.present? %></td>
               <td><%= @pool.pump_size.humanize.titleize if @pool.pump_size.present? %></td>
               <td><%= @pool.filter_type.titleize if @pool.filter_type.present? %></td>
-              <td><%= "#{@pool.filter_size}  lbs" %></td>
+              <td><%= "#{@pool.filter_size}  #{@pool.filter_size_unit}" %></td>
               <td><%= @pool.vacuum_brand %></td>
               <td><%= yes_no(@pool.attached_spa) if @pool.attached_spa.present? %></td>
               <td><%= yes_no(@pool.negative_edge) if @pool.negative_edge.present? %></td>
