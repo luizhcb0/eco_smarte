@@ -14,7 +14,10 @@
               <th>Cu (ppm)</th>
               <th>Calcium</th>
               <th>Phosphate</th>
-              <th>Chlorine</th>
+              <% if @pool.user.user_type == 'commercial' %>
+                <th>Free Chlorine</th>
+                <th>Total Chlorine</th>
+              <% end %>
               <th>Oxygen</th>
             </tr>
             <tr>
@@ -25,7 +28,10 @@
               <td><%= @water.cuppm %></td>
               <td><%= @water.calcium %></td>
               <td><%= @water.phosphate %></td>
-              <td><%= @water.chlorine %></td>
+              <% if @pool.user.user_type == 'commercial' %>
+                <td><%= @water.free_chlorine %></td>
+                <td><%= @water.total_chlorine %></td>
+              <% end %>
               <td><%= @water.oxygen %></td>
             </tr>
           </tbody>

@@ -31,7 +31,7 @@ class WatersController < ApplicationController
 
   def edit
     @water = Water.find(params[:id])
-    @pool_id = @water.pool_id
+    @pool = Pool.find(@water.pool_id)
   end
 
   def update
@@ -58,7 +58,7 @@ class WatersController < ApplicationController
   end
   
   def new_water_measurement
-    @pool_id = params[:pool_id]
+    @pool = Pool.find(params[:pool_id])
     @water = Water.new()
     render :new
   end
@@ -70,8 +70,8 @@ class WatersController < ApplicationController
   end
   
   def pool_water_measurements
-    @pool_id = params[:pool_id]
-    @waters = Water.get_all_pool_measurements(@pool_id)
+    @pool = Pool.find(params[:pool_id])
+    @waters = Water.get_all_pool_measurements(@pool.id)
     respond_to do |format|
       format.js {render layout: false} # Add this line to you respond_to block
     end

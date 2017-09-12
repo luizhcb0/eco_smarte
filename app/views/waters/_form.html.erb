@@ -67,14 +67,25 @@
         </div>
       </div>
       
-      <div class="row">
-        <div class="form-group group">
-          <%= f.label :chlorine, class: "col-sm-3 control-label"%>
-          <div class="col-sm-8">
-            <%= f.text_field :chlorine, class: "form-control", autofocus: true %>
+      <% if @pool.user.user_type == "commercial" %>
+        <div class="row">
+          <div class="form-group group">
+            <%= f.label :free_chlorine, class: "col-sm-3 control-label"%>
+            <div class="col-sm-8">
+              <%= f.text_field :free_chlorine, class: "form-control", autofocus: true %>
+            </div>
           </div>
         </div>
-      </div>
+        
+        <div class="row">
+          <div class="form-group group">
+            <%= f.label :total_chlorine, class: "col-sm-3 control-label"%>
+            <div class="col-sm-8">
+              <%= f.text_field :total_chlorine, class: "form-control", autofocus: true %>
+            </div>
+          </div>
+        </div>
+      <% end %>
       
       <div class="row">
         <div class="form-group group">
@@ -85,7 +96,7 @@
         </div>
       </div>
       
-      <%= f.hidden_field :pool_id, value: @pool_id %>
+      <%= f.hidden_field :pool_id, value: @pool.id %>
       
       <div class="row">
         <div class="actions">

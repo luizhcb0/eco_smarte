@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830212101) do
+ActiveRecord::Schema.define(version: 20170912165045) do
 
   create_table "contact_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
@@ -141,10 +141,11 @@ ActiveRecord::Schema.define(version: 20170830212101) do
     t.float    "cuppm",            limit: 24
     t.float    "calcium",          limit: 24
     t.float    "phosphate",        limit: 24
-    t.float    "chlorine",         limit: 24
     t.float    "oxygen",           limit: 24
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.float    "free_chlorine",    limit: 24
+    t.float    "total_chlorine",   limit: 24
     t.index ["pool_id"], name: "index_waters_on_pool_id", using: :btree
   end
 

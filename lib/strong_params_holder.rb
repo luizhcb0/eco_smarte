@@ -10,7 +10,7 @@ module StrongParamsHolder
   
   def water_params
     params.require(:water).permit(:pool_id, :measurement_date, :temperature, :temperature_unit, :ph, 
-    :cuppm, :calcium, :phosphate, :chlorine, :oxygen)
+    :cuppm, :calcium, :phosphate, :free_chlorine, :total_chlorine, :oxygen)
   end
   
   def pool_params
